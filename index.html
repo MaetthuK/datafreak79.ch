@@ -1,64 +1,221 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <!--
+    charset="UTF-8":
+    Legt den Zeichensatz auf UTF-8 fest, damit Umlaute
+    und Sonderzeichen korrekt dargestellt werden.
+  -->
   <meta charset="UTF-8">
+
+  <!--
+    viewport:
+    Sorgt dafuer, dass die Website auf mobilen Geraeten
+    korrekt skaliert wird.
+  -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    title:
+    Der Seitentitel, der im Browser-Tab angezeigt wird.
+  -->
   <title>datafreak79.ch</title>
+
+  <!--
+    Verknuepft das externe Stylesheet "styles.css".
+    Dort befinden sich alle CSS-Formatierungen
+    fuer das Layout und Design.
+  -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!--
+    HEADER-Bereich:
+    Beinhaltet Titel und Navigation.
+    .container (in CSS definiert) legt den max. Breitenbereich
+    fest und zentriert den Inhalt.
+  -->
   <header>
     <div class="container">
       <h1>Willkommen auf datafreak79.ch</h1>
       <nav>
         <ul>
-          <li><a href="Lebenslauf_2025.pdf" target="_blank" class="btn">📄 CV als PDF</a></li>
-          <li><a href="#projects">Projekte</a></li>
-          <li><a href="#contact">Kontakt</a></li>
+          <!--
+            Liste der Navigationspunkte:
+            1. Link zum PDF-Lebenslauf (oeffnet in neuem Tab)
+            2. Link zum Bereich 'Projekte'
+            3. Link zum Bereich 'Kontakt'
+          -->
+          <li>
+            <a href="Lebenslauf_2025.pdf" target="_blank" class="btn">
+              📄 CV als PDF
+            </a>
+          </li>
+          <li>
+            <a href="#projects">Projekte</a>
+          </li>
+          <li>
+            <a href="#contact">Kontakt</a>
+          </li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!--
+    MAIN-Bereich:
+    Beinhaltet mehrere Sektionen:
+    1. about (Ueber mich)
+    2. projects (Projekte)
+    3. contact (Kontakt)
+    4. datascience (Links DataScience) -> Neu hinzugefuegt
+  -->
   <main>
+    <!--
+      Sektion: Über mich
+      Vorstellung der Person und kurzer Hintergrund.
+    -->
     <section id="about">
       <div class="container">
         <h2>Über mich</h2>
-        <p>Ich bin ein Projektleiter im Bereich Energieversorgung (Strom) mit technischem Hintergrund. Außerdem arbeite ich aktuell an einem Data Science Lehrgang, wo ich besonders im Bereich R Programmierung und Statistik dazulerne.</p>
-        <p>Mit meiner Shiny-App möchte ich andere beim Sprachlernen unterstützen. Die App basiert auf zufallsgenerierten Abfragen mit Niveaustufen und bietet umfangreiche Statistiken.</p>
+        <p>
+          Ich bin ein Projektleiter im Bereich Energieversorgung (Strom)
+          mit technischem Hintergrund. Ausserdem arbeite ich aktuell an
+          einem Data Science Lehrgang, wo ich besonders im Bereich
+          R Programmierung und Statistik dazulerne.
+        </p>
+        <p>
+          Mit meiner Shiny-App moechte ich andere beim Sprachlernen
+          unterstuetzen. Die App basiert auf zufallsgenerierten Abfragen
+          mit Niveaustufen und bietet umfangreiche Statistiken.
+        </p>
       </div>
     </section>
 
+    <!--
+      Sektion: Projekte
+      Hier erwaehnst du deine aktuellen bzw. geplanten Projekte.
+    -->
     <section id="projects">
       <div class="container">
         <h2>Projekte</h2>
-        <p>Hier kommen meine Projekte hin, insbesondere meine Shiny-Apps, die ich im Bereich Sprachlernen und Data Science entwickle. Meine App wird Mehrsprachigkeit unterstützen und bietet eine umfangreiche Statistikansicht.</p>
+        <p>
+          Hier kommen meine Projekte hin, insbesondere meine Shiny-Apps,
+          die ich im Bereich Sprachlernen und Data Science entwickle.
+          Meine App wird Mehrsprachigkeit unterstuetzen und bietet eine
+          umfangreiche Statistikansicht.
+        </p>
       </div>
     </section>
 
+    <!--
+      NEUE SEKTION: Links DataScience
+      Hier koennen einige interessante Ressourcen zum Thema Data Science
+      aufgefuehrt werden.
+    -->
+    <section id="datascience">
+      <div class="container">
+        <h2>Links DataScience</h2>
+        <!--
+          Beispielhafter Absatz, der die Links kurz erlaeutert.
+        -->
+        <p>
+          Im Folgenden findest du einige hilfreiche Ressourcen, um
+          deine Data-Science-Kenntnisse zu vertiefen:
+        </p>
+        <ul>
+          <!--
+            Link 1: R for Data Science (Online-Buch)
+          -->
+          <li>
+            <a href="https://r4ds.had.co.nz/" target="_blank">
+              R for Data Science (Hadley Wickham)
+            </a>  
+            - Ausfuehrliches Online-Buch zu R, Datenanalyse und Visualisierung.
+          </li>
+
+          <!--
+            Link 2: Kaggle (Data-Science-Plattform)
+          -->
+          <li>
+            <a href="https://www.kaggle.com/" target="_blank">
+              Kaggle
+            </a>
+            - Plattform fuer Data-Science-Wettbewerbe, Datasets und Tutorials.
+          </li>
+
+          <!--
+            Link 3: Towards Data Science (Blog/Artikel)
+          -->
+          <li>
+            <a href="https://towardsdatascience.com/" target="_blank">
+              Towards Data Science
+            </a>
+            - Grosse Sammlung von Artikeln zu Machine Learning, Python, R und mehr.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!--
+      Sektion: Kontakt
+      Enthalten sind Adresse, Telefonnummer, E-Mail und LinkedIn-Profil.
+    -->
     <section id="contact">
       <div class="container">
         <h2>Kontakt</h2>
+
+        <!--
+          Adressblock mit Zeilenumbruechen (br) fuer
+          PLZ, Ort und Land.
+        -->
         <p><strong>Adresse:</strong></p>
         <p class="address">
           St. Niklausstrasse 8a<br>
           3425 Koppigen, Schweiz
         </p>
-        <p><strong>Telefonnummer:</strong> +41 79 765 46 44</p>
-        <p>Email: <a href="mailto:matthias.kuhn1979@gmail.com">matthias.kuhn1979@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/matthiaskuhn1979/" target="_blank">Besuche mein LinkedIn Profil</a></p>
+
+        <p>
+          <strong>Telefonnummer:</strong> +41 79 765 46 44
+        </p>
+
+        <p>
+          Email:
+          <a href="mailto:matthias.kuhn1979@gmail.com">
+            matthias.kuhn1979@gmail.com
+          </a>
+        </p>
+
+        <p>
+          <strong>LinkedIn:</strong>
+          <a href="https://www.linkedin.com/in/matthiaskuhn1979/"
+             target="_blank">
+            Besuche mein LinkedIn Profil
+          </a>
+        </p>
       </div>
     </section>
   </main>
 
+  <!--
+    FOOTER-Bereich:
+    Copyright-Hinweis
+    & Container fuer zentrierten Inhalt.
+  -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn</p>
+      <p>
+        &copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn
+      </p>
     </div>
   </footer>
 
+  <!--
+    script.js:
+    Falls du JavaScript-Funktionen verwenden willst,
+    kannst du sie hier einbinden.
+  -->
   <script src="script.js"></script>
 </body>
 </html>
-
