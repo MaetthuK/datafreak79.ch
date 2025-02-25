@@ -1,57 +1,26 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <!--
-    charset="UTF-8":
-    Legt den Zeichensatz auf UTF-8 fest, damit Umlaute
-    und Sonderzeichen korrekt dargestellt werden.
-  -->
   <meta charset="UTF-8">
-
-  <!--
-    viewport:
-    Sorgt dafuer, dass die Website auf mobilen Geraeten
-    korrekt skaliert wird.
-  -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!--
-    title:
-    Der Seitentitel, der im Browser-Tab angezeigt wird.
-  -->
   <title>datafreak79.ch</title>
-
-  <!--
-    Verknuepft das externe Stylesheet "styles.css".
-    Dort befinden sich alle CSS-Formatierungen
-    fuer das Layout und Design.
-  -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!--
-    HEADER-Bereich:
-    Beinhaltet Titel und Navigation.
-    .container (in CSS definiert) legt den max. Breitenbereich
-    fest und zentriert den Inhalt.
-  -->
   <header>
     <div class="container">
       <h1>Willkommen auf datafreak79.ch</h1>
       <nav>
         <ul>
-          <!--
-            Liste der Navigationspunkte:
-            1. Link zum PDF-Lebenslauf (oeffnet in neuem Tab)
-            2. Link zum Bereich 'Projekte'
-            3. Link zum Bereich 'Kontakt'
-          -->
           <li>
             <a href="Lebenslauf_2025.pdf" target="_blank" class="btn">
               📄 Lebenslauf als PDF
             </a>
           </li>
+          <!-- Hinweis: Hier könntest du ggf. den .docx-Link entfernen,
+               falls du ihn ausschließlich in der neuen passwortgeschützten
+               Sektion anbieten möchtest. -->
           <li>
             <a href="#projects">Projekte</a>
           </li>
@@ -63,19 +32,8 @@
     </div>
   </header>
 
-  <!--
-    MAIN-Bereich:
-    Beinhaltet mehrere Sektionen:
-    1. about (Ueber mich)
-    2. projects (Projekte)
-    3. contact (Kontakt)
-    4. datascience (Links DataScience) -> Neu hinzugefuegt
-  -->
   <main>
-    <!--
-      Sektion: Über mich
-      Vorstellung der Person und kurzer Hintergrund.
-    -->
+    <!-- Ueber mich -->
     <section id="about">
       <div class="container">
         <h2>Über mich</h2>
@@ -87,17 +45,14 @@
         </p>
         <p>
           In meiner Freizeit beschaeftige ich mich mit Sprachen und
-          lerne aktuell Englisch und Französisch Ich bin auch ein begeisterter
+          lerne aktuell Englisch und Französisch. Ich bin auch ein begeisterter
           Shiny-App-Entwickler und arbeite an einer App, die das
           Sprachenlernen unterstuetzt.
         </p>
       </div>
     </section>
 
-    <!--
-      Sektion: Projekte
-      Hier erwaehnst du deine aktuellen bzw. geplanten Projekte.
-    -->
+    <!-- Projekte -->
     <section id="projects">
       <div class="container">
         <h2>Projekte</h2>
@@ -105,87 +60,82 @@
           Quiz Sprachen lernen: Eine Shiny-App, die das Lernen von
           Vokabeln und Grammatik in verschiedenen Sprachen unterstuetzt.
         </p>
+
+        <!-- NEU: Link zur English-App -->
+        <p>
+          English App: 
+          <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/" 
+             target="_blank">
+            https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/
+          </a>
+        </p>
       </div>
     </section>
 
-    <!--
-      NEUE SEKTION: Links DataScience
-      Hier koennen einige interessante Ressourcen zum Thema Data Science
-      aufgefuehrt werden.
-    -->
+    <!-- Neu: Links DataScience -->
     <section id="datascience">
       <div class="container">
         <h2>Links DataScience</h2>
-        <!--
-          Beispielhafter Absatz, der die Links kurz erlaeutert.
-        -->
         <p>
           Im Folgenden findest du einige hilfreiche Ressourcen, um
           deine Data-Science-Kenntnisse zu vertiefen:
         </p>
         <ul>
-          <!--
-            Link 1: R for Data Science (Online-Buch)
-          -->
           <li>
             <a href="https://r4ds.had.co.nz/" target="_blank">
               R for Data Science (Hadley Wickham)
             </a>  
-            - Ausfuehrliches Online-Buch zu R, Datenanalyse und Visualisierung.
+            – Ausführliches Online-Buch zu R, Datenanalyse und Visualisierung.
           </li>
-
-          <!--
-            Link 2: Kaggle (Data-Science-Plattform)
-          -->
           <li>
             <a href="https://www.kaggle.com/" target="_blank">
               Kaggle
             </a>
-            - Plattform fuer Data-Science-Wettbewerbe, Datasets und Tutorials.
+            – Plattform für Data-Science-Wettbewerbe, Datasets und Tutorials.
           </li>
-
-          <!--
-            Link 3: Towards Data Science (Blog/Artikel)
-          -->
           <li>
             <a href="https://towardsdatascience.com/" target="_blank">
               Towards Data Science
             </a>
-            - Grosse Sammlung von Artikeln zu Machine Learning, Python, R und mehr.
+            – Große Sammlung von Artikeln zu Machine Learning, Python, R und mehr.
           </li>
         </ul>
       </div>
     </section>
 
-    <!--
-      Sektion: Kontakt
-      Enthalten sind Adresse, Telefonnummer, E-Mail und LinkedIn-Profil.
-    -->
+    <!-- Neu: Sektion Lebenslauf als Word (mit Passwortabfrage) -->
+    <section id="word-cv">
+      <div class="container">
+        <h2>Lebenslauf als Word</h2>
+        <p>
+          Dieser Bereich ist passwortgeschützt. Bitte das Passwort eingeben, um
+          den Word-Lebenslauf zu öffnen.
+        </p>
+        <!-- Button, der den Passwort-Dialog öffnet -->
+        <button onclick="promptForPassword()">
+          Zum Lebenslauf (Word)
+        </button>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
     <section id="contact">
       <div class="container">
         <h2>Kontakt</h2>
-
-        <!--
-          Adressblock mit Zeilenumbruechen (br) fuer
-          PLZ, Ort und Land.
-        -->
         <p><strong>Adresse:</strong></p>
         <p class="address">
           St. Niklausstrasse 8a<br>
           3425 Koppigen, Schweiz
         </p>
-
         <p>
           <strong>Telefonnummer:</strong> +41 79 765 46 44
         </p>
-
         <p>
           Email:
           <a href="mailto:matthias.kuhn1979@gmail.com">
             matthias.kuhn1979@gmail.com
           </a>
         </p>
-
         <p>
           <strong>LinkedIn:</strong>
           <a href="https://www.linkedin.com/in/matthiaskuhn1979/"
@@ -197,11 +147,6 @@
     </section>
   </main>
 
-  <!--
-    FOOTER-Bereich:
-    Copyright-Hinweis
-    & Container fuer zentrierten Inhalt.
-  -->
   <footer>
     <div class="container">
       <p>
@@ -210,11 +155,20 @@
     </div>
   </footer>
 
-  <!--
-    script.js:
-    Falls du JavaScript-Funktionen verwenden willst,
-    kannst du sie hier einbinden.
-  -->
-  <script src="script.js"></script>
+  <!-- Einfaches JavaScript zur Passwortabfrage -->
+  <script>
+    function promptForPassword() {
+      const password = prompt("Bitte Passwort eingeben:");
+      // Hier kannst du dein eigenes Passwort hinterlegen
+      if (password === "MeinGeheimesPasswort") {
+        // Wenn das Passwort korrekt ist, öffne die Word-Datei in einem neuen Tab
+        window.open("Lebenslauf_2025.docx", "_blank");
+      } else if (password !== null) {
+        // Falls Benutzer was eingibt, aber das Falsche
+        alert("Falsches Passwort!");
+      }
+      // Falls der Benutzer „Abbrechen“ klickt, passiert nichts
+    }
+  </script>
 </body>
 </html>
