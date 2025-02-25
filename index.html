@@ -1,10 +1,114 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- Einfache, einheitliche CSS-Styles -->
+  <style>
+    /* Reset / Grundlegendes Box-Model */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa; /* Helles Grau für den Seitenhintergrund */
+      color: #333;
+    }
+
+    /* Container sorgt für horizontale Einrückung und max. Breite */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    header {
+      background-color: #0078d7; /* Blau */
+      color: #fff;
+      padding: 20px 0;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 10px 0 0 0;
+      padding: 0;
+    }
+    nav li {
+      display: inline-block;
+      margin-right: 15px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a.btn {
+      background-color: #fff;
+      color: #0078d7;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    /* Hauptinhalte (Sections) */
+    section {
+      margin-bottom: 40px;
+    }
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75em;
+    }
+    p {
+      margin-bottom: 1em;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Buttons */
+    .btn {
+      background-color: #0078d7;
+      color: #fff;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #005fad;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #e9ecef;
+      padding: 15px 0;
+      text-align: center;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Links in normalem Text */
+    a {
+      color: #0078d7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
@@ -14,7 +118,9 @@
       <nav>
         <ul>
           <li>
-            <a href="Lebenslauf_2025.pdf" target="_blank" class="btn">📄 Lebenslauf als PDF</a>
+            <a href="Lebenslauf_2025.pdf" target="_blank" class="btn">
+              📄 Lebenslauf als PDF
+            </a>
           </li>
           <li>
             <a href="#projects">Projekte</a>
@@ -33,36 +139,45 @@
       <div class="container">
         <h2>Über mich</h2>
         <p>
-          Nachdem ich mit über 45 Jahren beruflich als Projektleiter in der Infrastruktur für Verteilnetze tätig bin, habe ich mich entschieden, mich in der Welt der Daten zu vertiefen.<p>
-          <p style="font-size:12pt;">
-            In meiner aktuellen Tätigkeit kann ich meine Leidenschaft für Daten und Programmierung nur bedingt ausleben.
-          </p>
-          <p style="font-size:12pt;">
-            Dies habe ich in den letzten Monaten festgestellt.
-          </p>
+          Nachdem ich mit über 45 Jahren beruflich als Projektleiter in der Infrastruktur
+          für Verteilnetze tätig bin, habe ich mich entschieden, mich in der Welt der
+          Daten zu vertiefen.
+        </p>
+        <p>
+          In meiner aktuellen Tätigkeit kann ich meine Leidenschaft für Daten und
+          Programmierung nur bedingt ausleben. Dies habe ich in den letzten Monaten
+          festgestellt.
+        </p>
+        <p>
+          Die Skills, die ich mir beim Weiterbildungskurs "Data Scientist NDK HF"
+          aneignen konnte, möchte ich nun in der Praxis anwenden.
+        </p>
+        <p>
+          Seit ich beim Hausbau 2019 meine erste Excel-Makrodatei für die Erstellung
+          des Elektroinstallationsmaterials erstellt habe, bin ich fasziniert von der
+          Welt der Daten und der Programmierung. Neben meiner Tätigkeit als Projektleiter
+          im Verteilnetz für die Elektroversorgung beschäftige ich mich seither
+          leidenschaftlich mit Daten.
+        </p>
+        <p>
+          Nachdem ich lange Zeit nur mit VBA arbeitete, begann ich 2022 damit, mich
+          intensiv mit Power BI und Power Query auseinanderzusetzen. Unter anderem
+          entwickelte ich eine App zur Abfrage meiner persönlichen Bankdaten
+          (via CSV-Stammdaten).
+        </p>
+        <p>
+          Im Herbst 2023 entschied ich mich, den Lehrgang "Data Scientist NDK HF" zu
+          besuchen und entdeckte dabei die faszinierende Welt von SQL und R.
+        </p>
+        <p>
+          In meiner Freizeit widme ich mich neben Daten auch Sprachen – aktuell lerne
+          ich Englisch und Französisch – und entwickle begeistert Shiny-Apps. Ein
+          Prototyp zum Sprachenlernen ist bereits online verfügbar (siehe Buttons).
+        </p>
+      </div>
+    </section>
 
-          <div class="cv-buttons" style="display: flex; gap: 8px; align-items: center; margin-bottom: 20px;"></div>
-            <a href="Lebenslauf_2025.pdf" target="_blank" class="btn" style="background: #0078d7; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 5px;">PDF Lebenslauf</a>
-            <button onclick="promptForPassword()" class="btn" style="background: #0078d7; color: #fff; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Word Lebenslauf</button>
-          </div>
-
-          <p style="font-size: 1.1em; line-height: 1.6;">
-            Die Skills, die ich mir beim Weiterbildungskurs "Data Scientist NDK HF" aneignen konnte, möchte ich nun in der Praxis anwenden.
-          </p>
-          <p style="font-size: 1.1em; line-height: 1.6;">
-            Seit ich beim Hausbau 2019 meine erste Excel-Makrodatei für die Erstellung des Elektroinstallationsmaterials erstellt habe, bin ich fasziniert von der Welt der Daten und der Programmierung. Neben meiner Tätigkeit als Projektleiter im Verteilnetz für die Elektroversorgung beschäftige ich mich seither leidenschaftlich mit Daten.
-          </p>
-          <p style="font-size: 1.1em; line-height: 1.6;">
-            Nachdem ich lange Zeit nur mit VBA arbeitete, begann ich 2022 damit, mich intensiv mit Power BI und Power Query auseinanderzusetzen. Unter anderem entwickelte ich eine App zur Abfrage meiner persönlichen Bankdaten (via CSV-Stammdaten).
-          </p>
-          <p style="font-size: 1.1em; line-height: 1.6;">
-            Im Herbst 2023 entschied ich mich, den Lehrgang "Data Scientist NDK HF" zu besuchen und entdeckte dabei die faszinierende Welt von SQL und R.
-          </p>
-          <p style="font-size: 1.1em; line-height: 1.6;">
-            In meiner Freizeit widme ich mich neben Daten auch Sprachen – aktuell lerne ich Englisch und Französisch – und entwickle begeistert Shiny-Apps. Ein Prototyp zum Sprachenlernen ist bereits online verfügbar (siehe Buttons).
-          </p>
-
-    <!-- Kontakt - direkt NACH "Über mich" -->
+    <!-- Kontakt -->
     <section id="contact">
       <div class="container">
         <h2>Kontakt</h2>
@@ -76,7 +191,9 @@
         </p>
         <p>
           <strong>Email:</strong>
-          <a href="mailto:matthias.kuhn1979@gmail.com">matthias.kuhn1979@gmail.com</a>
+          <a href="mailto:matthias.kuhn1979@gmail.com">
+            matthias.kuhn1979@gmail.com
+          </a>
         </p>
         <p>
           <strong>LinkedIn:</strong>
@@ -95,11 +212,9 @@
           Quiz Sprachen lernen: Eine Shiny-App, die das Lernen von
           Vokabeln und Grammatik in verschiedenen Sprachen unterstützt.
         </p>
-
-        <!-- Link zur English-App -->
         <p>
           <strong>English App:</strong>
-          <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/" 
+          <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/"
              target="_blank">
             English APP Desktop
           </a>
@@ -147,12 +262,11 @@
           den Word-Lebenslauf zu öffnen.
         </p>
         <!-- Button, der den Passwort-Dialog öffnet -->
-        <button onclick="promptForPassword()">
+        <button class="btn" onclick="promptForPassword()">
           Zum Lebenslauf (Word)
         </button>
       </div>
     </section>
-
   </main>
 
   <footer>
