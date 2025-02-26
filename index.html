@@ -4,12 +4,105 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
   <style>
-    /* ...existing CSS... */
-
-    /* Alle Sektionen zunächst ausblenden */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px; /* Größere Schrift */
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    
+    header {
+      background-color: #007acc;
+      color: white;
+      padding: 20px;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+    /* Logo deutlich vergrößert */
+    .logo {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    
+    /* Navigation-Buttons statt Bulletpoints */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+    
+    nav ul li {
+      margin: 0 5px;
+    }
+    
+    nav ul li a {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #005f99;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      background-color: #004f80;
+    }
+    
+    .nav-toggle {
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    
+    /* Sektionen sichtbar machen (alternativ per JS gesteuert) */
     main section {
       display: none;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    /* Unterschiedliche Hintergrundfarben je Sektion */
+    #ueber-mich { background-color: #fff9e6; }
+    #projekte   { background-color: #e6f7ff; }
+    #links      { background-color: #fff9e6; }
+    #cv         { background-color: #e6ffea; }
+    #diplome    { background-color: #ffe6f9; }
+    #zeugnisse  { background-color: #e6f7ff; }
+    #kontakt    { background-color: #ffe6e6; }
+    
+    /* Größere Überschriften */
+    h2 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    footer {
+      background-color: #007acc;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
     }
   </style>
 </head>
@@ -92,8 +185,7 @@
         </a> (MP4-Datei)
       </p>
       <p>
-        <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/"
-           target="_blank">
+        <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/">
           Sprachapp (R-Shiny Desktop-Version)
         </a>
       </p>
@@ -150,7 +242,7 @@
         Hier findest du meinen aktuellen Lebenslauf als PDF:
       </p>
       <p>
-        <a href="Lebenslauf_2025.pdf" target="_blank">
+        <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;"></a>
           Lebenslauf_2025.pdf
         </a>
       </p>
@@ -159,6 +251,8 @@
           Lebenslauf als DOC (passwortgeschützt)
         </a>
       </p>
+      <!-- PDF inline anzeigen -->
+      <iframe id="pdfViewer" style="width:100%; height:600px; border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -170,10 +264,11 @@
         Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:
       </p>
       <p>
-        <a href="Diplome.pdf" target="_blank">
+        <a href="#" onclick="loadPDF('Diplome.pdf', 'pdfViewerDiplome'); return false;">
           Diplome.pdf
         </a>
       </p>
+      <iframe id="pdfViewerDiplome" style="width:100%; height:600px; border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -183,16 +278,18 @@
       <h2>Zeugnisse</h2>
       <p>
         <strong>Schulzeugnisse:</strong><br>
-        <a href="Schulzeugnisse.pdf" target="_blank">
+        <a href="#" onclick="loadPDF('Schulzeugnisse.pdf', 'pdfViewerSchul'); return false;">
           Schulzeugnisse.pdf
         </a>
       </p>
+      <iframe id="pdfViewerSchul" style="width:100%; height:600px; border:none; display:none;"></iframe>
       <p>
         <strong>Arbeitszeugnisse:</strong><br>
-        <a href="Arbeitszeugnisse.pdf" target="_blank">
+        <a href="#" onclick="loadPDF('Arbeitszeugnisse.pdf', 'pdfViewerArbeits'); return false;">
           Arbeitszeugnisse.pdf
         </a>
       </p>
+      <iframe id="pdfViewerArbeits" style="width:100%; height:600px; border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -216,8 +313,7 @@
       </p>
       <p>
         <strong>LinkedIn:</strong>
-        <a href="https://www.linkedin.com/in/matthiaskuhn1979/"
-           target="_blank">
+        <a href="https://www.linkedin.com/in/matthiaskuhn1979/" target="_blank">
           linkedin.com/in/matthiaskuhn1979/
         </a>
       </p>
@@ -226,8 +322,26 @@
 </main>
 
 <footer>
+<!-- CV -->
+<section id="cv">
   <div class="container">
     <p>&copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn</p>
+    <h2>Lebenslauf (CV)</h2>
+    <p>
+      Hier findest du meinen aktuellen Lebenslauf als PDF:
+    </p>
+    <p>
+      <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;">
+        Lebenslauf_2025.pdf
+      </a>
+    </p>
+    <p>
+      <a href="#" onclick="downloadDoc(); return false;">
+        Lebenslauf als DOC (passwortgeschützt)
+      </a>
+    </p>
+    <!-- PDF inline anzeigen -->
+    <iframe id="pdfViewer" style="width:100%; height:600px; border:none; display:none;"></iframe>
   </div>
 </footer>
 
@@ -254,11 +368,18 @@
     showSection('ueber-mich');
   });
 
+  // Funktion zum Laden der PDF im spezifizierten iFrame
+  function loadPDF(file, viewerID) {
+    var iframe = document.getElementById(viewerID);
+    iframe.src = file;
+    iframe.style.display = 'block';
+  }
+
   function downloadDoc() {
     var password = prompt("Bitte Passwort eingeben:");
-    // Ersetze 'DEIN_PASSWORT' durch das gewünschte Passwort
-    if(password === "LL_PW$2025") {
-      window.location.href = "Lebenslauf_2025.doc";
+    if(password === "LL_MK$2025") {
+      // Stelle sicher, dass die Datei im gleichen Verzeichnis liegt
+      window.location.href = "Lebenslauf_2025.docx";
     } else {
       alert("Falsches Passwort!");
     }
@@ -267,3 +388,4 @@
 
 </body>
 </html>
+</section>
