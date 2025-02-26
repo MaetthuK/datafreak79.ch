@@ -242,7 +242,7 @@
         Hier findest du meinen aktuellen Lebenslauf als PDF:
       </p>
       <p>
-        <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf'); return false;">
+        <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;"></a>
           Lebenslauf_2025.pdf
         </a>
       </p>
@@ -264,10 +264,11 @@
         Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:
       </p>
       <p>
-        <a href="Diplome.pdf" target="_blank">
+        <a href="#" onclick="loadPDF('Diplome.pdf', 'pdfViewerDiplome'); return false;">
           Diplome.pdf
         </a>
       </p>
+      <iframe id="pdfViewerDiplome" style="width:100%; height:600px; border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -277,16 +278,18 @@
       <h2>Zeugnisse</h2>
       <p>
         <strong>Schulzeugnisse:</strong><br>
-        <a href="Schulzeugnisse.pdf" target="_blank">
+        <a href="#" onclick="loadPDF('Schulzeugnisse.pdf', 'pdfViewerSchul'); return false;">
           Schulzeugnisse.pdf
         </a>
       </p>
+      <iframe id="pdfViewerSchul" style="width:100%; height:600px; border:none; display:none;"></iframe>
       <p>
         <strong>Arbeitszeugnisse:</strong><br>
-        <a href="Arbeitszeugnisse.pdf" target="_blank">
+        <a href="#" onclick="loadPDF('Arbeitszeugnisse.pdf', 'pdfViewerArbeits'); return false;">
           Arbeitszeugnisse.pdf
         </a>
       </p>
+      <iframe id="pdfViewerArbeits" style="width:100%; height:600px; border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -347,8 +350,9 @@
     showSection('ueber-mich');
   });
 
-  function loadPDF(file) {
-    var iframe = document.getElementById('pdfViewer');
+  // Funktion zum Laden der PDF im spezifizierten iFrame
+  function loadPDF(file, viewerID) {
+    var iframe = document.getElementById(viewerID);
     iframe.src = file;
     iframe.style.display = 'block';
   }
