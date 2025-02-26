@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
-  <!-- Google Fonts: Roboto -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
-      font-size: 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;  /* Größere Schrift */
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
@@ -30,9 +30,9 @@
       margin: auto;
     }
     
-    /* Logo deutlich größer */
+    /* Logo deutlich vergrößert */
     .logo {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: bold;
     }
     
@@ -50,11 +50,12 @@
     
     nav ul li a {
       display: inline-block;
-      padding: 10px 15px;
+      padding: 12px 20px;
       background-color: #005f99;
       color: #fff;
       text-decoration: none;
       border-radius: 5px;
+      font-size: 1.1rem;
       transition: background-color 0.3s;
     }
     
@@ -73,24 +74,23 @@
       padding: 0 20px;
     }
     
-    /* Sektionen erst einmal ausblenden, später per JS einblenden */
+    /* Sektionen sichtbar machen (alternativ per JS gesteuert) */
     main section {
       display: none;
-      background-color: #fff;
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 20px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     
-    /* Optional: Unterschiedliche Hintergrundfarben je Sektion */
-    #ueber-mich { background-color: #f9f9f9; }
-    #projekte   { background-color: #f0f0f0; }
-    #links      { background-color: #f9f9f9; }
-    #cv         { background-color: #f0f0f0; }
-    #diplome    { background-color: #f9f9f9; }
-    #zeugnisse  { background-color: #f0f0f0; }
-    #kontakt    { background-color: #f9f9f9; }
+    /* Unterschiedliche Hintergrundfarben je Sektion */
+    #ueber-mich { background-color: #fff9e6; }
+    #projekte   { background-color: #e6f7ff; }
+    #links      { background-color: #fff9e6; }
+    #cv         { background-color: #e6ffea; }
+    #diplome    { background-color: #ffe6f9; }
+    #zeugnisse  { background-color: #e6f7ff; }
+    #kontakt    { background-color: #ffe6e6; }
     
     footer {
       background-color: #007acc;
@@ -343,7 +343,8 @@
   function downloadDoc() {
     var password = prompt("Bitte Passwort eingeben:");
     if(password === "LL_MK$2025") {
-      window.location.href = "Lebenslauf_2025.doc";
+      // Stelle sicher, dass die Datei im richtigen Verzeichnis liegt
+      window.location.href = "./Lebenslauf_2025.docx";
     } else {
       alert("Falsches Passwort!");
     }
