@@ -4,9 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
+
+  <!-- Favicon / Icon-Datei (Ersetze favicon.png durch deine eigene Datei) -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
   <!-- Google Fonts: Montserrat -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+
   <style>
+    /* Grundlegende Body-Einstellungen */
     body {
       font-family: 'Montserrat', sans-serif;
       font-size: 20px;
@@ -14,6 +20,15 @@
       padding: 0;
       background-color: #f4f4f4;
       color: #333;
+    }
+
+    /* Um Banner + Header zu fixieren, packen wir sie in ein DIV-Container (#fixed-top) */
+    #fixed-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999; /* Ganz vorne anzeigen */
     }
 
     /* Oberster Bereich (Copyright-Banner) */
@@ -25,12 +40,19 @@
       font-size: 1rem;
     }
 
+    /* Header darunter */
     header {
       background-color: #007acc;
       color: white;
       padding: 20px;
     }
 
+    /* Damit Banner und Header normal im #fixed-top liegen können, ohne verschoben zu sein */
+    #top-banner, header {
+      position: static;
+    }
+
+    /* Container im Header */
     .header-content {
       display: flex;
       justify-content: space-between;
@@ -57,17 +79,16 @@
       font-size: 1.1rem;
     }
 
+    /* Navigation */
     nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
     }
-
     nav ul li {
       margin: 0 5px;
     }
-
     nav ul li a {
       display: inline-block;
       padding: 12px 20px;
@@ -78,9 +99,15 @@
       font-size: 1.1rem;
       transition: background-color 0.3s;
     }
-
-    nav ul li a:hover, nav ul li a.active {
+    nav ul li a:hover,
+    nav ul li a.active {
       background-color: #004f80;
+    }
+
+    /* Hamburger-Icon bleibt sichtbar, um das Menü komplett anzuzeigen */
+    .nav-toggle {
+      cursor: pointer;
+      font-size: 1.5rem;
     }
 
     /* Im mobilen Modus werden standardmäßig nur der aktive Button angezeigt */
@@ -91,16 +118,15 @@
       display: block;
     }
 
-    /* Hamburger-Icon bleibt sichtbar, um das Menü komplett anzuzeigen */
-    .nav-toggle {
-      cursor: pointer;
-      font-size: 1.5rem;
-    }
-
+    /* Hauptbereich:
+       Da Banner + Header fixiert sind, muss der Inhalt darunter
+       entsprechend nach unten rutschen (margin-top).
+       Passe 220px an, wenn dein Banner+Header größer/kleiner ist. */
     main {
       max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 20px;
+      margin: 0 auto;
+      padding: 20px;
+      margin-top: 220px; /* Platz für #fixed-top */
     }
 
     main section {
@@ -126,7 +152,7 @@
       margin-top: 0;
     }
 
-    /* Responsives Verhalten */
+    /* Responsive Verhalten */
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -145,40 +171,44 @@
       flex-direction: column;
       align-items: flex-start;
     }
+
   </style>
 </head>
 <body>
 
-<!-- Neuer oberster Bereich -->
-<div id="top-banner">
-  &copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn
-</div>
-
-<header>
-  <div class="container header-content">
-    <!-- Titel/Logo -->
-    <div class="logo">datafreak79.ch</div>
-
-    <!-- Button "Mobile Version" -->
-    <button class="btn-mobile-version" onclick="toggleMobileMode()">Mobile Version</button>
-
-    <!-- Hamburger-Icon -->
-    <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
-    
-    <nav>
-      <ul id="nav-list">
-        <li id="nav-ueber-mich"><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
-        <li id="nav-hobby"><a href="#" onclick="showSection('hobby'); return false;">Hobby</a></li>
-        <li id="nav-projekte"><a href="#" onclick="showSection('projekte'); return false;">Projekte</a></li>
-        <li id="nav-links"><a href="#" onclick="showSection('links'); return false;">Links</a></li>
-        <li id="nav-cv"><a href="#" onclick="showSection('cv'); return false;">CV</a></li>
-        <li id="nav-diplome"><a href="#" onclick="showSection('diplome'); return false;">Diplome</a></li>
-        <li id="nav-zeugnisse"><a href="#" onclick="showSection('zeugnisse'); return false;">Zeugnisse</a></li>
-        <li id="nav-kontakt"><a href="#" onclick="showSection('kontakt'); return false;">Kontakt</a></li>
-      </ul>
-    </nav>
+<!-- Fixierter Bereich: Banner + Header -->
+<div id="fixed-top">
+  <!-- Neuer oberster Bereich -->
+  <div id="top-banner">
+    &copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn
   </div>
-</header>
+
+  <header>
+    <div class="container header-content">
+      <!-- Titel/Logo -->
+      <div class="logo">datafreak79.ch</div>
+
+      <!-- Button "Mobile Version" -->
+      <button class="btn-mobile-version" onclick="toggleMobileMode()">Mobile Version</button>
+
+      <!-- Hamburger-Icon -->
+      <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
+      
+      <nav>
+        <ul id="nav-list">
+          <li id="nav-ueber-mich"><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
+          <li id="nav-hobby"><a href="#" onclick="showSection('hobby'); return false;">Hobby</a></li>
+          <li id="nav-projekte"><a href="#" onclick="showSection('projekte'); return false;">Projekte</a></li>
+          <li id="nav-links"><a href="#" onclick="showSection('links'); return false;">Links</a></li>
+          <li id="nav-cv"><a href="#" onclick="showSection('cv'); return false;">CV</a></li>
+          <li id="nav-diplome"><a href="#" onclick="showSection('diplome'); return false;">Diplome</a></li>
+          <li id="nav-zeugnisse"><a href="#" onclick="showSection('zeugnisse'); return false;">Zeugnisse</a></li>
+          <li id="nav-kontakt"><a href="#" onclick="showSection('kontakt'); return false;">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
 
 <main>
   <!-- Über mich -->
@@ -313,9 +343,7 @@
           Lebenslauf als DOC (passwortgeschützt)
         </a>
       </p>
-      <!-- Hier "ganze Seite" im Desktop-Modus: -->
-      <iframe id="pdfViewer" 
-              style="width:100%; height:calc(100vh - 160px); border:none; display:none;"></iframe>
+      <iframe id="pdfViewer" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -331,8 +359,7 @@
           Diplome.pdf
         </a>
       </p>
-      <iframe id="pdfViewerDiplome" 
-              style="width:100%; height:calc(100vh - 160px); border:none; display:none;"></iframe>
+      <iframe id="pdfViewerDiplome" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -346,16 +373,14 @@
           Schulzeugnisse.pdf
         </a>
       </p>
-      <iframe id="pdfViewerSchul" 
-              style="width:100%; height:calc(100vh - 160px); border:none; display:none;"></iframe>
+      <iframe id="pdfViewerSchul" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
       <p>
         <strong>Arbeitszeugnisse:</strong><br>
         <a href="#" onclick="loadPDF('Arbeitszeugnisse.pdf', 'pdfViewerArbeits'); return false;">
           Arbeitszeugnisse.pdf
         </a>
       </p>
-      <iframe id="pdfViewerArbeits" 
-              style="width:100%; height:calc(100vh - 160px); border:none; display:none;"></iframe>
+      <iframe id="pdfViewerArbeits" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -388,7 +413,7 @@
 </main>
 
 <script>
-  // Hamburger-Menü: Im Mobile Mode schaltet dieser Button das komplette Menü ein
+  // Hamburger-Menü (zeigt im Mobile Mode alle Nav-Punkte an)
   function toggleMenu() {
     if(document.body.classList.contains('mobile-mode')){
       const navItems = document.querySelectorAll('#nav-list li');
@@ -438,7 +463,7 @@
       // Mobile Mode => in neuem Tab öffnen
       window.open(file, '_blank');
     } else {
-      // Desktop => im IFrame, volle Höhe
+      // Desktop => im IFrame, volle Höhe (bereinigt um fixierten Bereich)
       const iframe = document.getElementById(viewerID);
       iframe.src = file;
       iframe.style.display = 'block';
