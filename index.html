@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,11 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
 
+  <!-- Favicon / Icon-Datei -->
+  <!-- Pfad anpassen, wenn du die Datei umbenennst oder in einem Unterordner hast -->
+<<<<<<< HEAD
+  <link rel="icon" type="image/png" href="Icon%20Website.png" />
+=======
+  <link rel="icon" type="image/png" href="favicon.png" />
+>>>>>>> 640570dfcd1ff21f53040f689ec16e42e8e8af8b
 <!-- Favicon / Icon-Datei -->
 <!-- Pfad anpassen, wenn du die Datei umbenennst oder in einem Unterordner hast -->
 <link rel="icon" type="image/png" href="favicon.png" />
-  <!-- Favicon / Icon-Datei (Pfad ggf. anpassen) -->
-  <link rel="icon" type="image/png" href="favicion.png" />
 
   <!-- Google Fonts: Montserrat -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
@@ -27,14 +31,12 @@
     }
 
     /* Um Banner + Header zu fixieren, packen wir sie in ein DIV-Container (#fixed-top) */
-    /* Fixierter Bereich: Banner und Header */
     #fixed-top {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 9999; /* Ganz vorne anzeigen */
-      z-index: 9999;
     }
 
     /* Oberster Bereich (Copyright-Banner) */
@@ -94,7 +96,6 @@
     }
     nav ul li {
       margin: 0 5px;
-      gap: 5px;
     }
     nav ul li a {
       display: inline-block;
@@ -123,22 +124,17 @@
     }
     body.mobile-mode nav ul li.active {
       display: block;
-    /* Standard Desktop Navigation */
-    nav ul li {
-      flex: 0 0 auto;
     }
 
     /* Hauptbereich:
        Da Banner + Header fixiert sind, muss der Inhalt darunter
        entsprechend nach unten rutschen (margin-top).
        Passe 220px an, wenn dein Banner+Header größer/kleiner ist. */
-    /* Main Content */
     main {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
       margin-top: 220px; /* Platz für #fixed-top */
-      margin-top: 220px; /* Platz für fixierten Bereich */
     }
 
     main section {
@@ -166,23 +162,15 @@
 
     /* Responsive Verhalten */
     @media (max-width: 768px) {
-      /* Bei schmalen Bildschirmen bleibt die Navigation in einer Zeile und ist horizontal scrollbar */
       nav ul {
         flex-direction: column;
-        overflow-x: auto;
-        white-space: nowrap;
       }
       nav ul li {
         margin: 5px 0;
-        display: inline-block;
       }
       nav ul li a {
         padding: 6px 12px;
         font-size: 1rem;
-      }
-      .header-content {
-        flex-direction: column;
-        align-items: flex-start;
       }
     }
 
@@ -213,7 +201,7 @@
 
       <!-- Hamburger-Icon -->
       <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
-      
+
       <nav>
         <ul id="nav-list">
           <li id="nav-ueber-mich"><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
@@ -296,7 +284,6 @@
           Lernvideo zur Sprachapp
         </a> (MP4-Datei)
       </p>
-      <!-- Lernvideo-Link wurde entfernt -->
       <p>
         <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/">
           Sprachapp (R-Shiny Desktop-Version)
@@ -323,7 +310,6 @@
           – Sprachschule in Exeter für Englischunterricht
         </li>
         <li>
-          <br>
           <strong>R for Data Science (Hadley Wickham):</strong>
           <a href="https://r4ds.had.co.nz/" target="_blank">
             https://r4ds.had.co.nz/
@@ -436,25 +422,19 @@
 
 <script>
   // Hamburger-Menü (zeigt im Mobile Mode alle Nav-Punkte an)
-  // Hamburger-Menü – falls benötigt (hier kann bei Bedarf weiter angepasst werden)
   function toggleMenu() {
     if(document.body.classList.contains('mobile-mode')){
       const navItems = document.querySelectorAll('#nav-list li');
       navItems.forEach(li => li.style.display = 'block');
     }
-    // Beispiel: Einfach alle Navigationselemente sichtbar machen.
-    const navItems = document.querySelectorAll('#nav-list li');
-    navItems.forEach(li => li.style.display = 'block');
   }
 
   // Sektionen umschalten + Navigation aktualisieren
-  // Sektionen umschalten
   function showSection(id) {
     // Alle Abschnitte ausblenden
     const sections = document.querySelectorAll('main section');
     sections.forEach(sec => sec.style.display = 'none');
     // Gewünschten Abschnitt anzeigen
-    sections.forEach(sec => sec.style.display = 'none'); // Alle verbergen
     const section = document.getElementById(id);
     if(section){
       section.style.display = 'block';
@@ -469,17 +449,12 @@
       }
     });
     const activeNav = document.querySelector('#nav-' + id);
-    // Navigation: aktiven Link markieren
-    const navLinks = document.querySelectorAll('#nav-list a');
-    navLinks.forEach(link => link.classList.remove('active'));
-    const activeNav = document.querySelector('#nav-' + id + ' a');
     if(activeNav){
       activeNav.querySelector('a').classList.add('active');
       if(document.body.classList.contains('mobile-mode')){
         // Nur den aktiven Button anzeigen
         activeNav.style.display = 'block';
       }
-      activeNav.classList.add('active');
     }
   }
 
@@ -491,7 +466,6 @@
   // PDF laden:
   // In der Desktop-Version -> IFrame (fast die ganze Seite).
   // In der Mobile Version -> Neues Fenster (Tab).
-  // PDF laden
   function loadPDF(file, viewerID) {
     if(document.body.classList.contains('mobile-mode')){
       // Mobile Mode => in neuem Tab öffnen
@@ -517,7 +491,6 @@
   }
 
   // "Mobile Version" ein-/ausschalten
-  // Mobile Version umschalten
   function toggleMobileMode() {
     document.body.classList.toggle('mobile-mode');
     // Im Mobile Mode: Zeige nur den aktiven Navigationsbutton,
@@ -528,7 +501,6 @@
         (li.querySelector('a').classList.contains('active') ? 'block' : 'none')
         : 'block';
     });
-    // Bei mobile-mode übernimmt die Navigation die horizontale Scrollbar
   }
 </script>
 
