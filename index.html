@@ -1,79 +1,106 @@
+Skip to content
+Navigation Menu
+MaetthuK
+datafreak79.ch
+
+Type / to search
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+Commit f62d606
+Preview
+Give feedback
+MaetthuK
+MaetthuK
+committed
+16 hours ago
+·
+Neuer Style
+main
+1 parent 
+84226f8
+ commit 
+f62d606
+File tree
+Filter files…
+index.html
+1 file changed
++154
+-40
+lines changed
+Search within code
+ 
+‎index.html
++154
+-40
+Original file line number	Diff line number	Diff line change
+@@ -1,10 +1,114 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Einfache, einheitliche CSS-Styles -->
   <style>
-    /* Reset */
+    /* Reset / Grundlegendes Box-Model */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: Arial, sans-serif;
-      background-color: #f8f9fa; /* Hellgrauer Seitenhintergrund */
+      background-color: #f8f9fa; /* Helles Grau für den Seitenhintergrund */
       color: #333;
     }
-
-    /* Container für zentrierte Inhalte */
+    /* Container sorgt für horizontale Einrückung und max. Breite */
     .container {
       width: 90%;
       max-width: 1100px;
       margin: 0 auto;
       padding: 20px 0;
     }
-
-    /* Header */
     header {
       background-color: #0078d7; /* Blau */
       color: #fff;
-    }
-    header .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       padding: 20px 0;
+      margin-bottom: 20px;
     }
-    header .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
     }
-    /* Navigation */
     nav ul {
       list-style: none;
-      display: flex;
-      gap: 20px;
+      margin: 10px 0 0 0;
+      padding: 0;
+    }
+    nav li {
+      display: inline-block;
+      margin-right: 15px;
     }
     nav a {
-      text-decoration: none;
       color: #fff;
+      text-decoration: none;
       font-weight: bold;
     }
-    /* Hamburger-Icon (Mobile) */
-    .nav-toggle {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
+    nav a.btn {
+      background-color: #fff;
+      color: #0078d7;
+      padding: 8px 12px;
+      border-radius: 4px;
     }
-    @media (max-width: 768px) {
-      nav ul {
-        display: none; /* ausgeblendet, bis getoggelt wird */
-        flex-direction: column;
-        background-color: #0078d7;
-        padding: 10px;
-      }
-      nav ul.open {
-        display: flex; /* sichtbar, wenn geöffnet */
-      }
-      .nav-toggle {
-        display: block; /* Hamburger-Icon einblenden */
-      }
-    }
-
-    /* Hauptsektionen */
+    /* Hauptinhalte (Sections) */
     section {
       margin-bottom: 40px;
     }
@@ -86,13 +113,31 @@
       line-height: 1.6;
       font-size: 1rem;
     }
-    ul {
-      list-style: disc;
-      margin-left: 1.5em;
-      margin-bottom: 1em;
+    /* Buttons */
+    .btn {
+      background-color: #0078d7;
+      color: #fff;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
     }
-
-    /* Links im Text */
+    .btn:hover {
+      background-color: #005fad;
+    }
+    /* Footer */
+    footer {
+      background-color: #e9ecef;
+      padding: 15px 0;
+      text-align: center;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    /* Links in normalem Text */
     a {
       color: #0078d7;
       text-decoration: none;
@@ -100,235 +145,134 @@
     a:hover {
       text-decoration: underline;
     }
-
-    /* Footer */
-    footer {
-      background-color: #e9ecef;
-      text-align: center;
-      padding: 15px 0;
-    }
-    footer p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #555;
-    }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container header-content">
-    <div class="logo">datafreak79.ch</div>
-    <!-- Hamburger-Icon -->
-    <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
-    <nav>
-      <ul id="nav-list">
-        <li><a href="#ueber-mich">Über mich</a></li>
-        <li><a href="#projekte">Projekte</a></li>
-        <li><a href="#links">Links</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#diplome">Diplome</a></li>
-        <li><a href="#zeugnisse">Zeugnisse</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <!-- Über mich -->
-  <section id="ueber-mich">
-    <div class="container">
-      <h2>Über mich</h2>
-      <p>
-        Gemeinsam mit meiner Partnerin und unserem Hund lebe ich in einem
-        Doppeleinfamilienhaus in Koppigen. Ich bin ein Mensch, der immer in
-        Bewegung ist – es muss stets etwas los sein. Sport betreibe ich recht
-        viel, wobei dies in letzter Zeit etwas zu kurz gekommen ist.
-      </p>
-      <p>
-        Mit über 45 Jahren bin ich als Projektleiter in der Infrastruktur
-        für Verteilnetze tätig und habe mich entschieden, mich intensiver
-        mit Daten zu beschäftigen. In meiner aktuellen Rolle kann ich meine
-        Leidenschaft für Daten und Programmierung nur eingeschränkt ausleben,
-        was mir in den vergangenen Monaten immer bewusster wurde.
-      </p>
-      <p>
-        Die Fähigkeiten, die ich im Weiterbildungskurs
-        <em>Data Scientist NDK HF</em> erworben habe, möchte ich nun in
-        die Praxis umsetzen. Seit ich 2019 beim Hausbau meine erste
-        Excel-Makrodatei zur Erstellung des Elektroinstallationsmaterials
-        entwickelt habe, bin ich fasziniert von Daten und Programmierung.
-      </p>
-      <p>
-        Nachdem ich lange Zeit nur mit VBA gearbeitet hatte, begann ich 2022
-        damit, mich intensiv mit Power BI und Power Query zu beschäftigen.
-        Dabei entstand unter anderem eine App zur Abfrage meiner persönlichen
-        Bankdaten (via CSV-Stammdaten). Im Herbst 2023 entschied ich mich für
-        den Lehrgang <em>Data Scientist NDK HF</em> und entdeckte dabei die
-        faszinierende Welt von SQL und R.
-      </p>
-      <p>
-        In meiner Freizeit beschäftige ich mich nicht nur mit Daten, sondern
-        lerne auch Sprachen – aktuell Englisch und Französisch – und entwickle
-        begeistert Shiny-Apps. Ein Prototyp zum Sprachenlernen ist bereits
-        online verfügbar (siehe <a href="#projekte">Projekte</a>).
-      </p>
-    </div>
-  </section>
-
-  <!-- Projekte -->
-  <section id="projekte">
-    <div class="container">
-      <h2>Projekte</h2>
-      <p>
-        <strong>Sprachapp (R-Shiny)</strong><br>
-        Diese App wurde in RStudio entwickelt und ermöglicht Übersetzungen in
-        vier Sprachen (Englisch, Französisch, Spanisch, Italienisch). Vokabeln
-        können in selbst erstellbaren Sammlungen abgespeichert werden.
-      </p>
-      <p>
-        <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/"
-           target="_blank">
-          Sprachapp (R-Shiny Desktop-Version)
-        </a>
-      </p>
-      <p>
-        <strong>Blog "Road to Exeter"</strong><br>
-        Hier dokumentiere ich meine Fortschritte beim Englischlernen und berichte
-        über meine Erfahrungen in Exeter (Link ggf. ergänzen).
-      </p>
-    </div>
-  </section>
-
-  <!-- Links -->
-  <section id="links">
-    <div class="container">
-      <h2>Links</h2>
-      <ul>
-        <li>
-          <strong>Englisch:</strong>
-          <a href="https://exeteracademy.co.uk/" target="_blank">
-            Exeter Academy
+@@ -14,7 +118,9 @@ <h1>Willkommen auf datafreak79.ch</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="Lebenslauf_2025.pdf" target="_blank" class="btn">📄 Lebenslauf als PDF</a>
+            <a href="Lebenslauf_2025.pdf" target="_blank" class="btn">
+              📄 Lebenslauf als PDF
+            </a>
+          </li>
+          <li>
+            <a href="#projects">Projekte</a>
+@@ -33,36 +139,45 @@ <h1>Willkommen auf datafreak79.ch</h1>
+      <div class="container">
+        <h2>Über mich</h2>
+        <p>
+          Nachdem ich mit über 45 Jahren beruflich als Projektleiter in der Infrastruktur für Verteilnetze tätig bin, habe ich mich entschieden, mich in der Welt der Daten zu vertiefen.<p>
+          <p style="font-size:12pt;">
+            In meiner aktuellen Tätigkeit kann ich meine Leidenschaft für Daten und Programmierung nur bedingt ausleben.
+          </p>
+          <p style="font-size:12pt;">
+            Dies habe ich in den letzten Monaten festgestellt.
+          </p>
+          <div class="cv-buttons" style="display: flex; gap: 8px; align-items: center; margin-bottom: 20px;"></div>
+            <a href="Lebenslauf_2025.pdf" target="_blank" class="btn" style="background: #0078d7; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 5px;">PDF Lebenslauf</a>
+            <button onclick="promptForPassword()" class="btn" style="background: #0078d7; color: #fff; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Word Lebenslauf</button>
+          </div>
+          <p style="font-size: 1.1em; line-height: 1.6;">
+            Die Skills, die ich mir beim Weiterbildungskurs "Data Scientist NDK HF" aneignen konnte, möchte ich nun in der Praxis anwenden.
+          </p>
+          <p style="font-size: 1.1em; line-height: 1.6;">
+            Seit ich beim Hausbau 2019 meine erste Excel-Makrodatei für die Erstellung des Elektroinstallationsmaterials erstellt habe, bin ich fasziniert von der Welt der Daten und der Programmierung. Neben meiner Tätigkeit als Projektleiter im Verteilnetz für die Elektroversorgung beschäftige ich mich seither leidenschaftlich mit Daten.
+          </p>
+          <p style="font-size: 1.1em; line-height: 1.6;">
+            Nachdem ich lange Zeit nur mit VBA arbeitete, begann ich 2022 damit, mich intensiv mit Power BI und Power Query auseinanderzusetzen. Unter anderem entwickelte ich eine App zur Abfrage meiner persönlichen Bankdaten (via CSV-Stammdaten).
+          </p>
+          <p style="font-size: 1.1em; line-height: 1.6;">
+            Im Herbst 2023 entschied ich mich, den Lehrgang "Data Scientist NDK HF" zu besuchen und entdeckte dabei die faszinierende Welt von SQL und R.
+          </p>
+          <p style="font-size: 1.1em; line-height: 1.6;">
+            In meiner Freizeit widme ich mich neben Daten auch Sprachen – aktuell lerne ich Englisch und Französisch – und entwickle begeistert Shiny-Apps. Ein Prototyp zum Sprachenlernen ist bereits online verfügbar (siehe Buttons).
+          </p>
+    <!-- Kontakt - direkt NACH "Über mich" -->
+          Nachdem ich mit über 45 Jahren beruflich als Projektleiter in der Infrastruktur
+          für Verteilnetze tätig bin, habe ich mich entschieden, mich in der Welt der
+          Daten zu vertiefen.
+        </p>
+        <p>
+          In meiner aktuellen Tätigkeit kann ich meine Leidenschaft für Daten und
+          Programmierung nur bedingt ausleben. Dies habe ich in den letzten Monaten
+          festgestellt.
+        </p>
+        <p>
+          Die Skills, die ich mir beim Weiterbildungskurs "Data Scientist NDK HF"
+          aneignen konnte, möchte ich nun in der Praxis anwenden.
+        </p>
+        <p>
+          Seit ich beim Hausbau 2019 meine erste Excel-Makrodatei für die Erstellung
+          des Elektroinstallationsmaterials erstellt habe, bin ich fasziniert von der
+          Welt der Daten und der Programmierung. Neben meiner Tätigkeit als Projektleiter
+          im Verteilnetz für die Elektroversorgung beschäftige ich mich seither
+          leidenschaftlich mit Daten.
+        </p>
+        <p>
+          Nachdem ich lange Zeit nur mit VBA arbeitete, begann ich 2022 damit, mich
+          intensiv mit Power BI und Power Query auseinanderzusetzen. Unter anderem
+          entwickelte ich eine App zur Abfrage meiner persönlichen Bankdaten
+          (via CSV-Stammdaten).
+        </p>
+        <p>
+          Im Herbst 2023 entschied ich mich, den Lehrgang "Data Scientist NDK HF" zu
+          besuchen und entdeckte dabei die faszinierende Welt von SQL und R.
+        </p>
+        <p>
+          In meiner Freizeit widme ich mich neben Daten auch Sprachen – aktuell lerne
+          ich Englisch und Französisch – und entwickle begeistert Shiny-Apps. Ein
+          Prototyp zum Sprachenlernen ist bereits online verfügbar (siehe Buttons).
+        </p>
+      </div>
+    </section>
+    <!-- Kontakt -->
+    <section id="contact">
+      <div class="container">
+        <h2>Kontakt</h2>
+@@ -76,7 +191,9 @@ <h2>Kontakt</h2>
+        </p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:matthias.kuhn1979@gmail.com">matthias.kuhn1979@gmail.com</a>
+          <a href="mailto:matthias.kuhn1979@gmail.com">
+            matthias.kuhn1979@gmail.com
           </a>
-          – Sprachschule in Exeter für Englischunterricht
-        </li>
-        <li>
-          <strong>R for Data Science (Hadley Wickham):</strong>
-          <a href="https://r4ds.had.co.nz/" target="_blank">
-            https://r4ds.had.co.nz/
+        </p>
+        <p>
+          <strong>LinkedIn:</strong>
+@@ -95,11 +212,9 @@ <h2>Projekte</h2>
+          Quiz Sprachen lernen: Eine Shiny-App, die das Lernen von
+          Vokabeln und Grammatik in verschiedenen Sprachen unterstützt.
+        </p>
+        <!-- Link zur English-App -->
+        <p>
+          <strong>English App:</strong>
+          <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/" 
+          <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/"
+             target="_blank">
+            English APP Desktop
           </a>
-          – Umfangreiches Online-Buch zu R, Datenanalyse und Visualisierung
-        </li>
-        <li>
-          <strong>Kaggle:</strong>
-          <a href="https://www.kaggle.com/" target="_blank">
-            https://www.kaggle.com/
-          </a>
-          – Plattform für Data-Science-Wettbewerbe, Datasets und Tutorials
-        </li>
-        <li>
-          <strong>Towards Data Science:</strong>
-          <a href="https://towardsdatascience.com/" target="_blank">
-            https://towardsdatascience.com/
-          </a>
-          – Sammlung von Artikeln zu Machine Learning, Python, R und mehr
-        </li>
-      </ul>
-    </div>
-  </section>
+@@ -147,12 +262,11 @@ <h2>Lebenslauf als Word</h2>
+          den Word-Lebenslauf zu öffnen.
+        </p>
+        <!-- Button, der den Passwort-Dialog öffnet -->
+        <button onclick="promptForPassword()">
+        <button class="btn" onclick="promptForPassword()">
+          Zum Lebenslauf (Word)
+        </button>
+      </div>
+    </section>
+  </main>
 
-  <!-- CV -->
-  <section id="cv">
-    <div class="container">
-      <h2>Lebenslauf (CV)</h2>
-      <p>
-        Hier findest du meinen aktuellen Lebenslauf als PDF:
-      </p>
-      <p>
-        <a href="Lebenslauf_2025.pdf" target="_blank">
-          Lebenslauf_2025.pdf
-        </a>
-      </p>
-    </div>
-  </section>
+  <footer>
+0 commit comments
+Comments
+0
+ (0)
+Comment
+You're receiving notifications because you're subscribed to this thread.
 
-  <!-- Diplome -->
-  <section id="diplome">
-    <div class="container">
-      <h2>Diplome</h2>
-      <p>
-        Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:
-      </p>
-      <p>
-        <a href="Diplome.pdf" target="_blank">
-          Diplome.pdf
-        </a>
-      </p>
-    </div>
-  </section>
-
-  <!-- Zeugnisse -->
-  <section id="zeugnisse">
-    <div class="container">
-      <h2>Zeugnisse</h2>
-      <p>
-        <strong>Schulzeugnisse:</strong><br>
-        <a href="Schulzeugnisse.pdf" target="_blank">
-          Schulzeugnisse.pdf
-        </a>
-      </p>
-      <p>
-        <strong>Arbeitszeugnisse:</strong><br>
-        <a href="Arbeitszeugnisse.pdf" target="_blank">
-          Arbeitszeugnisse.pdf
-        </a>
-      </p>
-    </div>
-  </section>
-
-  <!-- Kontakt -->
-  <section id="kontakt">
-    <div class="container">
-      <h2>Kontakt</h2>
-      <p>
-        <strong>Adresse:</strong><br>
-        St. Niklausstrasse 8a<br>
-        3425 Koppigen, Schweiz
-      </p>
-      <p>
-        <strong>Mobile:</strong> +41 79 765 46 44
-      </p>
-      <p>
-        <strong>E-Mail:</strong>
-        <a href="mailto:matthias.kuhn1979@gmail.com">
-          matthias.kuhn1979@gmail.com
-        </a>
-      </p>
-      <p>
-        <strong>LinkedIn:</strong>
-        <a href="https://www.linkedin.com/in/matthiaskuhn1979/"
-           target="_blank">
-          linkedin.com/in/matthiaskuhn1979/
-        </a>
-      </p>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container">
-    <p>&copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn</p>
-  </div>
-</footer>
-
-<!-- JavaScript für die mobile Navigation -->
-<script>
-  function toggleMenu() {
-    const navList = document.getElementById('nav-list');
-    navList.classList.toggle('open');
-  }
-</script>
-
-</body>
-</html>
+Neuer Style · MaetthuK/datafreak79.ch@f62d606
