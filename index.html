@@ -180,9 +180,10 @@
         können in selbst erstellbaren Sammlungen abgespeichert werden.
       </p>
       <p>
-        <a href="Lernvideo_Sprachapp.mp4" target="_blank">
-          Lernvideo zur Sprachapp
-        </a> (MP4-Datei)
+        <video controls style="max-width:100%;">
+          <source src="Lernvideo_Sprachapp.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </p>
       <p>
         <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/">
@@ -233,7 +234,6 @@
       </ul>
     </div>
   </section>
-
   <!-- CV -->
   <section id="cv">
     <div class="container">
@@ -242,18 +242,15 @@
         Hier findest du meinen aktuellen Lebenslauf als PDF:
       </p>
       <p>
-        <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;"></a>
-          Lebenslauf_2025.pdf
-        </a>
+        <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;">Lebenslauf_2025.pdf</a>
       </p>
       <p>
-        <a href="#" onclick="downloadDoc(); return false;">
-          Lebenslauf als DOC (passwortgeschützt)
-        </a>
+        <a href="#" onclick="downloadDoc(); return false;">Lebenslauf als DOC (passwortgeschützt)</a>
       </p>
       <!-- PDF inline anzeigen -->
       <iframe id="pdfViewer" style="width:100%; height:600px; border:none; display:none;"></iframe>
     </div>
+  </section>
   </section>
 
   <!-- Diplome -->
@@ -324,29 +321,11 @@
 <footer>
 <!-- CV -->
 <section id="cv">
+<footer>
   <div class="container">
     <p>&copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn</p>
-    <h2>Lebenslauf (CV)</h2>
-    <p>
-      Hier findest du meinen aktuellen Lebenslauf als PDF:
-    </p>
-    <p>
-      <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;">
-        Lebenslauf_2025.pdf
-      </a>
-    </p>
-    <p>
-      <a href="#" onclick="downloadDoc(); return false;">
-        Lebenslauf als DOC (passwortgeschützt)
-      </a>
-    </p>
-    <!-- PDF inline anzeigen -->
-    <iframe id="pdfViewer" style="width:100%; height:600px; border:none; display:none;"></iframe>
   </div>
 </footer>
-
-<!-- JavaScript für Navigation, mobile Navigation & zusätzliche Funktionen -->
-<script>
   function toggleMenu() {
     const navList = document.getElementById('nav-list');
     navList.classList.toggle('open');
