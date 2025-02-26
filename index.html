@@ -16,7 +16,7 @@
       color: #333;
     }
 
-    /* Neuer "Kopf"-Bereich für Copyright */
+    /* Oberster Bereich (Copyright-Banner) */
     #top-banner {
       background-color: #007acc;
       color: #fff;
@@ -45,7 +45,7 @@
       font-weight: bold;
     }
 
-    /* Button "Mobile Version" direkt unter dem Titel */
+    /* Button "Mobile Version" */
     .btn-mobile-version {
       background-color: #005f99;
       color: #fff;
@@ -91,7 +91,7 @@
       display: block;
     }
 
-    /* Hamburger bleibt auch im Mobile Mode sichtbar, um das komplette Menü einzublenden */
+    /* Hamburger-Icon bleibt sichtbar, um das Menü komplett anzuzeigen */
     .nav-toggle {
       cursor: pointer;
       font-size: 1.5rem;
@@ -162,7 +162,7 @@
     <!-- Button "Mobile Version" -->
     <button class="btn-mobile-version" onclick="toggleMobileMode()">Mobile Version</button>
 
-    <!-- Hamburger-Icon (bleibt sichtbar im mobilen Modus, um das Menü komplett anzuzeigen) -->
+    <!-- Hamburger-Icon -->
     <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
     
     <nav>
@@ -313,7 +313,9 @@
           Lebenslauf als DOC (passwortgeschützt)
         </a>
       </p>
-      <iframe id="pdfViewer" style="width:100%; height:600px; border:none; display:none;"></iframe>
+      <!-- Hier "ganze Seite" im Desktop-Modus: -->
+      <iframe id="pdfViewer" 
+              style="width:100%; height:calc(100vh - 160px); border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -329,7 +331,8 @@
           Diplome.pdf
         </a>
       </p>
-      <iframe id="pdfViewerDiplome" style="width:100%; height:600px; border:none; display:none;"></iframe>
+      <iframe id="pdfViewerDiplome" 
+              style="width:100%; height:calc(100vh - 160px); border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -343,14 +346,16 @@
           Schulzeugnisse.pdf
         </a>
       </p>
-      <iframe id="pdfViewerSchul" style="width:100%; height:600px; border:none; display:none;"></iframe>
+      <iframe id="pdfViewerSchul" 
+              style="width:100%; height:calc(100vh - 160px); border:none; display:none;"></iframe>
       <p>
         <strong>Arbeitszeugnisse:</strong><br>
         <a href="#" onclick="loadPDF('Arbeitszeugnisse.pdf', 'pdfViewerArbeits'); return false;">
           Arbeitszeugnisse.pdf
         </a>
       </p>
-      <iframe id="pdfViewerArbeits" style="width:100%; height:600px; border:none; display:none;"></iframe>
+      <iframe id="pdfViewerArbeits" 
+              style="width:100%; height:calc(100vh - 160px); border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -426,15 +431,19 @@
   });
 
   // PDF laden:
-  // In der Desktop-Version wird das PDF in einem iframe eingebettet.
-  // In der Mobile Version wird es in einem neuen Fenster (Tab) geöffnet.
+  // In der Desktop-Version -> IFrame (fast die ganze Seite).
+  // In der Mobile Version -> Neues Fenster (Tab).
   function loadPDF(file, viewerID) {
     if(document.body.classList.contains('mobile-mode')){
+      // Mobile Mode => in neuem Tab öffnen
       window.open(file, '_blank');
     } else {
+      // Desktop => im IFrame, volle Höhe
       const iframe = document.getElementById(viewerID);
       iframe.src = file;
       iframe.style.display = 'block';
+      // Scrolle ggf. zum iframe
+      iframe.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
