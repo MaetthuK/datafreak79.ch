@@ -15,37 +15,50 @@
       background-color: #f4f4f4;
       color: #333;
     }
-    
+
     header {
       background-color: #007acc;
       color: white;
       padding: 20px;
     }
-    
+
     .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
       max-width: 1200px;
       margin: auto;
+      flex-wrap: wrap; /* Ermöglicht Zeilenumbruch für den Mobile-Version-Button */
     }
-    
+
     .logo {
       font-size: 3rem;
       font-weight: bold;
     }
-    
+
+    /* Button "Mobile Version" direkt unter dem Titel */
+    .btn-mobile-version {
+      background-color: #005f99;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 0; /* Etwas Abstand */
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
     nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
     }
-    
+
     nav ul li {
       margin: 0 5px;
     }
-    
+
     nav ul li a {
       display: inline-block;
       padding: 12px 20px;
@@ -56,23 +69,22 @@
       font-size: 1.1rem;
       transition: background-color 0.3s;
     }
-    
+
     nav ul li a:hover {
       background-color: #004f80;
     }
-    
-    /* Hamburger-Icon (bestehende Funktion) */
+
     .nav-toggle {
       cursor: pointer;
       font-size: 1.5rem;
     }
-    
+
     main {
       max-width: 1200px;
       margin: 20px auto;
       padding: 0 20px;
     }
-    
+
     main section {
       display: none;
       padding: 20px;
@@ -80,7 +92,8 @@
       margin-bottom: 20px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    
+
+    /* Hintergrundfarben für jede Sektion */
     #ueber-mich { background-color: #fff9e6; }
     #hobby      { background-color: #e6f7ff; }
     #projekte   { background-color: #e6f7ff; }
@@ -89,12 +102,12 @@
     #diplome    { background-color: #ffe6f9; }
     #zeugnisse  { background-color: #e6f7ff; }
     #kontakt    { background-color: #ffe6e6; }
-    
+
     h2 {
       font-size: 2.5rem;
       margin-top: 0;
     }
-    
+
     footer {
       background-color: #007acc;
       color: #fff;
@@ -102,8 +115,10 @@
       padding: 15px 0;
     }
 
-    /* --- Ab hier die zusätzlichen Regeln für mobile-mode --- */
-    /* Wenn .mobile-mode auf <body> liegt, wird das Layout einspaltig. */
+    /*
+      "Mobile Version" per Button: Wenn .mobile-mode am <body> hängt,
+      Layout anpassen + Nav-Buttons verkleinern
+    */
     body.mobile-mode .header-content {
       flex-direction: column;
       align-items: flex-start;
@@ -117,28 +132,44 @@
       margin: 5px 0;
     }
 
-    /* Optional: Den Hamburger-Button ausblenden, wenn man "mobile-mode" manuell aktiviert. */
-    body.mobile-mode .nav-toggle {
-      display: none;
+    body.mobile-mode nav ul li a {
+      /* Weniger Höhe in der Mobile-Version */
+      padding: 6px 12px;
+      font-size: 1rem;
     }
 
-    /* Man kann hier beliebige weitere Styles definieren, 
-       um ein klassisches "mobile" Look & Feel zu simulieren. */
+    body.mobile-mode .nav-toggle {
+      display: none; /* Hamburger ausblenden, wenn manuell auf mobile-mode geschaltet */
+    }
+
+    /* Responsive Verhalten für schmale Bildschirme (optional) */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+      }
+      nav ul.open {
+        display: flex;
+      }
+      nav ul li {
+        margin: 5px 0;
+      }
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="container header-content">
+    <!-- Titel/Logo -->
     <div class="logo">datafreak79.ch</div>
 
-    <!-- 1) Button zum Umschalten in "Mobile Version" -->
-    <button onclick="toggleMobileMode()" style="margin-right: 20px;">
-      Mobile Version
-    </button>
+    <!-- Button "Mobile Version" direkt unter dem Titel -->
+    <button class="btn-mobile-version" onclick="toggleMobileMode()">Mobile Version</button>
 
     <!-- Hamburger-Icon -->
     <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
+    
     <nav>
       <ul id="nav-list">
         <li><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
@@ -362,13 +393,13 @@
 </footer>
 
 <script>
-  // Hamburger-Menü (bestehende Funktion)
+  // Hamburger-Menü
   function toggleMenu() {
     const navList = document.getElementById('nav-list');
     navList.classList.toggle('open');
   }
 
-  // Section-Wechsel
+  // Sections umschalten
   function showSection(id) {
     const sections = document.querySelectorAll('main section');
     sections.forEach(sec => sec.style.display = 'none');
@@ -390,7 +421,7 @@
     iframe.style.display = 'block';
   }
 
-  // Passwortabfrage für DOC
+  // Passwort für DOC
   function downloadDoc() {
     const password = prompt("Bitte Passwort eingeben:");
     if(password === "LL_MK$2025") {
@@ -400,7 +431,7 @@
     }
   }
 
-  // 2) Funktion, um in "Mobile Version" zu wechseln
+  // "Mobile Version" ein-/ausschalten
   function toggleMobileMode() {
     document.body.classList.toggle('mobile-mode');
   }
