@@ -5,112 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
   <style>
-    /* Reset */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* ...existing CSS... */
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa; /* Hellgrauer Seitenhintergrund */
-      color: #333;
-    }
-
-    /* Container für zentrierte Inhalte */
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 0;
-    }
-
-    /* Header */
-    header {
-      background-color: #0078d7; /* Blau */
-      color: #fff;
-    }
-    header .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 0;
-    }
-    header .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    /* Navigation */
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-    }
-    /* Hamburger-Icon (Mobile) */
-    .nav-toggle {
+    /* Alle Sektionen zunächst ausblenden */
+    main section {
       display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        display: none; /* ausgeblendet, bis getoggelt wird */
-        flex-direction: column;
-        background-color: #0078d7;
-        padding: 10px;
-      }
-      nav ul.open {
-        display: flex; /* sichtbar, wenn geöffnet */
-      }
-      .nav-toggle {
-        display: block; /* Hamburger-Icon einblenden */
-      }
-    }
-
-    /* Hauptsektionen */
-    section {
-      margin-bottom: 40px;
-    }
-    section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 0.75em;
-    }
-    p {
-      margin-bottom: 1em;
-      line-height: 1.6;
-      font-size: 1rem;
-    }
-    ul {
-      list-style: disc;
-      margin-left: 1.5em;
-      margin-bottom: 1em;
-    }
-
-    /* Links im Text */
-    a {
-      color: #0078d7;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #e9ecef;
-      text-align: center;
-      padding: 15px 0;
-    }
-    footer p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #555;
     }
   </style>
 </head>
@@ -123,13 +22,13 @@
     <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
     <nav>
       <ul id="nav-list">
-        <li><a href="#ueber-mich">Über mich</a></li>
-        <li><a href="#projekte">Projekte</a></li>
-        <li><a href="#links">Links</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#diplome">Diplome</a></li>
-        <li><a href="#zeugnisse">Zeugnisse</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
+        <li><a href="#" onclick="showSection('projekte'); return false;">Projekte</a></li>
+        <li><a href="#" onclick="showSection('links'); return false;">Links</a></li>
+        <li><a href="#" onclick="showSection('cv'); return false;">CV</a></li>
+        <li><a href="#" onclick="showSection('diplome'); return false;">Diplome</a></li>
+        <li><a href="#" onclick="showSection('zeugnisse'); return false;">Zeugnisse</a></li>
+        <li><a href="#" onclick="showSection('kontakt'); return false;">Kontakt</a></li>
       </ul>
     </nav>
   </div>
@@ -172,7 +71,7 @@
         In meiner Freizeit beschäftige ich mich nicht nur mit Daten, sondern
         lerne auch Sprachen – aktuell Englisch und Französisch – und entwickle
         begeistert Shiny-Apps. Ein Prototyp zum Sprachenlernen ist bereits
-        online verfügbar (siehe <a href="#projekte">Projekte</a>).
+        online verfügbar (siehe <a href="#" onclick="showSection('projekte'); return false;">Projekte</a>).
       </p>
     </div>
   </section>
@@ -255,6 +154,11 @@
           Lebenslauf_2025.pdf
         </a>
       </p>
+      <p>
+        <a href="#" onclick="downloadDoc(); return false;">
+          Lebenslauf als DOC (passwortgeschützt)
+        </a>
+      </p>
     </div>
   </section>
 
@@ -327,11 +231,37 @@
   </div>
 </footer>
 
-<!-- JavaScript für die mobile Navigation -->
+<!-- JavaScript für Navigation, mobile Navigation & zusätzliche Funktionen -->
 <script>
   function toggleMenu() {
     const navList = document.getElementById('nav-list');
     navList.classList.toggle('open');
+  }
+
+  function showSection(id) {
+    // Alle Sektionen ausblenden
+    const sections = document.querySelectorAll('main section');
+    sections.forEach(sec => sec.style.display = 'none');
+    // Gewählte Sektion einblenden
+    const section = document.getElementById(id);
+    if(section){
+      section.style.display = 'block';
+    }
+  }
+
+  // Bei Seitenstart soll "Über mich" angezeigt werden
+  document.addEventListener("DOMContentLoaded", function() {
+    showSection('ueber-mich');
+  });
+
+  function downloadDoc() {
+    var password = prompt("Bitte Passwort eingeben:");
+    // Ersetze 'DEIN_PASSWORT' durch das gewünschte Passwort
+    if(password === "DEIN_PASSWORT") {
+      window.location.href = "Lebenslauf_2025.doc";
+    } else {
+      alert("Falsches Passwort!");
+    }
   }
 </script>
 
