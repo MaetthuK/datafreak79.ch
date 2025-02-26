@@ -16,6 +16,15 @@
       color: #333;
     }
 
+    /* Neuer "Kopf"-Bereich für Copyright */
+    #top-banner {
+      background-color: #007acc;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 1rem;
+    }
+
     header {
       background-color: #007acc;
       color: white;
@@ -28,7 +37,7 @@
       align-items: center;
       max-width: 1200px;
       margin: auto;
-      flex-wrap: wrap; /* Ermöglicht Zeilenumbruch für den Mobile-Version-Button */
+      flex-wrap: wrap;
     }
 
     .logo {
@@ -42,7 +51,7 @@
       color: #fff;
       border: none;
       padding: 10px 20px;
-      margin: 10px 0; /* Etwas Abstand */
+      margin: 10px 0;
       border-radius: 5px;
       cursor: pointer;
       font-size: 1.1rem;
@@ -70,10 +79,19 @@
       transition: background-color 0.3s;
     }
 
-    nav ul li a:hover {
+    nav ul li a:hover, nav ul li a.active {
       background-color: #004f80;
     }
 
+    /* Im mobilen Modus werden standardmäßig nur der aktive Button angezeigt */
+    body.mobile-mode nav ul li {
+      display: none;
+    }
+    body.mobile-mode nav ul li.active {
+      display: block;
+    }
+
+    /* Hamburger bleibt auch im Mobile Mode sichtbar, um das komplette Menü einzublenden */
     .nav-toggle {
       cursor: pointer;
       font-size: 1.5rem;
@@ -108,78 +126,55 @@
       margin-top: 0;
     }
 
-    footer {
-      background-color: #007acc;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
-    }
-
-    /*
-      "Mobile Version" per Button: Wenn .mobile-mode am <body> hängt,
-      Layout anpassen + Nav-Buttons verkleinern
-    */
-    body.mobile-mode .header-content {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    body.mobile-mode nav ul {
-      flex-direction: column;
-    }
-
-    body.mobile-mode nav ul li {
-      margin: 5px 0;
-    }
-
-    body.mobile-mode nav ul li a {
-      /* Weniger Höhe in der Mobile-Version */
-      padding: 6px 12px;
-      font-size: 1rem;
-    }
-
-    body.mobile-mode .nav-toggle {
-      display: none; /* Hamburger ausblenden, wenn manuell auf mobile-mode geschaltet */
-    }
-
-    /* Responsive Verhalten für schmale Bildschirme (optional) */
+    /* Responsives Verhalten */
     @media (max-width: 768px) {
       nav ul {
-        display: none;
         flex-direction: column;
-      }
-      nav ul.open {
-        display: flex;
       }
       nav ul li {
         margin: 5px 0;
       }
+      nav ul li a {
+        padding: 6px 12px;
+        font-size: 1rem;
+      }
+    }
+
+    /* Anpassungen im Mobile Mode */
+    body.mobile-mode .header-content {
+      flex-direction: column;
+      align-items: flex-start;
     }
   </style>
 </head>
 <body>
+
+<!-- Neuer oberster Bereich -->
+<div id="top-banner">
+  &copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn
+</div>
 
 <header>
   <div class="container header-content">
     <!-- Titel/Logo -->
     <div class="logo">datafreak79.ch</div>
 
-    <!-- Button "Mobile Version" direkt unter dem Titel -->
+    <!-- Button "Mobile Version" -->
     <button class="btn-mobile-version" onclick="toggleMobileMode()">Mobile Version</button>
 
-    <!-- Hamburger-Icon -->
+    <!-- Hamburger-Icon (bleibt sichtbar im mobilen Modus, um das Menü komplett anzuzeigen) -->
     <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
     
     <nav>
       <ul id="nav-list">
-        <li><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
-        <li><a href="#" onclick="showSection('hobby'); return false;">Hobby</a></li>
-        <li><a href="#" onclick="showSection('projekte'); return false;">Projekte</a></li>
-        <li><a href="#" onclick="showSection('links'); return false;">Links</a></li>
-        <li><a href="#" onclick="showSection('cv'); return false;">CV</a></li>
-        <li><a href="#" onclick="showSection('diplome'); return false;">Diplome</a></li>
-        <li><a href="#" onclick="showSection('zeugnisse'); return false;">Zeugnisse</a></li>
-        <li><a href="#" onclick="showSection('kontakt'); return false;">Kontakt</a></li>
+        <li id="nav-ueber-mich"><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
+        <li id="nav-hobby"><a href="#" onclick="showSection('hobby'); return false;">Hobby</a></li>
+        <li id="nav-projekte"><a href="#" onclick="showSection('projekte'); return false;">Projekte</a></li>
+        <li id="nav-links"><a href="#" onclick="showSection('links'); return false;">Links</a></li>
+        <li id="nav-cv"><a href="#" onclick="showSection('cv'); return false;">CV</a></li>
+        <li id="nav-diplome"><a href="#" onclick="showSection('diplome'); return false;">Diplome</a></li>
+        <li id="nav-zeugnisse"><a href="#" onclick="showSection('zeugnisse'); return false;">Zeugnisse</a></li>
+        <li id="nav-kontakt"><a href="#" onclick="showSection('kontakt'); return false;">Kontakt</a></li>
       </ul>
     </nav>
   </div>
@@ -387,26 +382,41 @@
   </section>
 </main>
 
-<footer>
-  <div class="container">
-    <p>&copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn</p>
-  </div>
-</footer>
-
 <script>
-  // Hamburger-Menü
+  // Hamburger-Menü: Im Mobile Mode schaltet dieser Button das komplette Menü ein
   function toggleMenu() {
-    const navList = document.getElementById('nav-list');
-    navList.classList.toggle('open');
+    if(document.body.classList.contains('mobile-mode')){
+      const navItems = document.querySelectorAll('#nav-list li');
+      navItems.forEach(li => li.style.display = 'block');
+    }
   }
 
-  // Sections umschalten
+  // Sektionen umschalten + Navigation aktualisieren
   function showSection(id) {
+    // Alle Abschnitte ausblenden
     const sections = document.querySelectorAll('main section');
     sections.forEach(sec => sec.style.display = 'none');
+    // Gewünschten Abschnitt anzeigen
     const section = document.getElementById(id);
     if(section){
       section.style.display = 'block';
+    }
+    // Navigation: Markiere aktiven Button und blende im Mobile Mode nur diesen ein
+    const navItems = document.querySelectorAll('#nav-list li');
+    navItems.forEach(li => {
+      li.querySelector('a').classList.remove('active');
+      // Im Desktop Mode alle Elemente sichtbar
+      if(!document.body.classList.contains('mobile-mode')){
+        li.style.display = 'block';
+      }
+    });
+    const activeNav = document.querySelector('#nav-' + id);
+    if(activeNav){
+      activeNav.querySelector('a').classList.add('active');
+      if(document.body.classList.contains('mobile-mode')){
+        // Nur den aktiven Button anzeigen
+        activeNav.style.display = 'block';
+      }
     }
   }
 
@@ -415,14 +425,20 @@
     showSection('ueber-mich');
   });
 
-  // PDF laden
+  // PDF laden:
+  // In der Desktop-Version wird das PDF in einem iframe eingebettet.
+  // In der Mobile Version wird es in einem neuen Fenster (Tab) geöffnet.
   function loadPDF(file, viewerID) {
-    const iframe = document.getElementById(viewerID);
-    iframe.src = file;
-    iframe.style.display = 'block';
+    if(document.body.classList.contains('mobile-mode')){
+      window.open(file, '_blank');
+    } else {
+      const iframe = document.getElementById(viewerID);
+      iframe.src = file;
+      iframe.style.display = 'block';
+    }
   }
 
-  // Passwort für DOC
+  // Passwortgeschützter Download der DOC
   function downloadDoc() {
     const password = prompt("Bitte Passwort eingeben:");
     if(password === "LL_MK$2025") {
@@ -435,6 +451,14 @@
   // "Mobile Version" ein-/ausschalten
   function toggleMobileMode() {
     document.body.classList.toggle('mobile-mode');
+    // Im Mobile Mode: Zeige nur den aktiven Navigationsbutton,
+    // ansonsten alle Navigationselemente.
+    const navItems = document.querySelectorAll('#nav-list li');
+    navItems.forEach(li => {
+      li.style.display = document.body.classList.contains('mobile-mode') ?
+        (li.querySelector('a').classList.contains('active') ? 'block' : 'none')
+        : 'block';
+    });
   }
 </script>
 
