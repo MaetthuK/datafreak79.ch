@@ -9,7 +9,7 @@
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
-      font-size: 20px;  /* Größere Schrift */
+      font-size: 20px; /* Größere Schrift */
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
@@ -91,6 +91,12 @@
     #diplome    { background-color: #ffe6f9; }
     #zeugnisse  { background-color: #e6f7ff; }
     #kontakt    { background-color: #ffe6e6; }
+    
+    /* Größere Überschriften */
+    h2 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
     
     footer {
       background-color: #007acc;
@@ -179,8 +185,7 @@
         </a> (MP4-Datei)
       </p>
       <p>
-        <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/"
-           target="_blank">
+        <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/">
           Sprachapp (R-Shiny Desktop-Version)
         </a>
       </p>
@@ -237,7 +242,7 @@
         Hier findest du meinen aktuellen Lebenslauf als PDF:
       </p>
       <p>
-        <a href="Lebenslauf_2025.pdf" target="_blank">
+        <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf'); return false;">
           Lebenslauf_2025.pdf
         </a>
       </p>
@@ -246,6 +251,8 @@
           Lebenslauf als DOC (passwortgeschützt)
         </a>
       </p>
+      <!-- PDF inline anzeigen -->
+      <iframe id="pdfViewer" style="width:100%; height:600px; border:none; display:none;"></iframe>
     </div>
   </section>
 
@@ -340,11 +347,17 @@
     showSection('ueber-mich');
   });
 
+  function loadPDF(file) {
+    var iframe = document.getElementById('pdfViewer');
+    iframe.src = file;
+    iframe.style.display = 'block';
+  }
+
   function downloadDoc() {
     var password = prompt("Bitte Passwort eingeben:");
     if(password === "LL_MK$2025") {
-      // Stelle sicher, dass die Datei im richtigen Verzeichnis liegt
-      window.location.href = "./Lebenslauf_2025.docx";
+      // Stelle sicher, dass die Datei im gleichen Verzeichnis liegt
+      window.location.href = "Lebenslauf_2025.docx";
     } else {
       alert("Falsches Passwort!");
     }
