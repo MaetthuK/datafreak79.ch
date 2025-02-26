@@ -61,6 +61,7 @@
       background-color: #004f80;
     }
     
+    /* Hamburger-Icon (bestehende Funktion) */
     .nav-toggle {
       cursor: pointer;
       font-size: 1.5rem;
@@ -100,6 +101,29 @@
       text-align: center;
       padding: 15px 0;
     }
+
+    /* --- Ab hier die zusätzlichen Regeln für mobile-mode --- */
+    /* Wenn .mobile-mode auf <body> liegt, wird das Layout einspaltig. */
+    body.mobile-mode .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    body.mobile-mode nav ul {
+      flex-direction: column;
+    }
+
+    body.mobile-mode nav ul li {
+      margin: 5px 0;
+    }
+
+    /* Optional: Den Hamburger-Button ausblenden, wenn man "mobile-mode" manuell aktiviert. */
+    body.mobile-mode .nav-toggle {
+      display: none;
+    }
+
+    /* Man kann hier beliebige weitere Styles definieren, 
+       um ein klassisches "mobile" Look & Feel zu simulieren. */
   </style>
 </head>
 <body>
@@ -107,6 +131,13 @@
 <header>
   <div class="container header-content">
     <div class="logo">datafreak79.ch</div>
+
+    <!-- 1) Button zum Umschalten in "Mobile Version" -->
+    <button onclick="toggleMobileMode()" style="margin-right: 20px;">
+      Mobile Version
+    </button>
+
+    <!-- Hamburger-Icon -->
     <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
     <nav>
       <ul id="nav-list">
@@ -331,11 +362,13 @@
 </footer>
 
 <script>
+  // Hamburger-Menü (bestehende Funktion)
   function toggleMenu() {
     const navList = document.getElementById('nav-list');
     navList.classList.toggle('open');
   }
 
+  // Section-Wechsel
   function showSection(id) {
     const sections = document.querySelectorAll('main section');
     sections.forEach(sec => sec.style.display = 'none');
@@ -345,23 +378,31 @@
     }
   }
 
+  // Standardmäßig "Über mich" anzeigen
   document.addEventListener("DOMContentLoaded", function() {
     showSection('ueber-mich');
   });
 
+  // PDF laden
   function loadPDF(file, viewerID) {
-    var iframe = document.getElementById(viewerID);
+    const iframe = document.getElementById(viewerID);
     iframe.src = file;
     iframe.style.display = 'block';
   }
 
+  // Passwortabfrage für DOC
   function downloadDoc() {
-    var password = prompt("Bitte Passwort eingeben:");
+    const password = prompt("Bitte Passwort eingeben:");
     if(password === "LL_MK$2025") {
       window.location.href = "Lebenslauf_2025.docx";
     } else {
       alert("Falsches Passwort!");
     }
+  }
+
+  // 2) Funktion, um in "Mobile Version" zu wechseln
+  function toggleMobileMode() {
+    document.body.classList.toggle('mobile-mode');
   }
 </script>
 
