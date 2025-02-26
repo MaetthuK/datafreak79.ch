@@ -28,7 +28,7 @@
       align-items: center;
       max-width: 1200px;
       margin: auto;
-      flex-wrap: wrap; /* Für Mobile-Version-Button */
+      flex-wrap: wrap; /* Ermöglicht Zeilenumbruch für den Mobile-Version-Button */
     }
 
     .logo {
@@ -116,8 +116,8 @@
     }
 
     /*
-      "Mobile Version" per Button:
-      Wenn .mobile-mode am <body> hängt, Layout + Nav-Buttons anpassen
+      "Mobile Version" per Button: Wenn .mobile-mode am <body> hängt,
+      Layout anpassen + Nav-Buttons verkleinern
     */
     body.mobile-mode .header-content {
       flex-direction: column;
@@ -139,7 +139,7 @@
     }
 
     body.mobile-mode .nav-toggle {
-      display: none; /* Hamburger ausblenden, wenn manuell mobile-mode */
+      display: none; /* Hamburger ausblenden, wenn manuell auf mobile-mode geschaltet */
     }
 
     /* Responsive Verhalten für schmale Bildschirme (optional) */
@@ -192,9 +192,38 @@
       <h2>Über mich</h2>
       <p>
         Gemeinsam mit meiner Partnerin und unserem Hund lebe ich in einem
-        Doppeleinfamilienhaus in Koppigen...
+        Doppeleinfamilienhaus in Koppigen. Ich bin ein Mensch, der immer in
+        Bewegung ist – es muss stets etwas los sein. Sport betreibe ich recht
+        viel, wobei dies in letzter Zeit etwas zu kurz gekommen ist.
       </p>
-      <!-- ... -->
+      <p>
+        Mit über 45 Jahren bin ich als Projektleiter in der Infrastruktur
+        für Verteilnetze tätig und habe mich entschieden, mich intensiver
+        mit Daten zu beschäftigen. In meiner aktuellen Rolle kann ich meine
+        Leidenschaft für Daten und Programmierung nur eingeschränkt ausleben,
+        was mir in den vergangenen Monaten immer bewusster wurde.
+      </p>
+      <p>
+        Die Fähigkeiten, die ich im Weiterbildungskurs
+        <em>Data Scientist NDK HF</em> erworben habe, möchte ich nun in
+        die Praxis umsetzen. Seit ich 2019 beim Hausbau meine erste
+        Excel-Makrodatei zur Erstellung des Elektroinstallationsmaterials
+        entwickelt habe, bin ich fasziniert von Daten und Programmierung.
+      </p>
+      <p>
+        Nachdem ich lange Zeit nur mit VBA gearbeitet hatte, begann ich 2022
+        damit, mich intensiv mit Power BI und Power Query zu beschäftigen.
+        Dabei entstand unter anderem eine App zur Abfrage meiner persönlichen
+        Bankdaten (via CSV-Stammdaten). Im Herbst 2023 entschied ich mich für
+        den Lehrgang <em>Data Scientist NDK HF</em> und entdeckte dabei die
+        faszinierende Welt von SQL und R.
+      </p>
+      <p>
+        In meiner Freizeit beschäftige ich mich nicht nur mit Daten, sondern
+        lerne auch Sprachen – aktuell Englisch und Französisch – und entwickle
+        begeistert Shiny-Apps. Ein Prototyp zum Sprachenlernen ist bereits
+        online verfügbar (siehe <a href="#" onclick="showSection('projekte'); return false;">Projekte</a>).
+      </p>
     </div>
   </section>
 
@@ -202,6 +231,7 @@
   <section id="hobby">
     <div class="container">
       <h2>unser Goldschatz</h2>
+      <p><strong>Foxred Labrador Toska</strong></p>
       <img src="Toska.JPG" alt="Toska" style="max-width:100%; height:auto; display:block; margin:0 auto;">
     </div>
   </section>
@@ -212,7 +242,9 @@
       <h2>Projekte</h2>
       <p>
         <strong>Sprachapp (R-Shiny)</strong><br>
-        Diese App wurde in RStudio entwickelt...
+        Diese App wurde in RStudio entwickelt und ermöglicht Übersetzungen in
+        vier Sprachen (Englisch, Französisch, Spanisch, Italienisch). Vokabeln
+        können in selbst erstellbaren Sammlungen abgespeichert werden.
       </p>
       <p>
         <a href="Lernvideo_Sprachapp.mp4" target="_blank">
@@ -224,7 +256,11 @@
           Sprachapp (R-Shiny Desktop-Version)
         </a>
       </p>
-      <!-- ... -->
+      <p>
+        <strong>Blog "Road to Exeter"</strong><br>
+        Hier dokumentiere ich meine Fortschritte beim Englischlernen und berichte
+        über meine Erfahrungen in Exeter (Link ggf. ergänzen).
+      </p>
     </div>
   </section>
 
@@ -240,7 +276,27 @@
           </a>
           – Sprachschule in Exeter für Englischunterricht
         </li>
-        <!-- ... -->
+        <li>
+          <strong>R for Data Science (Hadley Wickham):</strong>
+          <a href="https://r4ds.had.co.nz/" target="_blank">
+            https://r4ds.had.co.nz/
+          </a>
+          – Umfangreiches Online-Buch zu R, Datenanalyse und Visualisierung
+        </li>
+        <li>
+          <strong>Kaggle:</strong>
+          <a href="https://www.kaggle.com/" target="_blank">
+            https://www.kaggle.com/
+          </a>
+          – Plattform für Data-Science-Wettbewerbe, Datasets und Tutorials
+        </li>
+        <li>
+          <strong>Towards Data Science:</strong>
+          <a href="https://towardsdatascience.com/" target="_blank">
+            https://towardsdatascience.com/
+          </a>
+          – Sammlung von Artikeln zu Machine Learning, Python, R und mehr
+        </li>
       </ul>
     </div>
   </section>
@@ -249,7 +305,9 @@
   <section id="cv">
     <div class="container">
       <h2>Lebenslauf (CV)</h2>
-      <p>Hier findest du meinen aktuellen Lebenslauf als PDF:</p>
+      <p>
+        Hier findest du meinen aktuellen Lebenslauf als PDF:
+      </p>
       <p>
         <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;">
           Lebenslauf_2025.pdf
@@ -268,7 +326,9 @@
   <section id="diplome">
     <div class="container">
       <h2>Diplome</h2>
-      <p>Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:</p>
+      <p>
+        Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:
+      </p>
       <p>
         <a href="#" onclick="loadPDF('Diplome.pdf', 'pdfViewerDiplome'); return false;">
           Diplome.pdf
@@ -345,7 +405,7 @@
     const sections = document.querySelectorAll('main section');
     sections.forEach(sec => sec.style.display = 'none');
     const section = document.getElementById(id);
-    if (section) {
+    if(section){
       section.style.display = 'block';
     }
   }
@@ -355,18 +415,11 @@
     showSection('ueber-mich');
   });
 
-  // PDF laden (unterschiedlich für Mobile-Version / Desktop)
+  // PDF laden
   function loadPDF(file, viewerID) {
-    // Prüfen, ob wir im "mobile-mode" sind
-    if (document.body.classList.contains('mobile-mode')) {
-      // In neuem Fenster öffnen
-      window.open(file, '_blank');
-    } else {
-      // Wie bisher im iframe anzeigen
-      const iframe = document.getElementById(viewerID);
-      iframe.src = file;
-      iframe.style.display = 'block';
-    }
+    const iframe = document.getElementById(viewerID);
+    iframe.src = file;
+    iframe.style.display = 'block';
   }
 
   // Passwort für DOC
