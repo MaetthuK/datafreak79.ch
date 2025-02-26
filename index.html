@@ -1,46 +1,374 @@
-<!-- Über mich -->
-<section id="ueber-mich">
-  <div class="container">
-    <h2>Über mich</h2>
-    <p>
-      Gemeinsam mit meiner Partnerin und unserem Hund lebe ich in einem
-      Doppeleinfamilienhaus in Koppigen. Ich bin ein Mensch, der immer in
-      Bewegung ist – es muss stets etwas los sein. Sport betreibe ich recht
-      viel, wobei dies in letzter Zeit etwas zu kurz gekommen ist.
-    </p>
-    <p>
-      Mit über 45 Jahren bin ich als Projektleiter in der Infrastruktur
-      für Verteilnetze tätig und habe mich entschieden, mich intensiver
-      mit Daten zu beschäftigen. In meiner aktuellen Rolle kann ich meine
-      Leidenschaft für Daten und Programmierung nur eingeschränkt ausleben,
-      was mir in den vergangenen Monaten immer bewusster wurde.
-    </p>
-    <p>
-      Die Fähigkeiten, die ich im Weiterbildungskurs
-      <em>Data Scientist NDK HF</em> erworben habe, möchte ich nun in
-      die Praxis umsetzen. Seit ich 2019 beim Hausbau meine erste
-      Excel-Makrodatei zur Erstellung des Elektroinstallationsmaterials
-      entwickelt habe, bin ich fasziniert von Daten und Programmierung.
-    </p>
-    <p>
-      Nachdem ich lange Zeit nur mit VBA gearbeitet hatte, begann ich 2022
-      damit, mich intensiv mit Power BI und Power Query zu beschäftigen.
-      Dabei entstand unter anderem eine App zur Abfrage meiner persönlichen
-      Bankdaten (via CSV-Stammdaten). Im Herbst 2023 entschied ich mich für
-      den Lehrgang <em>Data Scientist NDK HF</em> und entdeckte dabei die
-      faszinierende Welt von SQL und R.
-    </p>
-    <p>
-      In meiner Freizeit beschäftige ich mich nicht nur mit Daten, sondern
-      lerne auch Sprachen – aktuell Englisch und Französisch – und entwickle
-      begeistert Shiny-Apps. Ein Prototyp zum Sprachenlernen ist bereits
-      online verfügbar (siehe <a href="#" onclick="showSection('projekte'); return false;">Projekte</a>).
-    </p>
-    <!-- Neues Hobby-Element -->
-    <h3>Hobby</h3>
-    <p>
-      Zu meinen Hobbys zählt auch das Fotografieren. Hier zeige ich Euch mein Lieblingsfoto:
-    </p>
-    <img src="Toska.jpg" alt="Toska" style="max-width:100%; height:auto;">
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>datafreak79.ch</title>
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px; /* Größere Schrift */
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    
+    header {
+      background-color: #007acc;
+      color: white;
+      padding: 20px;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+    /* Logo deutlich vergrößert */
+    .logo {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    
+    /* Navigation-Buttons statt Bulletpoints */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+    
+    nav ul li {
+      margin: 0 5px;
+    }
+    
+    nav ul li a {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #005f99;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      background-color: #004f80;
+    }
+    
+    .nav-toggle {
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    
+    /* Sektionen sichtbar machen (alternativ per JS gesteuert) */
+    main section {
+      display: none;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    /* Unterschiedliche Hintergrundfarben je Sektion */
+    #ueber-mich { background-color: #fff9e6; }
+    #projekte   { background-color: #e6f7ff; }
+    #links      { background-color: #fff9e6; }
+    #cv         { background-color: #e6ffea; }
+    #diplome    { background-color: #ffe6f9; }
+    #zeugnisse  { background-color: #e6f7ff; }
+    #kontakt    { background-color: #ffe6e6; }
+    
+    /* Größere Überschriften */
+    h2 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    footer {
+      background-color: #007acc;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-content">
+    <div class="logo">datafreak79.ch</div>
+    <!-- Hamburger-Icon -->
+    <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
+    <nav>
+      <ul id="nav-list">
+        <li><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
+        <li><a href="#" onclick="showSection('projekte'); return false;">Projekte</a></li>
+        <li><a href="#" onclick="showSection('links'); return false;">Links</a></li>
+        <li><a href="#" onclick="showSection('cv'); return false;">CV</a></li>
+        <li><a href="#" onclick="showSection('diplome'); return false;">Diplome</a></li>
+        <li><a href="#" onclick="showSection('zeugnisse'); return false;">Zeugnisse</a></li>
+        <li><a href="#" onclick="showSection('kontakt'); return false;">Kontakt</a></li>
+      </ul>
+    </nav>
   </div>
-</section>
+</header>
+
+<main>
+  <!-- Über mich -->
+  <section id="ueber-mich">
+    <div class="container">
+      <h2>Über mich</h2>
+      <!-- Bild von Toska -->
+      <img src="Toska.jpg" alt="Toska" style="max-width:100%; height:auto; display:block; margin: 0 auto 20px;">
+      <p>
+        Gemeinsam mit meiner Partnerin und unserem Hund lebe ich in einem
+        Doppeleinfamilienhaus in Koppigen. Ich bin ein Mensch, der immer in
+        Bewegung ist – es muss stets etwas los sein. Sport betreibe ich recht
+        viel, wobei dies in letzter Zeit etwas zu kurz gekommen ist.
+      </p>
+      <p>
+        Mit über 45 Jahren bin ich als Projektleiter in der Infrastruktur
+        für Verteilnetze tätig und habe mich entschieden, mich intensiver
+        mit Daten zu beschäftigen. In meiner aktuellen Rolle kann ich meine
+        Leidenschaft für Daten und Programmierung nur eingeschränkt ausleben,
+        was mir in den vergangenen Monaten immer bewusster wurde.
+      </p>
+      <p>
+        Die Fähigkeiten, die ich im Weiterbildungskurs
+        <em>Data Scientist NDK HF</em> erworben habe, möchte ich nun in
+        die Praxis umsetzen. Seit ich 2019 beim Hausbau meine erste
+        Excel-Makrodatei zur Erstellung des Elektroinstallationsmaterials
+        entwickelt habe, bin ich fasziniert von Daten und Programmierung.
+      </p>
+      <p>
+        Nachdem ich lange Zeit nur mit VBA gearbeitet hatte, begann ich 2022
+        damit, mich intensiv mit Power BI und Power Query zu beschäftigen.
+        Dabei entstand unter anderem eine App zur Abfrage meiner persönlichen
+        Bankdaten (via CSV-Stammdaten). Im Herbst 2023 entschied ich mich für
+        den Lehrgang <em>Data Scientist NDK HF</em> und entdeckte dabei die
+        faszinierende Welt von SQL und R.
+      </p>
+      <p>
+        In meiner Freizeit beschäftige ich mich nicht nur mit Daten, sondern
+        lerne auch Sprachen – aktuell Englisch und Französisch – und entwickle
+        begeistert Shiny-Apps. Ein Prototyp zum Sprachenlernen ist bereits
+        online verfügbar (siehe <a href="#" onclick="showSection('projekte'); return false;">Projekte</a>).
+      </p>
+    </div>
+  </section>
+
+  <!-- Projekte -->
+  <section id="projekte">
+    <div class="container">
+      <h2>Projekte</h2>
+      <p>
+        <strong>Sprachapp (R-Shiny)</strong><br>
+        Diese App wurde in RStudio entwickelt und ermöglicht Übersetzungen in
+        vier Sprachen (Englisch, Französisch, Spanisch, Italienisch). Vokabeln
+        können in selbst erstellbaren Sammlungen abgespeichert werden.
+      </p>
+      <p>
+        <a href="Lernvideo_Sprachapp.mp4" target="_blank">
+          Lernvideo zur Sprachapp
+        </a> (MP4-Datei)
+      </p>
+      <p>
+        <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/">
+          Sprachapp (R-Shiny Desktop-Version)
+        </a>
+      </p>
+      <p>
+        <strong>Blog "Road to Exeter"</strong><br>
+        Hier dokumentiere ich meine Fortschritte beim Englischlernen und berichte
+        über meine Erfahrungen in Exeter (Link ggf. ergänzen).
+      </p>
+    </div>
+  </section>
+
+  <!-- Links -->
+  <section id="links">
+    <div class="container">
+      <h2>Links</h2>
+      <ul>
+        <li>
+          <strong>Englisch:</strong>
+          <a href="https://exeteracademy.co.uk/" target="_blank">
+            Exeter Academy
+          </a>
+          – Sprachschule in Exeter für Englischunterricht
+        </li>
+        <li>
+          <strong>R for Data Science (Hadley Wickham):</strong>
+          <a href="https://r4ds.had.co.nz/" target="_blank">
+            https://r4ds.had.co.nz/
+          </a>
+          – Umfangreiches Online-Buch zu R, Datenanalyse und Visualisierung
+        </li>
+        <li>
+          <strong>Kaggle:</strong>
+          <a href="https://www.kaggle.com/" target="_blank">
+            https://www.kaggle.com/
+          </a>
+          – Plattform für Data-Science-Wettbewerbe, Datasets und Tutorials
+        </li>
+        <li>
+          <strong>Towards Data Science:</strong>
+          <a href="https://towardsdatascience.com/" target="_blank">
+            https://towardsdatascience.com/
+          </a>
+          – Sammlung von Artikeln zu Machine Learning, Python, R und mehr
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv">
+    <div class="container">
+      <h2>Lebenslauf (CV)</h2>
+      <p>
+        Hier findest du meinen aktuellen Lebenslauf als PDF:
+      </p>
+      <p>
+        <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;">
+          Lebenslauf_2025.pdf
+        </a>
+      </p>
+      <p>
+        <a href="#" onclick="downloadDoc(); return false;">
+          Lebenslauf als DOC (passwortgeschützt)
+        </a>
+      </p>
+      <!-- PDF inline anzeigen -->
+      <iframe id="pdfViewer" style="width:100%; height:600px; border:none; display:none;"></iframe>
+    </div>
+  </section>
+
+  <!-- Diplome -->
+  <section id="diplome">
+    <div class="container">
+      <h2>Diplome</h2>
+      <p>
+        Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:
+      </p>
+      <p>
+        <a href="#" onclick="loadPDF('Diplome.pdf', 'pdfViewerDiplome'); return false;">
+          Diplome.pdf
+        </a>
+      </p>
+      <iframe id="pdfViewerDiplome" style="width:100%; height:600px; border:none; display:none;"></iframe>
+    </div>
+  </section>
+
+  <!-- Zeugnisse -->
+  <section id="zeugnisse">
+    <div class="container">
+      <h2>Zeugnisse</h2>
+      <p>
+        <strong>Schulzeugnisse:</strong><br>
+        <a href="#" onclick="loadPDF('Schulzeugnisse.pdf', 'pdfViewerSchul'); return false;">
+          Schulzeugnisse.pdf
+        </a>
+      </p>
+      <iframe id="pdfViewerSchul" style="width:100%; height:600px; border:none; display:none;"></iframe>
+      <p>
+        <strong>Arbeitszeugnisse:</strong><br>
+        <a href="#" onclick="loadPDF('Arbeitszeugnisse.pdf', 'pdfViewerArbeits'); return false;">
+          Arbeitszeugnisse.pdf
+        </a>
+      </p>
+      <iframe id="pdfViewerArbeits" style="width:100%; height:600px; border:none; display:none;"></iframe>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt">
+    <div class="container">
+      <h2>Kontakt</h2>
+      <p>
+        <strong>Adresse:</strong><br>
+        St. Niklausstrasse 8a<br>
+        3425 Koppigen, Schweiz
+      </p>
+      <p>
+        <strong>Mobile:</strong> +41 79 765 46 44
+      </p>
+      <p>
+        <strong>E-Mail:</strong>
+        <a href="mailto:matthias.kuhn1979@gmail.com">
+          matthias.kuhn1979@gmail.com
+        </a>
+      </p>
+      <p>
+        <strong>LinkedIn:</strong>
+        <a href="https://www.linkedin.com/in/matthiaskuhn1979/" target="_blank">
+          linkedin.com/in/matthiaskuhn1979/
+        </a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn</p>
+  </div>
+</footer>
+
+<!-- JavaScript für Navigation, mobile Navigation & zusätzliche Funktionen -->
+<script>
+  function toggleMenu() {
+    const navList = document.getElementById('nav-list');
+    navList.classList.toggle('open');
+  }
+
+  function showSection(id) {
+    // Alle Sektionen ausblenden
+    const sections = document.querySelectorAll('main section');
+    sections.forEach(sec => sec.style.display = 'none');
+    // Gewählte Sektion einblenden
+    const section = document.getElementById(id);
+    if(section){
+      section.style.display = 'block';
+    }
+  }
+
+  // Bei Seitenstart soll "Über mich" angezeigt werden
+  document.addEventListener("DOMContentLoaded", function() {
+    showSection('ueber-mich');
+  });
+
+  // Funktion zum Laden der PDF im spezifizierten iFrame
+  function loadPDF(file, viewerID) {
+    var iframe = document.getElementById(viewerID);
+    iframe.src = file;
+    iframe.style.display = 'block';
+  }
+
+  function downloadDoc() {
+    var password = prompt("Bitte Passwort eingeben:");
+    if(password === "LL_MK$2025") {
+      // Stelle sicher, dass die Datei im gleichen Verzeichnis liegt
+      window.location.href = "Lebenslauf_2025.docx";
+    } else {
+      alert("Falsches Passwort!");
+    }
+  }
+</script>
+
+</body>
+</html>
