@@ -9,7 +9,7 @@
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
-      font-size: 20px; /* Größere Schrift */
+      font-size: 20px;
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
@@ -30,13 +30,11 @@
       margin: auto;
     }
     
-    /* Logo deutlich vergrößert */
     .logo {
       font-size: 3rem;
       font-weight: bold;
     }
     
-    /* Navigation-Buttons statt Bulletpoints */
     nav ul {
       list-style: none;
       padding: 0;
@@ -74,7 +72,6 @@
       padding: 0 20px;
     }
     
-    /* Sektionen sichtbar machen (alternativ per JS gesteuert) */
     main section {
       display: none;
       padding: 20px;
@@ -83,8 +80,8 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     
-    /* Unterschiedliche Hintergrundfarben je Sektion */
     #ueber-mich { background-color: #fff9e6; }
+    #hobby      { background-color: #e6f7ff; }
     #projekte   { background-color: #e6f7ff; }
     #links      { background-color: #fff9e6; }
     #cv         { background-color: #e6ffea; }
@@ -92,7 +89,6 @@
     #zeugnisse  { background-color: #e6f7ff; }
     #kontakt    { background-color: #ffe6e6; }
     
-    /* Größere Überschriften */
     h2 {
       font-size: 2.5rem;
       margin-top: 0;
@@ -111,11 +107,11 @@
 <header>
   <div class="container header-content">
     <div class="logo">datafreak79.ch</div>
-    <!-- Hamburger-Icon -->
     <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
     <nav>
       <ul id="nav-list">
         <li><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
+        <li><a href="#" onclick="showSection('hobby'); return false;">Hobby</a></li>
         <li><a href="#" onclick="showSection('projekte'); return false;">Projekte</a></li>
         <li><a href="#" onclick="showSection('links'); return false;">Links</a></li>
         <li><a href="#" onclick="showSection('cv'); return false;">CV</a></li>
@@ -132,8 +128,6 @@
   <section id="ueber-mich">
     <div class="container">
       <h2>Über mich</h2>
-      <!-- Bild von Toska -->
-      <img src="Toska.jpg" alt="Toska" style="max-width:100%; height:auto; display:block; margin: 0 auto 20px;">
       <p>
         Gemeinsam mit meiner Partnerin und unserem Hund lebe ich in einem
         Doppeleinfamilienhaus in Koppigen. Ich bin ein Mensch, der immer in
@@ -168,6 +162,14 @@
         begeistert Shiny-Apps. Ein Prototyp zum Sprachenlernen ist bereits
         online verfügbar (siehe <a href="#" onclick="showSection('projekte'); return false;">Projekte</a>).
       </p>
+    </div>
+  </section>
+
+  <!-- Hobby -->
+  <section id="hobby">
+    <div class="container">
+      <h2>unser Goldschatz</h2>
+      <img src="Toska.jpg" alt="Toska" style="max-width:100%; height:auto; display:block; margin:0 auto;">
     </div>
   </section>
 
@@ -253,7 +255,6 @@
           Lebenslauf als DOC (passwortgeschützt)
         </a>
       </p>
-      <!-- PDF inline anzeigen -->
       <iframe id="pdfViewer" style="width:100%; height:600px; border:none; display:none;"></iframe>
     </div>
   </section>
@@ -329,7 +330,6 @@
   </div>
 </footer>
 
-<!-- JavaScript für Navigation, mobile Navigation & zusätzliche Funktionen -->
 <script>
   function toggleMenu() {
     const navList = document.getElementById('nav-list');
@@ -337,22 +337,18 @@
   }
 
   function showSection(id) {
-    // Alle Sektionen ausblenden
     const sections = document.querySelectorAll('main section');
     sections.forEach(sec => sec.style.display = 'none');
-    // Gewählte Sektion einblenden
     const section = document.getElementById(id);
     if(section){
       section.style.display = 'block';
     }
   }
 
-  // Bei Seitenstart soll "Über mich" angezeigt werden
   document.addEventListener("DOMContentLoaded", function() {
     showSection('ueber-mich');
   });
 
-  // Funktion zum Laden der PDF im spezifizierten iFrame
   function loadPDF(file, viewerID) {
     var iframe = document.getElementById(viewerID);
     iframe.src = file;
@@ -362,7 +358,6 @@
   function downloadDoc() {
     var password = prompt("Bitte Passwort eingeben:");
     if(password === "LL_MK$2025") {
-      // Stelle sicher, dass die Datei im gleichen Verzeichnis liegt
       window.location.href = "Lebenslauf_2025.docx";
     } else {
       alert("Falsches Passwort!");
