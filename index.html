@@ -5,41 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
 
-  <!-- Favicon / Icon-Datei -->
-  <!-- Pfad anpassen, wenn du die Datei umbenennst oder in einem Unterordner hast -->
-<<<<<<< HEAD
-  <link rel="icon" type="image/png" href="Icon%20Website.png" />
-=======
+  <!-- Kapitel 1: Favicon-Definitionen -->
+  <!-- Hinweis: Git Merge Konflikt ist hier vorhanden. Wähle den gewünschten Eintrag -->
+  <!-- Hier wurde zunächst ein Konflikt zwischen "Icon Website.png" und "favicon.png" angezeigt -->
   <link rel="icon" type="image/png" href="favicon.png" />
->>>>>>> 640570dfcd1ff21f53040f689ec16e42e8e8af8b
-<!-- Favicon / Icon-Datei -->
-<!-- Pfad anpassen, wenn du die Datei umbenennst oder in einem Unterordner hast -->
-<link rel="icon" type="image/png" href="favicon.png" />
+  <!-- Wiederholung des Favicons, ggf. anpassen, wenn Datei verschoben/umbenannt wird -->
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-  <!-- Google Fonts: Montserrat -->
+  <!-- Kapitel 2: Einbindung von Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 
+  <!-- Kapitel 3: CSS-Styles -->
   <style>
-    /* Grundlegende Body-Einstellungen */
+    /* Absatz 3.1: Grundeinstellungen für den Body */
     body {
+      /* Schriftfamilie aus Google Fonts */
       font-family: 'Montserrat', sans-serif;
+      /* Basis-Schriftgröße */
       font-size: 20px;
       margin: 0;
       padding: 0;
+      /* Hintergrund- und Textfarbe */
       background-color: #f4f4f4;
       color: #333;
     }
 
-    /* Um Banner + Header zu fixieren, packen wir sie in ein DIV-Container (#fixed-top) */
+    /* Absatz 3.2: Fixierter Container für Banner und Header */
     #fixed-top {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 9999; /* Ganz vorne anzeigen */
+      z-index: 9999; /* Stellt sicher, dass der Bereich immer im Vordergrund angezeigt wird */
     }
 
-    /* Oberster Bereich (Copyright-Banner) */
+    /* Absatz 3.3: Styling des oberen Banners (Copyright) */
     #top-banner {
       background-color: #007acc;
       color: #fff;
@@ -48,19 +48,19 @@
       font-size: 1rem;
     }
 
-    /* Header darunter */
+    /* Absatz 3.4: Styling des Header-Bereichs */
     header {
       background-color: #007acc;
       color: white;
       padding: 20px;
     }
 
-    /* Damit Banner und Header normal im #fixed-top liegen können, ohne verschoben zu sein */
+    /* Absatz 3.5: Sicherstellen, dass Banner und Header im Container nicht bereits relativ positioniert sind */
     #top-banner, header {
       position: static;
     }
 
-    /* Container im Header */
+    /* Absatz 3.6: Container im Header zur flexiblen Ausrichtung der Elemente */
     .header-content {
       display: flex;
       justify-content: space-between;
@@ -70,12 +70,13 @@
       flex-wrap: wrap;
     }
 
+    /* Absatz 3.7: Styling des Logos */
     .logo {
       font-size: 3rem;
       font-weight: bold;
     }
 
-    /* Button "Mobile Version" */
+    /* Absatz 3.8: Button "Mobile Version" */
     .btn-mobile-version {
       background-color: #005f99;
       color: #fff;
@@ -87,12 +88,12 @@
       font-size: 1.1rem;
     }
 
-    /* Navigation */
+    /* Absatz 3.9: Navigation-Styles */
     nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      display: flex;
+      display: flex; /* Elemente nebeneinander */
     }
     nav ul li {
       margin: 0 5px;
@@ -112,13 +113,14 @@
       background-color: #004f80;
     }
 
-    /* Hamburger-Icon bleibt sichtbar, um das Menü komplett anzuzeigen */
+    /* Absatz 3.10: Hamburger-Menü-Icon für Mobile Ansicht */
     .nav-toggle {
       cursor: pointer;
       font-size: 1.5rem;
     }
 
-    /* Im mobilen Modus werden standardmäßig nur der aktive Button angezeigt */
+    /* Absatz 3.11: Anzeige-Einstellung im mobilen Modus:
+       Standardmäßig werden im Mobile Mode alle Navigationselemente verborgen außer dem aktiven */
     body.mobile-mode nav ul li {
       display: none;
     }
@@ -126,17 +128,15 @@
       display: block;
     }
 
-    /* Hauptbereich:
-       Da Banner + Header fixiert sind, muss der Inhalt darunter
-       entsprechend nach unten rutschen (margin-top).
-       Passe 220px an, wenn dein Banner+Header größer/kleiner ist. */
+    /* Absatz 3.12: Styling des Hauptinhaltsbereichs (main) */
     main {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
-      margin-top: 220px; /* Platz für #fixed-top */
+      margin-top: 220px; /* Platz schaffen für fixierten Banner + Header */
     }
 
+    /* Absatz 3.13: Standardmäßig werden alle Hauptsektionen ausgeblendet */
     main section {
       display: none;
       padding: 20px;
@@ -145,7 +145,7 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    /* Hintergrundfarben pro Abschnitt */
+    /* Absatz 3.14: Hintergrundfarben unterschiedlicher Abschnitte */
     #ueber-mich { background-color: #fff9e6; }
     #hobby      { background-color: #e6f7ff; }
     #projekte   { background-color: #e6f7ff; }
@@ -155,12 +155,13 @@
     #zeugnisse  { background-color: #e6f7ff; }
     #kontakt    { background-color: #ffe6e6; }
 
+    /* Absatz 3.15: Überschriften (h2) */
     h2 {
       font-size: 2.5rem;
       margin-top: 0;
     }
 
-    /* Responsive Verhalten */
+    /* Absatz 3.16: Responsive Verhalten für kleinere Bildschirme */
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -174,36 +175,38 @@
       }
     }
 
-    /* Anpassungen im Mobile Mode */
+    /* Absatz 3.17: Anpassung des Layouts im Mobile Mode */
     body.mobile-mode .header-content {
       flex-direction: column;
       align-items: flex-start;
     }
-
   </style>
 </head>
 <body>
 
-<!-- Fixierter Bereich: Banner + Header -->
+<!-- Kapitel 4: Fixierter Bereich (Banner + Header) -->
 <div id="fixed-top">
-  <!-- Neuer oberster Bereich -->
+  <!-- 4.1: Oberer Bannerbereich -->
   <div id="top-banner">
     &copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn
   </div>
 
+  <!-- 4.2: Header mit Navigation, Logo und Mobile Button -->
   <header>
     <div class="container header-content">
-      <!-- Titel/Logo -->
+      <!-- 4.2.1: Logo-/Titelbereich -->
       <div class="logo">datafreak79.ch</div>
 
-      <!-- Button "Mobile Version" -->
+      <!-- 4.2.2: Button zur Umschaltung in die Mobile Version -->
       <button class="btn-mobile-version" onclick="toggleMobileMode()">Mobile Version</button>
 
-      <!-- Hamburger-Icon -->
+      <!-- 4.2.3: Hamburger-Icon zur Navigation (wird vor allem im Mobile Mode genutzt) -->
       <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
 
+      <!-- 4.2.4: Navigation mit Links zu den unterschiedlichen Seitenabschnitten -->
       <nav>
         <ul id="nav-list">
+          <!-- Jeder Listenpunkt repräsentiert einen Bereich der Homepage -->
           <li id="nav-ueber-mich"><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
           <li id="nav-hobby"><a href="#" onclick="showSection('hobby'); return false;">Hobby</a></li>
           <li id="nav-projekte"><a href="#" onclick="showSection('projekte'); return false;">Projekte</a></li>
@@ -218,16 +221,18 @@
   </header>
 </div>
 
+<!-- Kapitel 5: Hauptinhalt (Main-Bereich) -->
 <main>
-  <!-- Über mich -->
+  <!-- 5.1: Über mich Sektion -->
   <section id="ueber-mich">
     <div class="container">
       <h2>Über mich</h2>
       <p>
-        Gemeinsam mit meiner Partnerin und unserem Hund lebe ich in einem
-        Doppeleinfamilienhaus in Koppigen. Ich bin ein Mensch, der immer in
-        Bewegung ist – es muss stets etwas los sein. Sport betreibe ich recht
-        viel, wobei dies in letzter Zeit etwas zu kurz gekommen ist.
+        Mit meiner umfangreichen Erfahrung in der Datenanalyse und im 
+        Projektmanagement konzentriere ich mich auf die Entwicklung 
+        innovativer, datengetriebener Lösungen. Mein Ziel ist es, 
+        komplexe Prozesse zu optimieren und durch präzise Analysen 
+        die Effizienz zu steigern.
       </p>
       <p>
         Mit über 45 Jahren bin ich als Projektleiter in der Infrastruktur
@@ -260,16 +265,17 @@
     </div>
   </section>
 
-  <!-- Hobby -->
+  <!-- 5.2: Hobby Sektion -->
   <section id="hobby">
     <div class="container">
       <h2>unser Goldschatz</h2>
       <p><strong>Foxred Labrador Toska :-)</strong></p>
+      <!-- Bild des Haustieres, optimiert für verschiedene Bildschirmgrößen -->
       <img src="Toska.JPG" alt="Toska" style="max-width:100%; height:auto; display:block; margin:0 auto;">
     </div>
   </section>
 
-  <!-- Projekte -->
+  <!-- 5.3: Projekte Sektion -->
   <section id="projekte">
     <div class="container">
       <h2>Projekte</h2>
@@ -297,7 +303,7 @@
     </div>
   </section>
 
-  <!-- Links -->
+  <!-- 5.4: Links Sektion -->
   <section id="links">
     <div class="container">
       <h2>Links</h2>
@@ -310,21 +316,22 @@
           – Sprachschule in Exeter für Englischunterricht
         </li>
         <li>
-          <strong>R for Data Science (Hadley Wickham):</strong>
+          <br>
+          <strong>Data Science:</strong>
           <a href="https://r4ds.had.co.nz/" target="_blank">
             https://r4ds.had.co.nz/
           </a>
           – Umfangreiches Online-Buch zu R, Datenanalyse und Visualisierung
         </li>
         <li>
-          <strong>Kaggle:</strong>
+          <strong>Data Science:</strong>
           <a href="https://www.kaggle.com/" target="_blank">
             https://www.kaggle.com/
           </a>
           – Plattform für Data-Science-Wettbewerbe, Datasets und Tutorials
         </li>
         <li>
-          <strong>Towards Data Science:</strong>
+          <strong>Data Science:</strong>
           <a href="https://towardsdatascience.com/" target="_blank">
             https://towardsdatascience.com/
           </a>
@@ -334,7 +341,7 @@
     </div>
   </section>
 
-  <!-- CV -->
+  <!-- 5.5: Lebenslauf (CV) Sektion -->
   <section id="cv">
     <div class="container">
       <h2>Lebenslauf (CV)</h2>
@@ -342,20 +349,23 @@
         Hier findest du meinen aktuellen Lebenslauf als PDF:
       </p>
       <p>
+        <!-- Ruft mittels JavaScript die Funktion loadPDF auf -->
         <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;">
           Lebenslauf_2025.pdf
         </a>
       </p>
       <p>
+        <!-- Zum Download als passwortgeschütztes DOC -->
         <a href="#" onclick="downloadDoc(); return false;">
           Lebenslauf als DOC (passwortgeschützt)
         </a>
       </p>
+      <!-- IFrame zur Anzeige des PDF im Desktop-Modus -->
       <iframe id="pdfViewer" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
     </div>
   </section>
 
-  <!-- Diplome -->
+  <!-- 5.6: Diplome Sektion -->
   <section id="diplome">
     <div class="container">
       <h2>Diplome</h2>
@@ -367,11 +377,12 @@
           Diplome.pdf
         </a>
       </p>
+      <!-- IFrame zur Anzeige des PDF -->
       <iframe id="pdfViewerDiplome" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
     </div>
   </section>
 
-  <!-- Zeugnisse -->
+  <!-- 5.7: Zeugnisse Sektion -->
   <section id="zeugnisse">
     <div class="container">
       <h2>Zeugnisse</h2>
@@ -392,7 +403,7 @@
     </div>
   </section>
 
-  <!-- Kontakt -->
+  <!-- 5.8: Kontakt Sektion -->
   <section id="kontakt">
     <div class="container">
       <h2>Kontakt</h2>
@@ -420,8 +431,9 @@
   </section>
 </main>
 
+<!-- Kapitel 6: JavaScript-Funktionen -->
 <script>
-  // Hamburger-Menü (zeigt im Mobile Mode alle Nav-Punkte an)
+  // 6.1: Funktion zur Anzeige aller Navigationspunkte im Mobile Mode (Hamburger Menü)
   function toggleMenu() {
     if(document.body.classList.contains('mobile-mode')){
       const navItems = document.querySelectorAll('#nav-list li');
@@ -429,58 +441,58 @@
     }
   }
 
-  // Sektionen umschalten + Navigation aktualisieren
+  // 6.2: Funktion zum Umschalten der angezeigten Sektion:
+  // Blendet alle Sektionen aus, zeigt die gewünschte an und markiert den aktiven Navigationseintrag
   function showSection(id) {
-    // Alle Abschnitte ausblenden
+    // Alle Sections verbergen
     const sections = document.querySelectorAll('main section');
     sections.forEach(sec => sec.style.display = 'none');
-    // Gewünschten Abschnitt anzeigen
+    // Gewünschte Section anzeigen
     const section = document.getElementById(id);
     if(section){
       section.style.display = 'block';
     }
-    // Navigation: Markiere aktiven Button und blende im Mobile Mode nur diesen ein
+    // Navigation: Entfernt aktiven Status von allen Links
     const navItems = document.querySelectorAll('#nav-list li');
     navItems.forEach(li => {
       li.querySelector('a').classList.remove('active');
-      // Im Desktop Mode alle Elemente sichtbar
+      // Zeigt im Desktop Mode alle Navigationselemente an
       if(!document.body.classList.contains('mobile-mode')){
         li.style.display = 'block';
       }
     });
+    // Setzt aktiven Status auf den ausgewählten Navigationspunkt
     const activeNav = document.querySelector('#nav-' + id);
     if(activeNav){
       activeNav.querySelector('a').classList.add('active');
       if(document.body.classList.contains('mobile-mode')){
-        // Nur den aktiven Button anzeigen
+        // Im Mobile Mode wird nur der aktive Eintrag angezeigt
         activeNav.style.display = 'block';
       }
     }
   }
 
-  // Standardmäßig "Über mich" anzeigen
+  // 6.3: Event-Listener, der beim Laden der Seite standardmäßig die "Über mich"-Sektion zeigt
   document.addEventListener("DOMContentLoaded", function() {
     showSection('ueber-mich');
   });
 
-  // PDF laden:
-  // In der Desktop-Version -> IFrame (fast die ganze Seite).
-  // In der Mobile Version -> Neues Fenster (Tab).
+  // 6.4: Funktion zum Laden von PDF-Dokumenten:
+  // Im Desktop-Modus wird das PDF im IFrame angezeigt,
+  // im Mobile Mode wird es in einem neuen Tab geöffnet.
   function loadPDF(file, viewerID) {
     if(document.body.classList.contains('mobile-mode')){
-      // Mobile Mode => in neuem Tab öffnen
       window.open(file, '_blank');
     } else {
-      // Desktop => im IFrame, volle Höhe (bereinigt um fixierten Bereich)
       const iframe = document.getElementById(viewerID);
       iframe.src = file;
       iframe.style.display = 'block';
-      // Scrolle ggf. zum iframe
+      // Sanft scrollen zum IFrame
       iframe.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
-  // Passwortgeschützter Download der DOC
+  // 6.5: Funktion für passwortgeschützten Download der DOC-Datei
   function downloadDoc() {
     const password = prompt("Bitte Passwort eingeben:");
     if(password === "LL_MK$2025") {
@@ -490,11 +502,10 @@
     }
   }
 
-  // "Mobile Version" ein-/ausschalten
+  // 6.6: Funktion zur Umschaltung des Mobile Modes:
+  // Fügt bzw. entfernt die Klasse 'mobile-mode' und passt die Navigation entsprechend an.
   function toggleMobileMode() {
     document.body.classList.toggle('mobile-mode');
-    // Im Mobile Mode: Zeige nur den aktiven Navigationsbutton,
-    // ansonsten alle Navigationselemente.
     const navItems = document.querySelectorAll('#nav-list li');
     navItems.forEach(li => {
       li.style.display = document.body.classList.contains('mobile-mode') ?
