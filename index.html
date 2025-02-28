@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <!-- Kapitel 1: Dokumentenkopf (Head)
+       Hier werden alle Meta-Daten, der Seitentitel, Icons, Schriftarten und CSS-Stile definiert. -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
+  <!-- Favicon-Links -->
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- Einbindung der Google Fonts für die Schriftart "Montserrat" -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  
+  <!-- Kapitel 2: CSS-Stile
+       Hier sind alle Stildefinitionen für die Seite direkt eingebettet. -->
   <style>
+    /* Allgemeine Seitenstile */
     body {
       font-family: 'Montserrat', sans-serif;
       font-size: 20px;
@@ -16,6 +24,7 @@
       background-color: #f4f4f4;
       color: #333;
     }
+    /* Fixierter Bereich oben auf der Seite */
     #fixed-top {
       position: fixed;
       top: 0;
@@ -23,6 +32,7 @@
       width: 100%;
       z-index: 9999;
     }
+    /* Banner oben mit Copyright und Hinweis */
     #top-banner {
       background-color: #007acc;
       color: #fff;
@@ -30,14 +40,17 @@
       padding: 15px 0;
       font-size: 1rem;
     }
+    /* Kopfbereich der Seite */
     header {
       background-color: #007acc;
       color: white;
       padding: 20px;
     }
+    /* Standardmäßig ist der Top-Banner und Header statisch positioniert */
     #top-banner, header {
       position: static;
     }
+    /* Container für den Inhalt im Header */
     .header-content {
       display: flex;
       justify-content: space-between;
@@ -46,10 +59,12 @@
       margin: auto;
       flex-wrap: wrap;
     }
+    /* Website-Logo */
     .logo {
       font-size: 3rem;
       font-weight: bold;
     }
+    /* Button: Mobile Version um den Seitenmodus umzuschalten */
     .btn-mobile-version {
       background-color: #005f99;
       color: #fff;
@@ -60,6 +75,7 @@
       cursor: pointer;
       font-size: 1.1rem;
     }
+    /* Navigation-Listenstile */
     nav ul {
       list-style: none;
       padding: 0;
@@ -69,6 +85,7 @@
     nav ul li {
       margin: 0 5px;
     }
+    /* Navigation-Link-Styles */
     nav ul li a {
       display: inline-block;
       padding: 12px 20px;
@@ -79,26 +96,32 @@
       font-size: 1.1rem;
       transition: background-color 0.3s;
     }
+    /* Hover- und aktiver Zustand für Navigation-Links */
     nav ul li a:hover,
     nav ul li a.active {
       background-color: #004f80;
     }
+    /* Icon zum Umschalten des Menüs */
     .nav-toggle {
       cursor: pointer;
       font-size: 1.5rem;
     }
+    /* Mobile Ansicht: Navigationselemente ausblenden */
     body.mobile-mode nav ul li {
       display: none;
     }
+    /* In der mobilen Ansicht wird der aktive Menüpunkt angezeigt */
     body.mobile-mode nav ul li.active {
       display: block;
     }
+    /* Hauptbereich der Seite */
     main {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
-      margin-top: 220px;
+      margin-top: 220px; /* Abstand zu fixiertem Kopfbereich */
     }
+    /* Standard: Alle Sektionen im Hauptbereich sind zunächst ausgeblendet */
     main section {
       display: none;
       padding: 20px;
@@ -106,6 +129,7 @@
       margin-bottom: 20px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    /* Individuelle Hintergrundfarben für verschiedene Sektionen */
     #ueber-mich { background-color: #fff9e6; }
     #hobby      { background-color: #e6f7ff; }
     #projekte   { background-color: #e6f7ff; }
@@ -114,10 +138,12 @@
     #diplome    { background-color: #ffe6f9; }
     #zeugnisse  { background-color: #e6f7ff; }
     #kontakt    { background-color: #ffe6e6; }
+    /* Überschriften in den Sektionen */
     h2 {
       font-size: 2.5rem;
       margin-top: 0;
     }
+    /* Responsive Design für kleinere Bildschirme */
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -130,285 +156,339 @@
         font-size: 1rem;
       }
     }
+    /* Mobile Modus: Ändert die Ausrichtung im Header */
     body.mobile-mode .header-content {
       flex-direction: column;
       align-items: flex-start;
     }
   </style>
 </head>
+
 <body>
-
-<div id="fixed-top">
-  <div id="top-banner">
-    &copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn
+  <!-- Kapitel 3: Fixierter Bereich + Header
+       Dieser Bereich bleibt immer am oberen Rand der Seiten sichtbar. -->
+  <div id="fixed-top">
+    <!-- Top Banner mit Copyright -->
+    <div id="top-banner">
+      &copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn
+    </div>
+    <!-- Header mit Logo, Mobile-Version Button, Navigation Toggle und Navigation -->
+    <header>
+      <div class="container header-content">
+        <!-- Website-Logo -->
+        <div class="logo">datafreak79.ch</div>
+        <!-- Button zum Umschalten in den Mobile Modus -->
+        <button class="btn-mobile-version" onclick="toggleMobileMode()">Mobile Version</button>
+        <!-- Icon zum Umschalten des Menüs -->
+        <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
+        <!-- Navigation mit Linkliste -->
+        <nav>
+          <ul id="nav-list">
+            <li id="nav-ueber-mich">
+              <a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a>
+            </li>
+            <li id="nav-hobby">
+              <a href="#" onclick="showSection('hobby'); return false;">Hobby</a>
+            </li>
+            <li id="nav-projekte">
+              <a href="#" onclick="showSection('projekte'); return false;">Projekte</a>
+            </li>
+            <li id="nav-links">
+              <a href="#" onclick="showSection('links'); return false;">Links</a>
+            </li>
+            <li id="nav-cv">
+              <a href="#" onclick="showSection('cv'); return false;">CV</a>
+            </li>
+            <li id="nav-diplome">
+              <a href="#" onclick="showSection('diplome'); return false;">Diplome</a>
+            </li>
+            <li id="nav-zeugnisse">
+              <a href="#" onclick="showSection('zeugnisse'); return false;">Zeugnisse</a>
+            </li>
+            <li id="nav-kontakt">
+              <a href="#" onclick="showSection('kontakt'); return false;">Kontakt</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   </div>
-  <header>
-    <div class="container header-content">
-      <div class="logo">datafreak79.ch</div>
-      <button class="btn-mobile-version" onclick="toggleMobileMode()">Mobile Version</button>
-      <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
-      <nav>
-        <ul id="nav-list">
-          <li id="nav-ueber-mich"><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
-          <li id="nav-hobby"><a href="#" onclick="showSection('hobby'); return false;">Hobby</a></li>
-          <li id="nav-projekte"><a href="#" onclick="showSection('projekte'); return false;">Projekte</a></li>
-          <li id="nav-links"><a href="#" onclick="showSection('links'); return false;">Links</a></li>
-          <li id="nav-cv"><a href="#" onclick="showSection('cv'); return false;">CV</a></li>
-          <li id="nav-diplome"><a href="#" onclick="showSection('diplome'); return false;">Diplome</a></li>
-          <li id="nav-zeugnisse"><a href="#" onclick="showSection('zeugnisse'); return false;">Zeugnisse</a></li>
-          <li id="nav-kontakt"><a href="#" onclick="showSection('kontakt'); return false;">Kontakt</a></li>
+
+  <!-- Kapitel 4: Hauptinhalt (Main)
+       Hier befinden sich alle inhaltlichen Bereiche der Seite, die per Navigation ein- und ausgeblendet werden. -->
+  <main>
+    <!-- Abschnitt: Über mich -->
+    <section id="ueber-mich">
+      <div class="container">
+        <h2>Über mich</h2>
+        <p>
+          Mit meiner umfangreichen Erfahrung in der Datenanalyse und im 
+          Projektmanagement konzentriere ich mich auf die Entwicklung 
+          innovativer, datengetriebener Lösungen...
+        </p>
+        <p>
+          ...
+        </p>
+      </div>
+    </section>
+
+    <!-- Abschnitt: Hobby -->
+    <section id="hobby">
+      <div class="container">
+        <h2>unser Goldschatz</h2>
+        <p><strong>Foxred Labrador Toska :-)</strong></p>
+        <!-- Bild mit responsiver Darstellung -->
+        <img src="Toska.JPG" alt="Toska" style="max-width:100%; height:auto; display:block; margin:0 auto;">
+      </div>
+    </section>
+
+    <!-- Abschnitt: Projekte -->
+    <section id="projekte">
+      <div class="container">
+        <h2>Projekte</h2>
+        <p>
+          <strong>Sprachapp (R-Shiny)</strong><br>
+          ...
+        </p>
+        <p>
+          <!-- Link zu einem Lernvideo zur Sprachapp -->
+          <a href="Lernvideo_Sprachapp.mp4" target="_blank">
+            Lernvideo zur Sprachapp
+          </a>
+        </p>
+        <p>
+          <!-- Link zur R-Shiny Desktop-Version -->
+          <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/">
+            Sprachapp (R-Shiny Desktop-Version)
+          </a>
+        </p>
+        <p>
+          <strong>Blog "Road to Exeter"</strong><br>
+          ...
+        </p>
+      </div>
+    </section>
+
+    <!-- Abschnitt: Links -->
+    <section id="links">
+      <div class="container">
+        <h2>Links</h2>
+        <ul>
+          <li>
+            <strong>Englisch:</strong>
+            <a href="https://exeteracademy.co.uk/" target="_blank">
+              Exeter Academy
+            </a>
+          </li>
+          <li>
+            <br>
+            <strong>Data Science:</strong>
+            <a href="https://r4ds.had.co.nz/" target="_blank">
+              https://r4ds.had.co.nz/
+            </a>
+          </li>
+          <li>
+            <strong>Data Science:</strong>
+            <a href="https://www.kaggle.com/" target="_blank">
+              https://www.kaggle.com/
+            </a>
+          </li>
+          <li>
+            <strong>Data Science:</strong>
+            <a href="https://towardsdatascience.com/" target="_blank">
+              https://towardsdatascience.com/
+            </a>
+          </li>
         </ul>
-      </nav>
-    </div>
-  </header>
-</div>
+      </div>
+    </section>
 
-<main>
-  <section id="ueber-mich">
-    <div class="container">
-      <h2>Über mich</h2>
-      <p>
-        Mit meiner umfangreichen Erfahrung in der Datenanalyse und im 
-        Projektmanagement konzentriere ich mich auf die Entwicklung 
-        innovativer, datengetriebener Lösungen...
-      </p>
-      <p>
-        ...
-      </p>
-    </div>
-  </section>
-
-  <section id="hobby">
-    <div class="container">
-      <h2>unser Goldschatz</h2>
-      <p><strong>Foxred Labrador Toska :-)</strong></p>
-      <img src="Toska.JPG" alt="Toska" style="max-width:100%; height:auto; display:block; margin:0 auto;">
-    </div>
-  </section>
-
-  <section id="projekte">
-    <div class="container">
-      <h2>Projekte</h2>
-      <p>
-        <strong>Sprachapp (R-Shiny)</strong><br>
-        ...
-      </p>
-      <p>
-        <a href="Lernvideo_Sprachapp.mp4" target="_blank">
-          Lernvideo zur Sprachapp
-        </a>
-      </p>
-      <p>
-        <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/">
-          Sprachapp (R-Shiny Desktop-Version)
-        </a>
-      </p>
-      <p>
-        <strong>Blog "Road to Exeter"</strong><br>
-        ...
-      </p>
-    </div>
-  </section>
-
-  <section id="links">
-    <div class="container">
-      <h2>Links</h2>
-      <ul>
-        <li>
-          <strong>Englisch:</strong>
-          <a href="https://exeteracademy.co.uk/" target="_blank">
-            Exeter Academy
+    <!-- Abschnitt: Lebenslauf (CV) -->
+    <section id="cv">
+      <div class="container">
+        <h2>Lebenslauf (CV)</h2>
+        <p>Hier findest du meinen aktuellen Lebenslauf als PDF:</p>
+        <p>
+          <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;">
+            Lebenslauf_2025.pdf
           </a>
-        </li>
-        <li>
-          <br>
-          <strong>Data Science:</strong>
-          <a href="https://r4ds.had.co.nz/" target="_blank">
-            https://r4ds.had.co.nz/
+        </p>
+        <p>
+          <a href="#" onclick="downloadDoc(); return false;">
+            Lebenslauf als DOC (passwortgeschützt)
           </a>
-        </li>
-        <li>
-          <strong>Data Science:</strong>
-          <a href="https://www.kaggle.com/" target="_blank">
-            https://www.kaggle.com/
+        </p>
+        <!-- Iframe zur Anzeige des PDF Dokuments -->
+        <iframe id="pdfViewer" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
+      </div>
+    </section>
+
+    <!-- Abschnitt: Diplome -->
+    <section id="diplome">
+      <div class="container">
+        <h2>Diplome</h2>
+        <p>
+          Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:
+        </p>
+        <p>
+          <!-- Passwortgeschützter Zugriff auf das Diplome-PDF -->
+          <a href="#" onclick="loadDiplome(); return false;">
+            Diplome.pdf
           </a>
-        </li>
-        <li>
-          <strong>Data Science:</strong>
-          <a href="https://towardsdatascience.com/" target="_blank">
-            https://towardsdatascience.com/
+        </p>
+        <iframe id="pdfViewerDiplome" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
+      </div>
+    </section>
+
+    <!-- Abschnitt: Zeugnisse -->
+    <section id="zeugnisse">
+      <div class="container">
+        <h2>Zeugnisse</h2>
+        <p>
+          <strong>Schulzeugnisse:</strong><br>
+          <!-- Passwortgeschützter Aufruf für Schulzeugnisse -->
+          <a href="#" onclick="loadZeugnis('Schulzeugnisse.pdf','pdfViewerSchul'); return false;">
+            Schulzeugnisse.pdf
           </a>
-        </li>
-      </ul>
-    </div>
-  </section>
+        </p>
+        <iframe id="pdfViewerSchul" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
+        <p>
+          <strong>Arbeitszeugnisse:</strong><br>
+          <a href="#" onclick="loadZeugnis('Arbeitszeugnisse.pdf','pdfViewerArbeits'); return false;">
+            Arbeitszeugnisse.pdf
+          </a>
+        </p>
+        <iframe id="pdfViewerArbeits" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
+      </div>
+    </section>
 
-  <section id="cv">
-    <div class="container">
-      <h2>Lebenslauf (CV)</h2>
-      <p>Hier findest du meinen aktuellen Lebenslauf als PDF:</p>
-      <p>
-        <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;">
-          Lebenslauf_2025.pdf
-        </a>
-      </p>
-      <p>
-        <a href="#" onclick="downloadDoc(); return false;">
-          Lebenslauf als DOC (passwortgeschützt)
-        </a>
-      </p>
-      <iframe id="pdfViewer" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
-    </div>
-  </section>
+    <!-- Abschnitt: Kontakt -->
+    <section id="kontakt">
+      <div class="container">
+        <h2>Kontakt</h2>
+        <p>
+          <strong>Adresse:</strong><br>
+          St. Niklausstrasse 8a<br>
+          3425 Koppigen, Schweiz
+        </p>
+        <p>
+          <strong>Mobile:</strong> +41 79 765 46 44
+        </p>
+        <p>
+          <strong>E-Mail:</strong>
+          <a href="mailto:matthias.kuhn1979@gmail.com">
+            matthias.kuhn1979@gmail.com
+          </a>
+        </p>
+        <p>
+          <strong>LinkedIn:</strong>
+          <a href="https://www.linkedin.com/in/matthiaskuhn1979/" target="_blank">
+            linkedin.com/in/matthiaskuhn1979/
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
 
-  <section id="diplome">
-    <div class="container">
-      <h2>Diplome</h2>
-      <p>
-        Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:
-      </p>
-      <p>
-        <!-- Passwortgeschützter Aufruf für Diplome -->
-        <a href="#" onclick="loadDiplome(); return false;">
-          Diplome.pdf
-        </a>
-      </p>
-      <iframe id="pdfViewerDiplome" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
-    </div>
-  </section>
-
-  <section id="zeugnisse">
-    <div class="container">
-      <h2>Zeugnisse</h2>
-      <p>
-        <strong>Schulzeugnisse:</strong><br>
-        <!-- Passwortgeschützter Aufruf für schulische Zeugnisse -->
-        <a href="#" onclick="loadZeugnis('Schulzeugnisse.pdf','pdfViewerSchul'); return false;">
-          Schulzeugnisse.pdf
-        </a>
-      </p>
-      <iframe id="pdfViewerSchul" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
-      <p>
-        <strong>Arbeitszeugnisse:</strong><br>
-        <a href="#" onclick="loadZeugnis('Arbeitszeugnisse.pdf','pdfViewerArbeits'); return false;">
-          Arbeitszeugnisse.pdf
-        </a>
-      </p>
-      <iframe id="pdfViewerArbeits" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
-    </div>
-  </section>
-
-  <section id="kontakt">
-    <div class="container">
-      <h2>Kontakt</h2>
-      <p>
-        <strong>Adresse:</strong><br>
-        St. Niklausstrasse 8a<br>
-        3425 Koppigen, Schweiz
-      </p>
-      <p>
-        <strong>Mobile:</strong> +41 79 765 46 44
-      </p>
-      <p>
-        <strong>E-Mail:</strong>
-        <a href="mailto:matthias.kuhn1979@gmail.com">
-          matthias.kuhn1979@gmail.com
-        </a>
-      </p>
-      <p>
-        <strong>LinkedIn:</strong>
-        <a href="https://www.linkedin.com/in/matthiaskuhn1979/" target="_blank">
-          linkedin.com/in/matthiaskuhn1979/
-        </a>
-      </p>
-    </div>
-  </section>
-</main>
-
-<script>
-  function toggleMenu() {
-    if(document.body.classList.contains('mobile-mode')){
-      const navItems = document.querySelectorAll('#nav-list li');
-      navItems.forEach(li => li.style.display = 'block');
-    }
-  }
-
-  function showSection(id) {
-    const sections = document.querySelectorAll('main section');
-    sections.forEach(sec => sec.style.display = 'none');
-    const section = document.getElementById(id);
-    if(section){
-      section.style.display = 'block';
-    }
-    const navItems = document.querySelectorAll('#nav-list li');
-    navItems.forEach(li => {
-      li.querySelector('a').classList.remove('active');
-      if(!document.body.classList.contains('mobile-mode')){
-        li.style.display = 'block';
-      }
-    });
-    const activeNav = document.querySelector('#nav-' + id);
-    if(activeNav){
-      activeNav.querySelector('a').classList.add('active');
+  <!-- Kapitel 5: JavaScript
+       Hier werden alle interaktiven Funktionen, wie das Umschalten der Navigation, das Laden von PDFs und passwortgeschützte Bereiche, definiert. -->
+  <script>
+    // Funktion zum Umschalten des Menüs in der mobilen Ansicht
+    function toggleMenu() {
       if(document.body.classList.contains('mobile-mode')){
-        activeNav.style.display = 'block';
+        const navItems = document.querySelectorAll('#nav-list li');
+        navItems.forEach(li => li.style.display = 'block');
       }
     }
-  }
 
-  document.addEventListener("DOMContentLoaded", function() {
-    showSection('ueber-mich');
-  });
-
-  function loadPDF(file, viewerID) {
-    if(document.body.classList.contains('mobile-mode')){
-      window.open(file, '_blank');
-    } else {
-      const iframe = document.getElementById(viewerID);
-      iframe.src = file;
-      iframe.style.display = 'block';
-      iframe.scrollIntoView({ behavior: 'smooth' });
+    // Funktion zum Anzeigen eines ausgewählten Abschnitts und zum Hervorheben des entsprechenden Navigationspunkts
+    function showSection(id) {
+      // Alle Sektionen ausblenden
+      const sections = document.querySelectorAll('main section');
+      sections.forEach(sec => sec.style.display = 'none');
+      // Gewünschte Sektion einblenden
+      const section = document.getElementById(id);
+      if(section){
+        section.style.display = 'block';
+      }
+      // Alle Navigationselemente zurücksetzen
+      const navItems = document.querySelectorAll('#nav-list li');
+      navItems.forEach(li => {
+        li.querySelector('a').classList.remove('active');
+        if(!document.body.classList.contains('mobile-mode')){
+          li.style.display = 'block';
+        }
+      });
+      // Aktiven Navigationseintrag hervorheben
+      const activeNav = document.querySelector('#nav-' + id);
+      if(activeNav){
+        activeNav.querySelector('a').classList.add('active');
+        if(document.body.classList.contains('mobile-mode')){
+          activeNav.style.display = 'block';
+        }
+      }
     }
-  }
 
-  function downloadDoc() {
-    const password = prompt("Bitte Passwort eingeben:");
-    if(password === "LL_MK$2025") {
-      window.location.href = "Lebenslauf_2025.docx";
-    } else {
-      alert("Falsches Passwort!");
-    }
-  }
-
-  // Neue Funktionen für passwortgeschützte PDFs
-  function loadDiplome() {
-    const password = prompt("Bitte Passwort für Diplome eingeben:");
-    if(password === "LL_MK$2025") {
-      loadPDF('Diplome.pdf','pdfViewerDiplome');
-    } else {
-      alert("Falsches Passwort!");
-    }
-  }
-
-  function loadZeugnis(file, viewerID) {
-    const password = prompt("Bitte Passwort für Zeugnisse eingeben:");
-    if(password === "LL_MK$2025") {
-      loadPDF(file, viewerID);
-    } else {
-      alert("Falsches Passwort!");
-    }
-  }
-
-  function toggleMobileMode() {
-    document.body.classList.toggle('mobile-mode');
-    const navItems = document.querySelectorAll('#nav-list li');
-    navItems.forEach(li => {
-      li.style.display = document.body.classList.contains('mobile-mode') ?
-        (li.querySelector('a').classList.contains('active') ? 'block' : 'none')
-        : 'block';
+    // Event Listener: Wenn das Dokument vollständig geladen ist, wird "Über mich" als erste Sektion angezeigt
+    document.addEventListener("DOMContentLoaded", function() {
+      showSection('ueber-mich');
     });
-  }
-</script>
 
+    // Funktion zum Laden und Anzeigen von PDF-Dateien
+    function loadPDF(file, viewerID) {
+      // In mobile mode wird das PDF in einem neuen Tab geöffnet
+      if(document.body.classList.contains('mobile-mode')){
+        window.open(file, '_blank');
+      } else {
+        const iframe = document.getElementById(viewerID);
+        iframe.src = file;
+        iframe.style.display = 'block';
+        // Sanftes Scrollen zum eingebetteten PDF
+        iframe.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Funktion zum Herunterladen eines passwortgeschützten DOC-Dokuments
+    function downloadDoc() {
+      const password = prompt("Bitte Passwort eingeben:");
+      if(password === "LL_MK$2025") {
+        window.location.href = "Lebenslauf_2025.docx";
+      } else {
+        alert("Falsches Passwort!");
+      }
+    }
+
+    // Funktion für passwortgeschützte PDF-Datei (Diplome)
+    function loadDiplome() {
+      const password = prompt("Bitte Passwort für Diplome eingeben:");
+      if(password === "LL_MK$2025") {
+        loadPDF('Diplome.pdf','pdfViewerDiplome');
+      } else {
+        alert("Falsches Passwort!");
+      }
+    }
+
+    // Funktion für passwortgeschützte Zeugnisse (sowohl schulisch als auch beruflich)
+    function loadZeugnis(file, viewerID) {
+      const password = prompt("Bitte Passwort für Zeugnisse eingeben:");
+      if(password === "LL_MK$2025") {
+        loadPDF(file, viewerID);
+      } else {
+        alert("Falsches Passwort!");
+      }
+    }
+
+    // Funktion zum Umschalten zwischen Normal- und Mobile-Modus
+    function toggleMobileMode() {
+      document.body.classList.toggle('mobile-mode');
+      const navItems = document.querySelectorAll('#nav-list li');
+      navItems.forEach(li => {
+        li.style.display = document.body.classList.contains('mobile-mode') ?
+          // In Mobile Mode werden nur aktive Menüpunkte angezeigt
+          (li.querySelector('a').classList.contains('active') ? 'block' : 'none')
+          : 'block';
+      });
+    }
+  </script>
 </body>
 </html>
