@@ -4,42 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
-
-  <!-- Kapitel 1: Favicon-Definitionen -->
-  <!-- Hinweis: Git Merge Konflikt ist hier vorhanden. Wähle den gewünschten Eintrag -->
-  <!-- Hier wurde zunächst ein Konflikt zwischen "Icon Website.png" und "favicon.png" angezeigt -->
   <link rel="icon" type="image/png" href="favicon.png" />
-  <!-- Wiederholung des Favicons, ggf. anpassen, wenn Datei verschoben/umbenannt wird -->
   <link rel="icon" type="image/png" href="favicon.png" />
-
-  <!-- Kapitel 2: Einbindung von Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-
-  <!-- Kapitel 3: CSS-Styles -->
   <style>
-    /* Absatz 3.1: Grundeinstellungen für den Body */
     body {
-      /* Schriftfamilie aus Google Fonts */
       font-family: 'Montserrat', sans-serif;
-      /* Basis-Schriftgröße */
       font-size: 20px;
       margin: 0;
       padding: 0;
-      /* Hintergrund- und Textfarbe */
       background-color: #f4f4f4;
       color: #333;
     }
-
-    /* Absatz 3.2: Fixierter Container für Banner und Header */
     #fixed-top {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 9999; /* Stellt sicher, dass der Bereich immer im Vordergrund angezeigt wird */
+      z-index: 9999;
     }
-
-    /* Absatz 3.3: Styling des oberen Banners (Copyright) */
     #top-banner {
       background-color: #007acc;
       color: #fff;
@@ -47,20 +30,14 @@
       padding: 15px 0;
       font-size: 1rem;
     }
-
-    /* Absatz 3.4: Styling des Header-Bereichs */
     header {
       background-color: #007acc;
       color: white;
       padding: 20px;
     }
-
-    /* Absatz 3.5: Sicherstellen, dass Banner und Header im Container nicht bereits relativ positioniert sind */
     #top-banner, header {
       position: static;
     }
-
-    /* Absatz 3.6: Container im Header zur flexiblen Ausrichtung der Elemente */
     .header-content {
       display: flex;
       justify-content: space-between;
@@ -69,14 +46,10 @@
       margin: auto;
       flex-wrap: wrap;
     }
-
-    /* Absatz 3.7: Styling des Logos */
     .logo {
       font-size: 3rem;
       font-weight: bold;
     }
-
-    /* Absatz 3.8: Button "Mobile Version" */
     .btn-mobile-version {
       background-color: #005f99;
       color: #fff;
@@ -87,13 +60,11 @@
       cursor: pointer;
       font-size: 1.1rem;
     }
-
-    /* Absatz 3.9: Navigation-Styles */
     nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      display: flex; /* Elemente nebeneinander */
+      display: flex;
     }
     nav ul li {
       margin: 0 5px;
@@ -112,31 +83,22 @@
     nav ul li a.active {
       background-color: #004f80;
     }
-
-    /* Absatz 3.10: Hamburger-Menü-Icon für Mobile Ansicht */
     .nav-toggle {
       cursor: pointer;
       font-size: 1.5rem;
     }
-
-    /* Absatz 3.11: Anzeige-Einstellung im mobilen Modus:
-       Standardmäßig werden im Mobile Mode alle Navigationselemente verborgen außer dem aktiven */
     body.mobile-mode nav ul li {
       display: none;
     }
     body.mobile-mode nav ul li.active {
       display: block;
     }
-
-    /* Absatz 3.12: Styling des Hauptinhaltsbereichs (main) */
     main {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
-      margin-top: 220px; /* Platz schaffen für fixierten Banner + Header */
+      margin-top: 220px;
     }
-
-    /* Absatz 3.13: Standardmäßig werden alle Hauptsektionen ausgeblendet */
     main section {
       display: none;
       padding: 20px;
@@ -144,8 +106,6 @@
       margin-bottom: 20px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-
-    /* Absatz 3.14: Hintergrundfarben unterschiedlicher Abschnitte */
     #ueber-mich { background-color: #fff9e6; }
     #hobby      { background-color: #e6f7ff; }
     #projekte   { background-color: #e6f7ff; }
@@ -154,14 +114,10 @@
     #diplome    { background-color: #ffe6f9; }
     #zeugnisse  { background-color: #e6f7ff; }
     #kontakt    { background-color: #ffe6e6; }
-
-    /* Absatz 3.15: Überschriften (h2) */
     h2 {
       font-size: 2.5rem;
       margin-top: 0;
     }
-
-    /* Absatz 3.16: Responsive Verhalten für kleinere Bildschirme */
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -174,8 +130,6 @@
         font-size: 1rem;
       }
     }
-
-    /* Absatz 3.17: Anpassung des Layouts im Mobile Mode */
     body.mobile-mode .header-content {
       flex-direction: column;
       align-items: flex-start;
@@ -184,29 +138,17 @@
 </head>
 <body>
 
-<!-- Kapitel 4: Fixierter Bereich (Banner + Header) -->
 <div id="fixed-top">
-  <!-- 4.1: Oberer Bannerbereich -->
   <div id="top-banner">
     &copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn
   </div>
-
-  <!-- 4.2: Header mit Navigation, Logo und Mobile Button -->
   <header>
     <div class="container header-content">
-      <!-- 4.2.1: Logo-/Titelbereich -->
       <div class="logo">datafreak79.ch</div>
-
-      <!-- 4.2.2: Button zur Umschaltung in die Mobile Version -->
       <button class="btn-mobile-version" onclick="toggleMobileMode()">Mobile Version</button>
-
-      <!-- 4.2.3: Hamburger-Icon zur Navigation (wird vor allem im Mobile Mode genutzt) -->
       <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
-
-      <!-- 4.2.4: Navigation mit Links zu den unterschiedlichen Seitenabschnitten -->
       <nav>
         <ul id="nav-list">
-          <!-- Jeder Listenpunkt repräsentiert einen Bereich der Homepage -->
           <li id="nav-ueber-mich"><a href="#" onclick="showSection('ueber-mich'); return false;">Über mich</a></li>
           <li id="nav-hobby"><a href="#" onclick="showSection('hobby'); return false;">Hobby</a></li>
           <li id="nav-projekte"><a href="#" onclick="showSection('projekte'); return false;">Projekte</a></li>
@@ -221,76 +163,40 @@
   </header>
 </div>
 
-<!-- Kapitel 5: Hauptinhalt (Main-Bereich) -->
 <main>
-  <!-- 5.1: Über mich Sektion -->
   <section id="ueber-mich">
     <div class="container">
       <h2>Über mich</h2>
       <p>
         Mit meiner umfangreichen Erfahrung in der Datenanalyse und im 
         Projektmanagement konzentriere ich mich auf die Entwicklung 
-        innovativer, datengetriebener Lösungen. Mein Ziel ist es, 
-        komplexe Prozesse zu optimieren und durch präzise Analysen 
-        die Effizienz zu steigern.
+        innovativer, datengetriebener Lösungen...
       </p>
       <p>
-        Mit über 45 Jahren bin ich als Projektleiter in der Infrastruktur
-        für Verteilnetze tätig und habe mich entschieden, mich intensiver
-        mit Daten zu beschäftigen. In meiner aktuellen Rolle kann ich meine
-        Leidenschaft für Daten und Programmierung nur eingeschränkt ausleben,
-        was mir in den vergangenen Monaten immer bewusster wurde.
-      </p>
-      <p>
-        Die Fähigkeiten, die ich im Weiterbildungskurs
-        <a href="https://www.ibaw.ch/informatik/coding-und-data-science/kurs/data-science-ndk-hf--0K_190518_2776_101" target="_blank">
-          <em>Data Scientist NDK HF</em>
-        </a> erworben habe, möchte ich nun in
-        die Praxis umsetzen. Seit ich 2019 beim Hausbau meine erste
-        Excel-Makrodatei zur Erstellung des Elektroinstallationsmaterials
-        entwickelt habe, bin ich fasziniert von Daten und Programmierung.
-      </p>
-      <p>
-        Nachdem ich lange Zeit nur mit VBA gearbeitet hatte, begann ich 2022
-        damit, mich intensiv mit Power BI und Power Query zu beschäftigen.
-        Dabei entstand unter anderem eine App zur Abfrage meiner persönlichen
-        Bankdaten (via CSV-Stammdaten). Im Herbst 2023 entschied ich mich für
-        den Lehrgang <em>Data Scientist NDK HF</em> und entdeckte dabei die
-        faszinierende Welt von SQL und R.
-      </p>
-      <p>
-        In meiner Freizeit beschäftige ich mich nicht nur mit Daten, sondern
-        lerne auch Sprachen – aktuell Englisch und Französisch – und entwickle
-        begeistert Shiny-Apps. Ein Prototyp zum Sprachenlernen ist bereits
-        online verfügbar (siehe <a href="#" onclick="showSection('projekte'); return false;">Projekte</a>).
+        ...
       </p>
     </div>
   </section>
 
-  <!-- 5.2: Hobby Sektion -->
   <section id="hobby">
     <div class="container">
       <h2>unser Goldschatz</h2>
       <p><strong>Foxred Labrador Toska :-)</strong></p>
-      <!-- Bild des Haustieres, optimiert für verschiedene Bildschirmgrößen -->
       <img src="Toska.JPG" alt="Toska" style="max-width:100%; height:auto; display:block; margin:0 auto;">
     </div>
   </section>
 
-  <!-- 5.3: Projekte Sektion -->
   <section id="projekte">
     <div class="container">
       <h2>Projekte</h2>
       <p>
         <strong>Sprachapp (R-Shiny)</strong><br>
-        Diese App wurde in RStudio entwickelt und ermöglicht Übersetzungen in
-        vier Sprachen (Englisch, Französisch, Spanisch, Italienisch). Vokabeln
-        können in selbst erstellbaren Sammlungen abgespeichert werden.
+        ...
       </p>
       <p>
         <a href="Lernvideo_Sprachapp.mp4" target="_blank">
           Lernvideo zur Sprachapp
-        </a> (MP4-Datei)
+        </a>
       </p>
       <p>
         <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/">
@@ -299,13 +205,11 @@
       </p>
       <p>
         <strong>Blog "Road to Exeter"</strong><br>
-        Hier dokumentiere ich meine Fortschritte beim Englischlernen und berichte
-        über meine Erfahrungen in Exeter (Link ggf. ergänzen).
+        ...
       </p>
     </div>
   </section>
 
-  <!-- 5.4: Links Sektion -->
   <section id="links">
     <div class="container">
       <h2>Links</h2>
@@ -315,7 +219,6 @@
           <a href="https://exeteracademy.co.uk/" target="_blank">
             Exeter Academy
           </a>
-          – Sprachschule in Exeter für Englischunterricht
         </li>
         <li>
           <br>
@@ -323,51 +226,41 @@
           <a href="https://r4ds.had.co.nz/" target="_blank">
             https://r4ds.had.co.nz/
           </a>
-          – Umfangreiches Online-Buch zu R, Datenanalyse und Visualisierung
         </li>
         <li>
           <strong>Data Science:</strong>
           <a href="https://www.kaggle.com/" target="_blank">
             https://www.kaggle.com/
           </a>
-          – Plattform für Data-Science-Wettbewerbe, Datasets und Tutorials
         </li>
         <li>
           <strong>Data Science:</strong>
           <a href="https://towardsdatascience.com/" target="_blank">
             https://towardsdatascience.com/
           </a>
-          – Sammlung von Artikeln zu Machine Learning, Python, R und mehr
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- 5.5: Lebenslauf (CV) Sektion -->
   <section id="cv">
     <div class="container">
       <h2>Lebenslauf (CV)</h2>
+      <p>Hier findest du meinen aktuellen Lebenslauf als PDF:</p>
       <p>
-        Hier findest du meinen aktuellen Lebenslauf als PDF:
-      </p>
-      <p>
-        <!-- Ruft mittels JavaScript die Funktion loadPDF auf -->
         <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;">
           Lebenslauf_2025.pdf
         </a>
       </p>
       <p>
-        <!-- Zum Download als passwortgeschütztes DOC -->
         <a href="#" onclick="downloadDoc(); return false;">
           Lebenslauf als DOC (passwortgeschützt)
         </a>
       </p>
-      <!-- IFrame zur Anzeige des PDF im Desktop-Modus -->
       <iframe id="pdfViewer" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
     </div>
   </section>
 
-  <!-- 5.6: Diplome Sektion -->
   <section id="diplome">
     <div class="container">
       <h2>Diplome</h2>
@@ -375,29 +268,29 @@
         Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:
       </p>
       <p>
-        <a href="#" onclick="loadPDF('Diplome.pdf', 'pdfViewerDiplome'); return false;">
+        <!-- Passwortgeschützter Aufruf für Diplome -->
+        <a href="#" onclick="loadDiplome(); return false;">
           Diplome.pdf
         </a>
       </p>
-      <!-- IFrame zur Anzeige des PDF -->
       <iframe id="pdfViewerDiplome" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
     </div>
   </section>
 
-  <!-- 5.7: Zeugnisse Sektion -->
   <section id="zeugnisse">
     <div class="container">
       <h2>Zeugnisse</h2>
       <p>
         <strong>Schulzeugnisse:</strong><br>
-        <a href="#" onclick="loadPDF('Schulzeugnisse.pdf', 'pdfViewerSchul'); return false;">
+        <!-- Passwortgeschützter Aufruf für schulische Zeugnisse -->
+        <a href="#" onclick="loadZeugnis('Schulzeugnisse.pdf','pdfViewerSchul'); return false;">
           Schulzeugnisse.pdf
         </a>
       </p>
       <iframe id="pdfViewerSchul" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
       <p>
         <strong>Arbeitszeugnisse:</strong><br>
-        <a href="#" onclick="loadPDF('Arbeitszeugnisse.pdf', 'pdfViewerArbeits'); return false;">
+        <a href="#" onclick="loadZeugnis('Arbeitszeugnisse.pdf','pdfViewerArbeits'); return false;">
           Arbeitszeugnisse.pdf
         </a>
       </p>
@@ -405,7 +298,6 @@
     </div>
   </section>
 
-  <!-- 5.8: Kontakt Sektion -->
   <section id="kontakt">
     <div class="container">
       <h2>Kontakt</h2>
@@ -433,9 +325,7 @@
   </section>
 </main>
 
-<!-- Kapitel 6: JavaScript-Funktionen -->
 <script>
-  // 6.1: Funktion zur Anzeige aller Navigationspunkte im Mobile Mode (Hamburger Menü)
   function toggleMenu() {
     if(document.body.classList.contains('mobile-mode')){
       const navItems = document.querySelectorAll('#nav-list li');
@@ -443,45 +333,33 @@
     }
   }
 
-  // 6.2: Funktion zum Umschalten der angezeigten Sektion:
-  // Blendet alle Sektionen aus, zeigt die gewünschte an und markiert den aktiven Navigationseintrag
   function showSection(id) {
-    // Alle Sections verbergen
     const sections = document.querySelectorAll('main section');
     sections.forEach(sec => sec.style.display = 'none');
-    // Gewünschte Section anzeigen
     const section = document.getElementById(id);
     if(section){
       section.style.display = 'block';
     }
-    // Navigation: Entfernt aktiven Status von allen Links
     const navItems = document.querySelectorAll('#nav-list li');
     navItems.forEach(li => {
       li.querySelector('a').classList.remove('active');
-      // Zeigt im Desktop Mode alle Navigationselemente an
       if(!document.body.classList.contains('mobile-mode')){
         li.style.display = 'block';
       }
     });
-    // Setzt aktiven Status auf den ausgewählten Navigationspunkt
     const activeNav = document.querySelector('#nav-' + id);
     if(activeNav){
       activeNav.querySelector('a').classList.add('active');
       if(document.body.classList.contains('mobile-mode')){
-        // Im Mobile Mode wird nur der aktive Eintrag angezeigt
         activeNav.style.display = 'block';
       }
     }
   }
 
-  // 6.3: Event-Listener, der beim Laden der Seite standardmäßig die "Über mich"-Sektion zeigt
   document.addEventListener("DOMContentLoaded", function() {
     showSection('ueber-mich');
   });
 
-  // 6.4: Funktion zum Laden von PDF-Dokumenten:
-  // Im Desktop-Modus wird das PDF im IFrame angezeigt,
-  // im Mobile Mode wird es in einem neuen Tab geöffnet.
   function loadPDF(file, viewerID) {
     if(document.body.classList.contains('mobile-mode')){
       window.open(file, '_blank');
@@ -489,12 +367,10 @@
       const iframe = document.getElementById(viewerID);
       iframe.src = file;
       iframe.style.display = 'block';
-      // Sanft scrollen zum IFrame
       iframe.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
-  // 6.5: Funktion für passwortgeschützten Download der DOC-Datei
   function downloadDoc() {
     const password = prompt("Bitte Passwort eingeben:");
     if(password === "LL_MK$2025") {
@@ -504,8 +380,25 @@
     }
   }
 
-  // 6.6: Funktion zur Umschaltung des Mobile Modes:
-  // Fügt bzw. entfernt die Klasse 'mobile-mode' und passt die Navigation entsprechend an.
+  // Neue Funktionen für passwortgeschützte PDFs
+  function loadDiplome() {
+    const password = prompt("Bitte Passwort für Diplome eingeben:");
+    if(password === "LL_MK$2025") {
+      loadPDF('Diplome.pdf','pdfViewerDiplome');
+    } else {
+      alert("Falsches Passwort!");
+    }
+  }
+
+  function loadZeugnis(file, viewerID) {
+    const password = prompt("Bitte Passwort für Zeugnisse eingeben:");
+    if(password === "LL_MK$2025") {
+      loadPDF(file, viewerID);
+    } else {
+      alert("Falsches Passwort!");
+    }
+  }
+
   function toggleMobileMode() {
     document.body.classList.toggle('mobile-mode');
     const navItems = document.querySelectorAll('#nav-list li');
