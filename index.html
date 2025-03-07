@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <!-- Kapitel 1: Dokumentenkopf (Head)
-       Hier werden alle Meta-Daten, der Seitentitel, Icons, Schriftarten und CSS-Stile definiert. -->
+  <!-- Kapitel 1: Dokumentenkopf (Head) --------------------------------------->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
-  <!-- Favicon-Links -->
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <!-- Einbindung der Google Fonts für die Schriftart "Montserrat" -->
+  <!-- Google Fonts für "Montserrat" -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
   
-  <!-- Kapitel 2: CSS-Stile
-       Hier sind alle Stildefinitionen für die Seite direkt eingebettet. -->
+  <!-- Kapitel 2: CSS-Stile --------------------------------------------------->
   <style>
     /* Allgemeine Seitenstile */
     body {
@@ -32,7 +28,7 @@
       width: 100%;
       z-index: 9999;
     }
-    /* Banner oben mit Copyright und Hinweis */
+    /* Banner oben */
     #top-banner {
       background-color: #007acc;
       color: #fff;
@@ -46,11 +42,9 @@
       color: white;
       padding: 20px;
     }
-    /* Standardmäßig ist der Top-Banner und Header statisch positioniert */
     #top-banner, header {
       position: static;
     }
-    /* Container für den Inhalt im Header */
     .header-content {
       display: flex;
       justify-content: space-between;
@@ -59,12 +53,10 @@
       margin: auto;
       flex-wrap: wrap;
     }
-    /* Website-Logo */
     .logo {
       font-size: 3rem;
       font-weight: bold;
     }
-    /* Button: Mobile Version um den Seitenmodus umzuschalten */
     .btn-mobile-version {
       background-color: #005f99;
       color: #fff;
@@ -75,7 +67,6 @@
       cursor: pointer;
       font-size: 1.1rem;
     }
-    /* Navigation-Listenstile */
     nav ul {
       list-style: none;
       padding: 0;
@@ -85,7 +76,6 @@
     nav ul li {
       margin: 0 5px;
     }
-    /* Navigation-Link-Styles */
     nav ul li a {
       display: inline-block;
       padding: 12px 20px;
@@ -96,32 +86,28 @@
       font-size: 1.1rem;
       transition: background-color 0.3s;
     }
-    /* Hover- und aktiver Zustand für Navigation-Links */
     nav ul li a:hover,
     nav ul li a.active {
       background-color: #004f80;
     }
-    /* Icon zum Umschalten des Menüs */
     .nav-toggle {
       cursor: pointer;
       font-size: 1.5rem;
     }
-    /* Mobile Ansicht: Navigationselemente ausblenden */
+    /* Mobile Ansicht */
     body.mobile-mode nav ul li {
       display: none;
     }
-    /* In der mobilen Ansicht wird der aktive Menüpunkt angezeigt */
     body.mobile-mode nav ul li.active {
       display: block;
     }
-    /* Hauptbereich der Seite */
+    /* Hauptbereich */
     main {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
-      margin-top: 220px; /* Abstand zu fixiertem Kopfbereich */
+      margin-top: 220px; /* Abstand für fixierten Kopfbereich */
     }
-    /* Standard: Alle Sektionen im Hauptbereich sind zunächst ausgeblendet */
     main section {
       display: none;
       padding: 20px;
@@ -129,7 +115,6 @@
       margin-bottom: 20px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    /* Individuelle Hintergrundfarben für verschiedene Sektionen */
     #ueber-mich { background-color: #fff9e6; }
     #hobby      { background-color: #e6f7ff; }
     #projekte   { background-color: #e6f7ff; }
@@ -138,12 +123,10 @@
     #diplome    { background-color: #ffe6f9; }
     #zeugnisse  { background-color: #e6f7ff; }
     #kontakt    { background-color: #ffe6e6; }
-    /* Überschriften in den Sektionen */
     h2 {
       font-size: 2.5rem;
       margin-top: 0;
     }
-    /* Responsive Design für kleinere Bildschirme */
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -156,32 +139,57 @@
         font-size: 1rem;
       }
     }
-    /* Mobile Modus: Ändert die Ausrichtung im Header */
     body.mobile-mode .header-content {
       flex-direction: column;
       align-items: flex-start;
+    }
+    /* Input-Feld für die R-Befehle-Suche */
+    #r-search-input {
+      width: 80%;
+      padding: 8px;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    /* Container für die R-Befehle-Suchergebnisse */
+    #r-search-results {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+    #r-search-results ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    #r-search-results li {
+      padding: 5px 0;
+      border-bottom: 1px solid #eee;
+    }
+    #r-search-results li:last-child {
+      border-bottom: none;
+    }
+    #r-search-results .cmd {
+      font-weight: bold;
+      color: #007acc;
     }
   </style>
 </head>
 
 <body>
-  <!-- Kapitel 3: Fixierter Bereich + Header
-       Dieser Bereich bleibt immer am oberen Rand der Seiten sichtbar. -->
+  <!-- Kapitel 3: Fixierter Bereich + Header ----------------------------------->
   <div id="fixed-top">
-    <!-- Top Banner mit Copyright -->
     <div id="top-banner">
       &copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn
     </div>
-    <!-- Header mit Logo, Mobile-Version Button, Navigation Toggle und Navigation -->
     <header>
       <div class="container header-content">
-        <!-- Website-Logo -->
         <div class="logo">datafreak79.ch</div>
-        <!-- Button zum Umschalten in den Mobile Modus -->
         <button class="btn-mobile-version" onclick="toggleMobileMode()">Mobile Version</button>
-        <!-- Icon zum Umschalten des Menüs -->
         <div class="nav-toggle" onclick="toggleMenu()">&#9776;</div>
-        <!-- Navigation mit Linkliste -->
         <nav>
           <ul id="nav-list">
             <li id="nav-ueber-mich">
@@ -214,8 +222,7 @@
     </header>
   </div>
 
-  <!-- Kapitel 4: Hauptinhalt (Main)
-       Hier befinden sich alle inhaltlichen Bereiche der Seite, die per Navigation ein- und ausgeblendet werden. -->
+  <!-- Kapitel 4: Hauptinhalt (Main) -------------------------------------------->
   <main>
     <!-- Abschnitt: Über mich -->
     <section id="ueber-mich">
@@ -255,7 +262,6 @@
       <div class="container">
         <h2>unser Goldschatz</h2>
         <p><strong>Foxred Labrador Toska :-)</strong></p>
-        <!-- Bild mit responsiver Darstellung -->
         <img src="Toska.JPG" alt="Toska" style="max-width:100%; height:auto; display:block; margin:0 auto;">
       </div>
     </section>
@@ -269,13 +275,11 @@
           ...
         </p>
         <p>
-          <!-- Link zu einem Lernvideo zur Sprachapp -->
           <a href="Lernvideo_Sprachapp.mp4" target="_blank">
             Lernvideo zur Sprachapp
           </a>
         </p>
         <p>
-          <!-- Link zur R-Shiny Desktop-Version -->
           <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/">
             Sprachapp (R-Shiny Desktop-Version)
           </a>
@@ -284,6 +288,15 @@
           <strong>Blog "Road to Exeter"</strong><br>
           ...
         </p>
+
+        <!-- Neuer Unterabschnitt: "Wichtige R-Befehle" -->
+        <hr>
+        <h3>Wichtige R-Befehle (Dynamische Suche)</h3>
+        <p>Gib hier einen R-Befehl (oder Teil davon) ein, um die Beschreibung zu sehen:</p>
+        <!-- Suchfeld -->
+        <input type="text" id="r-search-input" placeholder="z.B. ls, str, library" oninput="searchRcommands()" />
+        <!-- Container für Suchergebnisse -->
+        <div id="r-search-results"></div>
       </div>
     </section>
 
@@ -336,7 +349,6 @@
             Lebenslauf als DOC (passwortgeschützt)
           </a>
         </p>
-        <!-- Iframe zur Anzeige des PDF Dokuments -->
         <iframe id="pdfViewer" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
       </div>
     </section>
@@ -345,11 +357,8 @@
     <section id="diplome">
       <div class="container">
         <h2>Diplome</h2>
+        <p>Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:</p>
         <p>
-          Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:
-        </p>
-        <p>
-          <!-- Passwortgeschützter Zugriff auf das Diplome-PDF -->
           <a href="#" onclick="loadDiplome(); return false;">
             Diplome.pdf
           </a>
@@ -364,7 +373,6 @@
         <h2>Zeugnisse</h2>
         <p>
           <strong>Schulzeugnisse:</strong><br>
-          <!-- Passwortgeschützter Aufruf für Schulzeugnisse -->
           <a href="#" onclick="loadZeugnis('Schulzeugnisse.pdf','pdfViewerSchul'); return false;">
             Schulzeugnisse.pdf
           </a>
@@ -389,9 +397,7 @@
           St. Niklausstrasse 8a<br>
           3425 Koppigen, Schweiz
         </p>
-        <p>
-          <strong>Mobile:</strong> +41 79 765 46 44
-        </p>
+        <p><strong>Mobile:</strong> +41 79 765 46 44</p>
         <p>
           <strong>E-Mail:</strong>
           <a href="mailto:matthias.kuhn1979@gmail.com">
@@ -408,10 +414,9 @@
     </section>
   </main>
 
-  <!-- Kapitel 5: JavaScript
-       Hier werden alle interaktiven Funktionen, wie das Umschalten der Navigation, das Laden von PDFs und passwortgeschützte Bereiche, definiert. -->
+  <!-- Kapitel 5: JavaScript ---------------------------------------------------->
   <script>
-    // Funktion zum Umschalten des Menüs in der mobilen Ansicht
+    // Funktion: Menü in mobile Ansicht ein-/ausblenden
     function toggleMenu() {
       if(document.body.classList.contains('mobile-mode')){
         const navItems = document.querySelectorAll('#nav-list li');
@@ -419,17 +424,14 @@
       }
     }
 
-    // Funktion zum Anzeigen eines ausgewählten Abschnitts und zum Hervorheben des entsprechenden Navigationspunkts
+    // Funktion: Abschnitt anzeigen
     function showSection(id) {
-      // Alle Sektionen ausblenden
       const sections = document.querySelectorAll('main section');
       sections.forEach(sec => sec.style.display = 'none');
-      // Gewünschte Sektion einblenden
-      const section = document.getElementById(id);
-      if(section){
-        section.style.display = 'block';
+      const secToShow = document.getElementById(id);
+      if(secToShow){
+        secToShow.style.display = 'block';
       }
-      // Alle Navigationselemente zurücksetzen
       const navItems = document.querySelectorAll('#nav-list li');
       navItems.forEach(li => {
         li.querySelector('a').classList.remove('active');
@@ -437,7 +439,6 @@
           li.style.display = 'block';
         }
       });
-      // Aktiven Navigationseintrag hervorheben
       const activeNav = document.querySelector('#nav-' + id);
       if(activeNav){
         activeNav.querySelector('a').classList.add('active');
@@ -446,27 +447,21 @@
         }
       }
     }
-
-    // Event Listener: Wenn das Dokument vollständig geladen ist, wird "Über mich" als erste Sektion angezeigt
     document.addEventListener("DOMContentLoaded", function() {
       showSection('ueber-mich');
     });
 
-    // Funktion zum Laden und Anzeigen von PDF-Dateien
+    // PDFs laden
     function loadPDF(file, viewerID) {
-      // In mobile mode wird das PDF in einem neuen Tab geöffnet
       if(document.body.classList.contains('mobile-mode')){
         window.open(file, '_blank');
       } else {
         const iframe = document.getElementById(viewerID);
         iframe.src = file;
         iframe.style.display = 'block';
-        // Sanftes Scrollen zum eingebetteten PDF
-        iframe.scrollIntoView({ behavior: 'smooth' });
+        iframe.scrollIntoView({behavior:'smooth'});
       }
     }
-
-    // Funktion zum Herunterladen eines passwortgeschützten DOC-Dokuments
     function downloadDoc() {
       const password = prompt("Bitte Passwort eingeben:");
       if(password === "LL_MK$2025") {
@@ -475,8 +470,6 @@
         alert("Falsches Passwort!");
       }
     }
-
-    // Funktion für passwortgeschützte PDF-Datei (Diplome)
     function loadDiplome() {
       const password = prompt("Bitte Passwort für Diplome eingeben:");
       if(password === "LL_MK$2025") {
@@ -485,8 +478,6 @@
         alert("Falsches Passwort!");
       }
     }
-
-    // Funktion für passwortgeschützte Zeugnisse (sowohl schulisch als auch beruflich)
     function loadZeugnis(file, viewerID) {
       const password = prompt("Bitte Passwort für Zeugnisse eingeben:");
       if(password === "LL_MK$2025") {
@@ -495,17 +486,64 @@
         alert("Falsches Passwort!");
       }
     }
-
-    // Funktion zum Umschalten zwischen Normal- und Mobile-Modus
     function toggleMobileMode() {
       document.body.classList.toggle('mobile-mode');
       const navItems = document.querySelectorAll('#nav-list li');
       navItems.forEach(li => {
         li.style.display = document.body.classList.contains('mobile-mode') ?
-          // In Mobile Mode werden nur aktive Menüpunkte angezeigt
           (li.querySelector('a').classList.contains('active') ? 'block' : 'none')
           : 'block';
       });
+    }
+
+    /***********************************************************************
+     * Neuer Teil: Dynamische R-Befehle-Suche in "Projekte" Abschnitt
+     ***********************************************************************/
+    
+    // 1) Beispieldatenbank: Wichtige R-Befehle + Beschreibung
+    const rCommandsDB = [
+      { cmd: "ls()", desc: "Listet die im Environment vorhandenen Objekte auf." },
+      { cmd: "str()", desc: "Zeigt die Struktur eines R-Objekts (z.B. eines Dataframes) an." },
+      { cmd: "summary()", desc: "Erstellt eine Zusammenfassung statistischer Kennwerte eines Objekts." },
+      { cmd: "head()", desc: "Zeigt die ersten Zeilen eines Dataframes oder einer Tabelle." },
+      { cmd: "tail()", desc: "Zeigt die letzten Zeilen eines Dataframes." },
+      { cmd: "library()", desc: "Lädt ein R-Paket in die aktuelle Session." },
+      { cmd: "install.packages()", desc: "Installiert ein neues R-Paket aus CRAN." },
+      { cmd: "read.csv()", desc: "Liest eine CSV-Datei ein und erzeugt ein Dataframe." },
+      { cmd: "write.csv()", desc: "Schreibt ein Dataframe als CSV-Datei auf die Festplatte." },
+      { cmd: "dplyr::select()", desc: "Wählt bestimmte Spalten aus einem Dataframe aus (Teil von dplyr)." },
+      { cmd: "dplyr::filter()", desc: "Filtert Zeilen nach bestimmten Kriterien (Teil von dplyr)." },
+      { cmd: "ggplot2::ggplot()", desc: "Erzeugt ein ggplot-Objekt für Datenvisualisierung." }
+      // ... weitere Einträge nach Bedarf
+    ];
+
+    // 2) Funktion zum Suchen nach R-Befehlen
+    function searchRcommands() {
+      const input = document.getElementById('r-search-input').value.toLowerCase();
+      const resultsContainer = document.getElementById('r-search-results');
+      // Leeren wir zuerst den Container
+      resultsContainer.innerHTML = "";
+      
+      if(!input) {
+        // nichts eingegeben => keine Ergebnisse anzeigen
+        return;
+      }
+      // Filtere die DB
+      const filtered = rCommandsDB.filter(item => 
+        item.cmd.toLowerCase().includes(input) || 
+        item.desc.toLowerCase().includes(input)
+      );
+      if(filtered.length === 0) {
+        resultsContainer.innerHTML = "<p>Keine passenden Befehle gefunden.</p>";
+        return;
+      }
+      // Ergebnisse darstellen
+      let html = "<ul>";
+      filtered.forEach(item => {
+        html += `<li><span class="cmd">${item.cmd}</span> - ${item.desc}</li>`;
+      });
+      html += "</ul>";
+      resultsContainer.innerHTML = html;
     }
   </script>
 </body>
