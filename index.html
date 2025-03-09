@@ -92,12 +92,14 @@
       cursor: pointer;
       font-size: 1.5rem;
     }
+    /* Mobile Ansicht */
     body.mobile-mode nav ul li {
       display: none;
     }
     body.mobile-mode nav ul li.active {
       display: block;
     }
+    /* Hauptbereich */
     main {
       max-width: 1200px;
       margin: 0 auto;
@@ -139,6 +141,7 @@
       flex-direction: column;
       align-items: flex-start;
     }
+    /* Eingabefeld und Suchergebnisse */
     #r-search-input {
       width: 80%;
       padding: 8px;
@@ -170,10 +173,16 @@
       font-weight: bold;
       color: #007acc;
     }
+    /* Pre-Element (Über mich) */
+    pre {
+      margin: 0;
+      white-space: pre-line; /* damit Zeilenumbrüche erhalten bleiben */
+    }
   </style>
 </head>
 
 <body>
+  <!-- Fixierter Bereich (Banner + Header) -->
   <div id="fixed-top">
     <div id="top-banner">
       &copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn
@@ -215,6 +224,7 @@
     </header>
   </div>
 
+  <!-- Hauptinhalt -->
   <main>
     <!-- Abschnitt: Über mich -->
     <section id="ueber-mich">
@@ -222,8 +232,7 @@
         <h2>Über mich</h2>
 
         <p><strong>Die Website</strong></p>
-        <!-- WICHTIG: white-space: pre-line, damit Zeilenumbrüche erhalten bleiben -->
-        <pre style="margin:0; white-space: pre-line;">
+        <pre>
 Herzlich willkommen auf meiner Webseite! Ich bin Matthias Kuhn, der kreative Kopf hinter datafreak79.ch.
 Mit viel Herzblut und Expertise in HTML, CSS und JavaScript gestalte ich moderne, responsive Webseiten,
 die sowohl ästhetisch als auch funktional überzeugen.
@@ -231,7 +240,7 @@ die sowohl ästhetisch als auch funktional überzeugen.
         <br>
 
         <p><strong>Passion Daten</strong></p>
-        <pre style="margin:0; white-space: pre-line;">
+        <pre>
 Meine Leidenschaft für Datenanalyse zeigt sich in meiner Begeisterung für R und Excel.
 Mit R erkunde ich komplexe Datensätze, entwickle effektive Analysen und automatisierte Prozesse,
 während Excel mir ermöglicht, diese Daten anschaulich aufzubereiten und zu visualisieren.
@@ -240,7 +249,7 @@ Die Kombination beider Tools inspiriert mich täglich, kreative und effiziente L
         <br>
 
         <p><strong>Hobby</strong></p>
-        <pre style="margin:0; white-space: pre-line;">
+        <pre>
 Foxred Labrador, Gravel Bike, Schwimmen, Fitness und EDV bereichern meinen Alltag.
 Ich genieße ausgiebige Spaziergänge mit meinem treuen Foxred Labrador,
 erkunde das Gelände auf dem Gravel Bike und halte mich sportlich fit beim Schwimmen und im Fitnessstudio.
@@ -249,10 +258,9 @@ Zugleich fasziniert mich die Welt der EDV, die meine kreative Seite unterstützt
         <br>
 
         <p><strong>Beruf</strong></p>
-        <pre style="margin:0; white-space: pre-line;">
+        <pre>
 Langjährige Erfahrung als User von ERP- und CRM-Tools, nun möchte ich in die Programmierung solcher Systeme einsteigen.
         </pre>
-
       </div>
     </section>
 
@@ -288,7 +296,6 @@ Langjährige Erfahrung als User von ERP- und CRM-Tools, nun möchte ich in die P
           ...
         </p>
 
-        <!-- Neuer Unterabschnitt: "Wichtige R-Befehle" -->
         <hr>
         <h3>Wichtige R-Befehle (Dynamische Suche)</h3>
         <p>Gib hier einen R-Befehl (oder Teil davon) ein, um die Beschreibung zu sehen:</p>
@@ -310,8 +317,7 @@ Langjährige Erfahrung als User von ERP- und CRM-Tools, nun möchte ich in die P
               Exeter Academy
             </a>
           </li>
-          <li>
-            <br>
+          <li><br>
             <strong>Data Science:</strong>
             <a href="https://r4ds.had.co.nz/" target="_blank">
               https://r4ds.had.co.nz/
@@ -377,6 +383,7 @@ Langjährige Erfahrung als User von ERP- und CRM-Tools, nun möchte ich in die P
           </a>
         </p>
         <iframe id="pdfViewerSchul" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
+
         <p>
           <strong>Arbeitszeugnisse:</strong><br>
           <a href="#" onclick="loadZeugnis('Arbeitszeugnisse.pdf','pdfViewerArbeits'); return false;">
@@ -446,6 +453,7 @@ Langjährige Erfahrung als User von ERP- und CRM-Tools, nun möchte ich in die P
         }
       }
     }
+
     document.addEventListener("DOMContentLoaded", function() {
       showSection('ueber-mich');
     });
@@ -461,6 +469,7 @@ Langjährige Erfahrung als User von ERP- und CRM-Tools, nun möchte ich in die P
         iframe.scrollIntoView({behavior:'smooth'});
       }
     }
+
     function downloadDoc() {
       const password = prompt("Bitte Passwort eingeben:");
       if(password === "LL_MK$2025") {
@@ -469,6 +478,7 @@ Langjährige Erfahrung als User von ERP- und CRM-Tools, nun möchte ich in die P
         alert("Falsches Passwort!");
       }
     }
+
     function loadDiplome() {
       const password = prompt("Bitte Passwort für Diplome eingeben:");
       if(password === "LL_MK$2025") {
@@ -477,6 +487,7 @@ Langjährige Erfahrung als User von ERP- und CRM-Tools, nun möchte ich in die P
         alert("Falsches Passwort!");
       }
     }
+
     function loadZeugnis(file, viewerID) {
       const password = prompt("Bitte Passwort für Zeugnisse eingeben:");
       if(password === "LL_MK$2025") {
@@ -485,58 +496,59 @@ Langjährige Erfahrung als User von ERP- und CRM-Tools, nun möchte ich in die P
         alert("Falsches Passwort!");
       }
     }
+
     function toggleMobileMode() {
       document.body.classList.toggle('mobile-mode');
       const navItems = document.querySelectorAll('#nav-list li');
       navItems.forEach(li => {
-        li.style.display = document.body.classList.contains('mobile-mode') ?
-          (li.querySelector('a').classList.contains('active') ? 'block' : 'none')
+        li.style.display = document.body.classList.contains('mobile-mode')
+          ? (li.querySelector('a').classList.contains('active') ? 'block' : 'none')
           : 'block';
       });
     }
 
     /***********************************************************************
-     * Neuer Teil: Dynamische R-Befehle-Suche in "Projekte" Abschnitt
+     * Dynamische R-Befehle-Suche mit Daten von einer R-API (plumber)
      ***********************************************************************/
-    
-    // 1) Beispieldatenbank: Wichtige R-Befehle + Beschreibung
-    const rCommandsDB = [
-      { cmd: "ls()", desc: "Listet die im Environment vorhandenen Objekte auf." },
-      { cmd: "str()", desc: "Zeigt die Struktur eines R-Objekts (z.B. eines Dataframes) an." },
-      { cmd: "summary()", desc: "Erstellt eine Zusammenfassung statistischer Kennwerte eines Objekts." },
-      { cmd: "head()", desc: "Zeigt die ersten Zeilen eines Dataframes oder einer Tabelle." },
-      { cmd: "tail()", desc: "Zeigt die letzten Zeilen eines Dataframes." },
-      { cmd: "library()", desc: "Lädt ein R-Paket in die aktuelle Session." },
-      { cmd: "install.packages()", desc: "Installiert ein neues R-Paket aus CRAN." },
-      { cmd: "read.csv()", desc: "Liest eine CSV-Datei ein und erzeugt ein Dataframe." },
-      { cmd: "write.csv()", desc: "Schreibt ein Dataframe als CSV-Datei auf die Festplatte." },
-      { cmd: "dplyr::select()", desc: "Wählt bestimmte Spalten aus einem Dataframe aus (Teil von dplyr)." },
-      { cmd: "dplyr::filter()", desc: "Filtert Zeilen nach bestimmten Kriterien (Teil von dplyr)." },
-      { cmd: "ggplot2::ggplot()", desc: "Erzeugt ein ggplot-Objekt für Datenvisualisierung." }
-      // ... weitere Einträge nach Bedarf
-    ];
 
-    // 2) Funktion zum Suchen nach R-Befehlen
-    function searchRcommands() {
+    // 1) API-Aufruf an plumber (Beispiel: Lokaler plumber-Service auf Port 8000)
+    async function fetchRCommands() {
+      try {
+        // Setze hier ggf. deine eigene API-URL:
+        const response = await fetch("http://127.0.0.1:8000/rcommands");
+        const data = await response.json();
+        // Die R-Befehle liegen im JSON-Objekt "data.rCommands" (wenn plumber so definiert)
+        return data.rCommands || [];
+      } catch (error) {
+        console.error("Fehler beim Abrufen der R-Befehle:", error);
+        return [];
+      }
+    }
+
+    // 2) Suchfunktion
+    async function searchRcommands() {
       const input = document.getElementById('r-search-input').value.toLowerCase();
       const resultsContainer = document.getElementById('r-search-results');
-      // Leeren wir zuerst den Container
       resultsContainer.innerHTML = "";
-      
-      if(!input) {
-        // nichts eingegeben => keine Ergebnisse anzeigen
-        return;
-      }
-      // Filtere die DB
-      const filtered = rCommandsDB.filter(item => 
-        item.cmd.toLowerCase().includes(input) || 
+
+      // Nichts eingegeben => kein Suchergebnis
+      if(!input) return;
+
+      // a) Lade Daten dynamisch von der R-API:
+      const rCommandsDB = await fetchRCommands();
+
+      // b) Filtere die Befehlsliste
+      const filtered = rCommandsDB.filter(item =>
+        item.cmd.toLowerCase().includes(input) ||
         item.desc.toLowerCase().includes(input)
       );
+
       if(filtered.length === 0) {
         resultsContainer.innerHTML = "<p>Keine passenden Befehle gefunden.</p>";
         return;
       }
-      // Ergebnisse darstellen
+
+      // c) Ergebnisse als Liste ausgeben
       let html = "<ul>";
       filtered.forEach(item => {
         html += `<li><span class="cmd">${item.cmd}</span> - ${item.desc}</li>`;
