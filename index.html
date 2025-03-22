@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <!-- Kapitel 1: Dokumentenkopf (Head) --------------------------------------->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>datafreak79.ch</title>
   <link rel="icon" type="image/png" href="favicon.png" />
-  <!-- Google Fonts für "Montserrat" -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
   
-  <!-- Kapitel 2: CSS-Stile --------------------------------------------------->
   <style>
     /* Allgemeine Seitenstile */
     body {
@@ -20,7 +17,6 @@
       background-color: #f4f4f4;
       color: #333;
     }
-    /* Fixierter Bereich oben auf der Seite */
     #fixed-top {
       position: fixed;
       top: 0;
@@ -28,7 +24,6 @@
       width: 100%;
       z-index: 9999;
     }
-    /* Banner oben */
     #top-banner {
       background-color: #007acc;
       color: #fff;
@@ -36,7 +31,6 @@
       padding: 15px 0;
       font-size: 1rem;
     }
-    /* Kopfbereich der Seite */
     header {
       background-color: #007acc;
       color: white;
@@ -94,19 +88,17 @@
       cursor: pointer;
       font-size: 1.5rem;
     }
-    /* Mobile Ansicht */
     body.mobile-mode nav ul li {
       display: none;
     }
     body.mobile-mode nav ul li.active {
       display: block;
     }
-    /* Hauptbereich */
     main {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
-      margin-top: 220px; /* Abstand für fixierten Kopfbereich */
+      margin-top: 220px;
     }
     main section {
       display: none;
@@ -143,7 +135,6 @@
       flex-direction: column;
       align-items: flex-start;
     }
-    /* Input-Feld für die R-Befehle-Suche */
     #r-search-input {
       width: 80%;
       padding: 8px;
@@ -152,7 +143,6 @@
       border-radius: 5px;
       margin-bottom: 10px;
     }
-    /* Container für die R-Befehle-Suchergebnisse */
     #r-search-results {
       background-color: #fff;
       padding: 10px;
@@ -180,10 +170,9 @@
 </head>
 
 <body>
-  <!-- Kapitel 3: Fixierter Bereich + Header ----------------------------------->
   <div id="fixed-top">
     <div id="top-banner">
-      &copy; 2025 datafreak79.ch | Erstellt mit ❤️ von Matthias Kuhn
+      &copy; 2025 datafreak79.ch
     </div>
     <header>
       <div class="container header-content">
@@ -222,42 +211,14 @@
     </header>
   </div>
 
-  <!-- Kapitel 4: Hauptinhalt (Main) -------------------------------------------->
   <main>
-    <!-- Abschnitt: Über mich -->
     <section id="ueber-mich">
-      <div class="container">2
+      <div class="container">
         <h2>Über mich</h2>
-        <p><strong>Absatz 1:</strong></p>
-        <pre style="margin:0;">
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        </pre>
-        <br>
-
-        <p><strong>Absatz 2:</strong></p>
-        <pre style="margin:0;">
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        </pre>
-        <br>
-
-        <p><strong>Absatz 3:</strong></p>
-        <pre style="margin:0;">
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        </pre>
-        <br>
-
-        <p><strong>Absatz 4:</strong></p>
-        <pre style="margin:0;">
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        </pre>
+        <!-- Inhalt gekürzt -->
       </div>
     </section>
 
-    <!-- Abschnitt: Hobby -->
     <section id="hobby">
       <div class="container">
         <h2>unser Goldschatz</h2>
@@ -266,19 +227,11 @@
       </div>
     </section>
 
-    <!-- Abschnitt: Projekte -->
     <section id="projekte">
       <div class="container">
         <h2>Projekte</h2>
-        <p>
-          <strong>Sprachapp (R-Shiny)</strong><br>
-          ...
-        </p>
-        <p>
-          <a href="Lernvideo_Sprachapp.mp4" target="_blank">
-            Lernvideo zur Sprachapp
-          </a>
-        </p>
+        <!-- Lernvideo-Link entfernt -->
+        <p><strong>Sprachapp (R-Shiny)</strong><br>...</p>
         <p>
           <a href="https://uy3quo-matthias-kuhn.shinyapps.io/Translator_Excel/">
             Sprachapp (R-Shiny Desktop-Version)
@@ -288,143 +241,57 @@
           <strong>Blog "Road to Exeter"</strong><br>
           ...
         </p>
-
-        <!-- Neuer Unterabschnitt: "Wichtige R-Befehle" -->
         <hr>
         <h3>Wichtige R-Befehle (Dynamische Suche)</h3>
-        <p>Gib hier einen R-Befehl (oder Teil davon) ein, um die Beschreibung zu sehen:</p>
-        <!-- Suchfeld -->
+        <p>Gib hier einen R-Befehl (oder Teil davon) ein:</p>
         <input type="text" id="r-search-input" placeholder="z.B. ls, str, library" oninput="searchRcommands()" />
-        <!-- Container für Suchergebnisse -->
         <div id="r-search-results"></div>
       </div>
     </section>
 
-    <!-- Abschnitt: Links -->
     <section id="links">
       <div class="container">
         <h2>Links</h2>
-        <ul>
-          <li>
-            <strong>Englisch:</strong>
-            <a href="https://exeteracademy.co.uk/" target="_blank">
-              Exeter Academy
-            </a>
-          </li>
-          <li>
-            <br>
-            <strong>Data Science:</strong>
-            <a href="https://r4ds.had.co.nz/" target="_blank">
-              https://r4ds.had.co.nz/
-            </a>
-          </li>
-          <li>
-            <strong>Data Science:</strong>
-            <a href="https://www.kaggle.com/" target="_blank">
-              https://www.kaggle.com/
-            </a>
-          </li>
-          <li>
-            <strong>Data Science:</strong>
-            <a href="https://towardsdatascience.com/" target="_blank">
-              https://towardsdatascience.com/
-            </a>
-          </li>
-        </ul>
+        <!-- Inhalt gekürzt -->
       </div>
     </section>
 
-    <!-- Abschnitt: Lebenslauf (CV) -->
     <section id="cv">
       <div class="container">
         <h2>Lebenslauf (CV)</h2>
-        <p>Hier findest du meinen aktuellen Lebenslauf als PDF:</p>
-        <p>
-          <a href="#" onclick="loadPDF('Lebenslauf_2025.pdf', 'pdfViewer'); return false;">
-            Lebenslauf_2025.pdf
-          </a>
-        </p>
-        <p>
-          <a href="#" onclick="downloadDoc(); return false;">
-            Lebenslauf als DOC (passwortgeschützt)
-          </a>
-        </p>
-        <iframe id="pdfViewer" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
+        <!-- Inhalt gekürzt -->
       </div>
     </section>
 
-    <!-- Abschnitt: Diplome -->
     <section id="diplome">
       <div class="container">
         <h2>Diplome</h2>
-        <p>Hier sind meine wichtigsten Zertifikate und Diplome zusammengefasst:</p>
-        <p>
-          <a href="#" onclick="loadDiplome(); return false;">
-            Diplome.pdf
-          </a>
-        </p>
-        <iframe id="pdfViewerDiplome" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
+        <!-- Inhalt gekürzt -->
       </div>
     </section>
 
-    <!-- Abschnitt: Zeugnisse -->
     <section id="zeugnisse">
       <div class="container">
         <h2>Zeugnisse</h2>
-        <p>
-          <strong>Schulzeugnisse:</strong><br>
-          <a href="#" onclick="loadZeugnis('Schulzeugnisse.pdf','pdfViewerSchul'); return false;">
-            Schulzeugnisse.pdf
-          </a>
-        </p>
-        <iframe id="pdfViewerSchul" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
-        <p>
-          <strong>Arbeitszeugnisse:</strong><br>
-          <a href="#" onclick="loadZeugnis('Arbeitszeugnisse.pdf','pdfViewerArbeits'); return false;">
-            Arbeitszeugnisse.pdf
-          </a>
-        </p>
-        <iframe id="pdfViewerArbeits" style="width:100%; height:calc(100vh - 220px); border:none; display:none;"></iframe>
+        <!-- Inhalt gekürzt -->
       </div>
     </section>
 
-    <!-- Abschnitt: Kontakt -->
     <section id="kontakt">
       <div class="container">
         <h2>Kontakt</h2>
-        <p>
-          <strong>Adresse:</strong><br>
-          St. Niklausstrasse 8a<br>
-          3425 Koppigen, Schweiz
-        </p>
-        <p><strong>Mobile:</strong> +41 79 765 46 44</p>
-        <p>
-          <strong>E-Mail:</strong>
-          <a href="mailto:matthias.kuhn1979@gmail.com">
-            matthias.kuhn1979@gmail.com
-          </a>
-        </p>
-        <p>
-          <strong>LinkedIn:</strong>
-          <a href="https://www.linkedin.com/in/matthiaskuhn1979/" target="_blank">
-            linkedin.com/in/matthiaskuhn1979/
-          </a>
-        </p>
+        <!-- Inhalt gekürzt -->
       </div>
     </section>
   </main>
 
-  <!-- Kapitel 5: JavaScript ---------------------------------------------------->
   <script>
-    // Funktion: Menü in mobile Ansicht ein-/ausblenden
     function toggleMenu() {
       if(document.body.classList.contains('mobile-mode')){
         const navItems = document.querySelectorAll('#nav-list li');
         navItems.forEach(li => li.style.display = 'block');
       }
     }
-
-    // Funktion: Abschnitt anzeigen
     function showSection(id) {
       const sections = document.querySelectorAll('main section');
       sections.forEach(sec => sec.style.display = 'none');
@@ -450,42 +317,6 @@
     document.addEventListener("DOMContentLoaded", function() {
       showSection('ueber-mich');
     });
-
-    // PDFs laden
-    function loadPDF(file, viewerID) {
-      if(document.body.classList.contains('mobile-mode')){
-        window.open(file, '_blank');
-      } else {
-        const iframe = document.getElementById(viewerID);
-        iframe.src = file;
-        iframe.style.display = 'block';
-        iframe.scrollIntoView({behavior:'smooth'});
-      }
-    }
-    function downloadDoc() {
-      const password = prompt("Bitte Passwort eingeben:");
-      if(password === "LL_MK$2025") {
-        window.location.href = "Lebenslauf_2025.docx";
-      } else {
-        alert("Falsches Passwort!");
-      }
-    }
-    function loadDiplome() {
-      const password = prompt("Bitte Passwort für Diplome eingeben:");
-      if(password === "LL_MK$2025") {
-        loadPDF('Diplome.pdf','pdfViewerDiplome');
-      } else {
-        alert("Falsches Passwort!");
-      }
-    }
-    function loadZeugnis(file, viewerID) {
-      const password = prompt("Bitte Passwort für Zeugnisse eingeben:");
-      if(password === "LL_MK$2025") {
-        loadPDF(file, viewerID);
-      } else {
-        alert("Falsches Passwort!");
-      }
-    }
     function toggleMobileMode() {
       document.body.classList.toggle('mobile-mode');
       const navItems = document.querySelectorAll('#nav-list li');
@@ -495,40 +326,25 @@
           : 'block';
       });
     }
-
-    /***********************************************************************
-     * Neuer Teil: Dynamische R-Befehle-Suche in "Projekte" Abschnitt
-     ***********************************************************************/
-    
-    // 1) Beispieldatenbank: Wichtige R-Befehle + Beschreibung
     const rCommandsDB = [
       { cmd: "ls()", desc: "Listet die im Environment vorhandenen Objekte auf." },
-      { cmd: "str()", desc: "Zeigt die Struktur eines R-Objekts (z.B. eines Dataframes) an." },
-      { cmd: "summary()", desc: "Erstellt eine Zusammenfassung statistischer Kennwerte eines Objekts." },
-      { cmd: "head()", desc: "Zeigt die ersten Zeilen eines Dataframes oder einer Tabelle." },
+      { cmd: "str()", desc: "Zeigt die Struktur eines R-Objekts." },
+      { cmd: "summary()", desc: "Erstellt eine Zusammenfassung." },
+      { cmd: "head()", desc: "Zeigt die ersten Zeilen eines Dataframes." },
       { cmd: "tail()", desc: "Zeigt die letzten Zeilen eines Dataframes." },
-      { cmd: "library()", desc: "Lädt ein R-Paket in die aktuelle Session." },
-      { cmd: "install.packages()", desc: "Installiert ein neues R-Paket aus CRAN." },
-      { cmd: "read.csv()", desc: "Liest eine CSV-Datei ein und erzeugt ein Dataframe." },
-      { cmd: "write.csv()", desc: "Schreibt ein Dataframe als CSV-Datei auf die Festplatte." },
-      { cmd: "dplyr::select()", desc: "Wählt bestimmte Spalten aus einem Dataframe aus (Teil von dplyr)." },
-      { cmd: "dplyr::filter()", desc: "Filtert Zeilen nach bestimmten Kriterien (Teil von dplyr)." },
-      { cmd: "ggplot2::ggplot()", desc: "Erzeugt ein ggplot-Objekt für Datenvisualisierung." }
-      // ... weitere Einträge nach Bedarf
+      { cmd: "library()", desc: "Lädt ein R-Paket." },
+      { cmd: "install.packages()", desc: "Installiert ein neues R-Paket." },
+      { cmd: "read.csv()", desc: "Liest eine CSV-Datei ein." },
+      { cmd: "write.csv()", desc: "Schreibt ein Dataframe als CSV-Datei." },
+      { cmd: "dplyr::select()", desc: "Wählt bestimmte Spalten aus." },
+      { cmd: "dplyr::filter()", desc: "Filtert Zeilen nach Kriterien." },
+      { cmd: "ggplot2::ggplot()", desc: "Erzeugt ein ggplot-Objekt." }
     ];
-
-    // 2) Funktion zum Suchen nach R-Befehlen
     function searchRcommands() {
       const input = document.getElementById('r-search-input').value.toLowerCase();
       const resultsContainer = document.getElementById('r-search-results');
-      // Leeren wir zuerst den Container
       resultsContainer.innerHTML = "";
-      
-      if(!input) {
-        // nichts eingegeben => keine Ergebnisse anzeigen
-        return;
-      }
-      // Filtere die DB
+      if(!input) return;
       const filtered = rCommandsDB.filter(item => 
         item.cmd.toLowerCase().includes(input) || 
         item.desc.toLowerCase().includes(input)
@@ -537,7 +353,6 @@
         resultsContainer.innerHTML = "<p>Keine passenden Befehle gefunden.</p>";
         return;
       }
-      // Ergebnisse darstellen
       let html = "<ul>";
       filtered.forEach(item => {
         html += `<li><span class="cmd">${item.cmd}</span> - ${item.desc}</li>`;
